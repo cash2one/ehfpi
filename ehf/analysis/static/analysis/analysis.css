@@ -378,6 +378,17 @@ hr {
     margin-bottom: 10px;
 }
 
+.stageLabel {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 18px;
+    background-color: #428BCA;
+    padding-left: 8px;
+    padding-right: 8px;
+    color: white;
+    border-radius: 5px;
+}
+
 #jstree_div {
     margin-left: 0px;
 }
@@ -422,8 +433,12 @@ hr {
 }
 
 .levelDiv {
-    margin-bottom: 10px;
+    margin-bottom: 30px;
+}
 
+#middleLevel,#bottomLevel{
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 .levelDivArticle {
@@ -460,7 +475,6 @@ text.active {
 }
 
 .hint {
-
     background-color: #eeeeee;
     margin-top: 5px;
     padding-left: 10px;
@@ -478,7 +492,6 @@ text.active {
     border: 1px solid #d3d3d3;
     padding: 10px;
     margin-left: 20px;
-    margin-top: 10px;
 }
 
 /*GEA*/
@@ -522,9 +535,10 @@ text.active {
 
 #resizable {
     margin-left: 20px;
+    margin-right: 20px;
     padding-left: 0px;
     height: 400px;
-    width: 220px;
+    width: 100%;
     border: 1px solid #808080;
     border-radius: 5px;
     overflow: auto;
@@ -539,13 +553,32 @@ text.active {
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 
+.networkTaxonomy .ui-resizable{
+    position: inherit;
+}
+
 .geaTree, .gwasTree{
     margin-left: 0px !important;
     width: 100% !important;
 }
 
 .left-part {
-    padding-left: 30px;
+    padding-left: 0px;
+}
+
+#topLevel{
+    padding-left: 50px;
+    padding-right: 70px;
+    margin-bottom: 20px;
+}
+
+#taxonomyTree{
+    padding-left: 0px;
+}
+
+#taxonomyTree #resizable{
+    overflow-x: hidden;
+    height: 300px;
 }
 
 .left-part-gea {

@@ -50,11 +50,12 @@ $(function () {
         //console.log(data.selected);
     });
 
-    $('#resizable').resizable({
+  $('#resizable').resizable({
         maxHeight: 600,
-        maxWidth: 800,
         minHeight: 300,
-        minWidth: 200
+
+        minWidth: 600,
+        maxWidth: 1100
     });
 
     $('#heatMapMain').resizable({
@@ -199,8 +200,8 @@ function evalCallbk(data) {
 
     var sizeMax = 60;  //maximum size of cell
     var margin = {top: 10, right: 200, bottom: 200, left: 10},
-        width = (sizeMax * n > 650) ? 650 : sizeMax * n,
-        height = (sizeMax * n > 650) ? 650 : sizeMax * n;
+        width = (sizeMax * n > 630) ? 630 : sizeMax * n,
+        height = (sizeMax * n > 630) ? 630 : sizeMax * n;
 
     var x = d3.scale.ordinal().rangeBands([0, width]),
         z = d3.scale.linear().domain([0, 4]).clamp(true),//cell fill-opacity, if exceed, clamp to 0-4

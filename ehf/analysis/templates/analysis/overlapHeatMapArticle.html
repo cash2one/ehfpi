@@ -14,8 +14,9 @@
     <script src='/static/csrf.js'></script>
 
     <link rel="stylesheet" type="text/css" href="{% static 'analysis/analysis.css' %}"/>
-{#    <link rel="stylesheet" type="text/css" href="{% static 'analysis/jstree/themes/default/style.min.css' %}"/>#}
-    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/jstree/3.0.1/themes/default/style.min.css"/>
+    {#    <link rel="stylesheet" type="text/css" href="{% static 'analysis/jstree/themes/default/style.min.css' %}"/>#}
+    <link rel="stylesheet" type="text/css"
+          href="http://cdnjs.cloudflare.com/ajax/libs/jstree/3.0.1/themes/default/style.min.css"/>
 
     <div class="main">
         <div class="heatmap">
@@ -27,75 +28,91 @@
                     <li class="active">Article Heatmap</li>
                 </ol>
             </div>
-            <div class="row ">
-                <div class="col-md-3">
-                    <div class="left-part">
-                        <input type="text" id="plugins4_q" value="" class="input" placeholder="search article">
-                    <span id="heatmapArticleTip"><a href="{% url 'help:analysisHelp' %}#heatmap" target="_blank"><img
+            <div id="topLevel">
+                <label class="stageLabel">STEP 1: Choose Articles</label>
+
+                <div id="taxonomyTree">
+
+                    <input type="text" id="plugins4_q" value="" class="input" placeholder="search article" style="margin-top: 0px">
+                    <span id="heatmapArticleTip"><a href="{% url 'help:analysisHelp' %}#heatmapAnalysis" target="_blank"><img
                             src="/static/images/info_20x20.png"></a></span>
 
-                        <div id="resizable">
-                            <div id="jstree_div">
-                                <ul>
-                                    <li id="all">All Publications
-                                        <ul>
-                                            {% for acc,name in article.iteritems %}
+                    <div id="resizable">
+                        <div id="jstree_div">
+                            <ul>
+                                <li id="all">All Publications
+                                    <ul>
+                                        {% for acc,name in article.iteritems %}
 
-                                                <li data-jstree='{ "type" : "article" }'
-                                                    id="article_{{ acc }}">{{ name }}</li>
-                                            {% endfor %}
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-
+                                            <li data-jstree='{ "type" : "article" }'
+                                                id="article_{{ acc }}">{{ name }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            </ul>
                         </div>
 
-                        <div class="searchHeatmap">
-                            Search heatmap:
-                            <div class="searchInput">
-                                <input type="text" class="form-control" id="searchNet" name="searchNet"
-                                       placeholder="search a gene" onkeydown="keyDown(event);">
-                            </div>
-                            <input type="button" value="Search" id="searchButton" class="btn btn-primary btn-sm"
-                                   onclick="searchNet(this);">
-                        </div>
-
-                        <div class="hintWrapper" id="hintWrapper">
-                            <b>Common Genes:</b>
-
-                            <div class="hint" id="hint" contenteditable="true">
-
-                            </div>
-                        </div>
                     </div>
                 </div>
 
-                <div class="col-md-9">
-                    <div class="right-part">
-                        <div class="levelDivArticle">
-                            <input type="button" id="generate" value="Generate" class="btn btn-primary btn-sm"
-                                   onclick="getHeatMap();">
-                        </div>
-                        <div class="heatMapMain" id="heatMapMain">
-                            <div id="fig" class="fig">
-                            </div>
-                        </div>
-                        <div class="order">
-                            <p>Order:
-                                <select id="order">
-                                    <option value="name">by Name</option>
-                                    <option value="count">by Common Gene Number</option>
-                                    <option value="group">by Article Group</option>
-                                </select>
-                            <p>Use the drop-down menu to reorder the matrix and explore the data.
-
-                            <p>Built with <a href="http://d3js.org/">d3.js</a>.
-                        </div>
-                    </div>
+                <div class="levelDivArticle">
+                    <input type="button" id="generate" value="Generate" class="btn btn-primary" style="margin-left: 20px"
+                           onclick="getHeatMap();">
                 </div>
-
             </div>
+
+            <div id="bottomLevel">
+                <label class="stageLabel">Result</label>
+
+                <div class="row ">
+                    <div class="col-md-3">
+                        <div class="left-part">
+
+
+                            <div class="searchHeatmap">
+                                Search heatmap:
+                                <div class="searchInput">
+                                    <input type="text" class="form-control" id="searchNet" name="searchNet"
+                                           placeholder="search a gene" onkeydown="keyDown(event);">
+                                </div>
+                                <input type="button" value="Search" id="searchButton" class="btn btn-primary btn-sm"
+                                       onclick="searchNet(this);">
+                            </div>
+
+                            <div class="hintWrapper" id="hintWrapper">
+                                <b>Common Genes:</b>
+
+                                <div class="hint" id="hint" contenteditable="true" style="height: 400px">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-9">
+                        <div class="right-part">
+
+                            <div class="heatMapMain" id="heatMapMain">
+                                <div id="fig" class="fig">
+                                </div>
+                            </div>
+                            <div class="order">
+                                <p>Order:
+                                    <select id="order">
+                                        <option value="name">by Name</option>
+                                        <option value="count">by Common Gene Number</option>
+                                        <option value="group">by Article Group</option>
+                                    </select>
+                                <p>Use the drop-down menu to reorder the matrix and explore the data.
+
+                                <p>Built with <a href="http://d3js.org/">d3.js</a>.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </div>
 {% endblock %}

@@ -62,9 +62,10 @@ $(function () {
 
     $('#resizable').resizable({
         maxHeight: 600,
-        maxWidth: 500,
         minHeight: 300,
-        minWidth: 200
+
+        minWidth: 600,
+        maxWidth: 1100
     });
 
     $('#heatMapMain').resizable({
