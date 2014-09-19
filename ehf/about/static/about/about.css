@@ -1,0 +1,262 @@
+/*About Index*/
+.main {
+    border: 1px solid;
+    background-color: white;
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+.aboutIndex {
+    margin: 10px 50px 30px 50px;
+}
+
+.AboutItem {
+    margin: 20px 10px 20px 10px;
+}
+
+.AboutTitle {
+    font-size: 16px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.AboutTitle a:hover {
+    color: #002a80;
+    text-decoration: none;
+}
+
+.AboutContent {
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+/*Statistics*/
+
+.statistics {
+    margin: 10px 50px 30px 50px;
+}
+
+.statisticsIntro {
+    font-size: 16px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.statisticsMap{
+    width: 500px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-left: 30px;
+}
+
+.statisticsMap tspan{
+    font-size: 14px !important;
+}
+
+/*Site Index part*/
+.siteIndex {
+    margin: 10px 50px 30px 50px;
+    min-height: 500px;
+}
+
+.indexTitle, .indexContent {
+    margin: 20px 50px 20px 10px;
+    font-size: 14px;
+}
+
+.indexRow {
+    margin-top: 10px;
+}
+
+/*submit part*/
+.submitAbout {
+    margin: 10px 50px 30px 50px;
+}
+
+.submitTitle {
+    margin: 20px 50px 10px 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.submitContent {
+    margin: 10px 20px 10px 10px;
+    font-size: 14px;
+}
+
+.submitContent .btn,.contactContent .btn{
+    margin-left: 0px !important;
+}
+
+.message {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.submitForm{
+    border: 1px solid #B0C4DE;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.fieldWrapper {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.fieldWrapper input, textarea {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    display: inline;
+}
+
+.fieldWrapper .errorlist {
+    padding-left: 20px;
+    color: red;
+}
+
+.fieldWrapper #hint {
+    margin-left: 10px;
+    opacity: 0.5;
+}
+
+.fieldWrapper #hint a {
+    color: black;
+}
+
+.popover-content {
+    color: #8b0000;
+}
+
+/*submit history part*/
+.submitHistory {
+    margin: 10px 50px 20px 50px;
+    font-size: 14px;
+}
+
+.submitHistoryContent {
+    margin: 20px 10px 10px 10px;
+    font-size: 14px;
+    min-height: 500px;
+}
+
+.submitHistory th {
+    background-image: url(/static/images/up_down.gif);
+    background-repeat: no-repeat;
+    background-position: center left;
+    cursor: pointer;
+}
+
+.submitHistory th a{
+    margin-left: 15px;
+    display: block;
+    text-decoration: none;
+}
+
+.tablediv {
+    margin-top: 20px;
+}
+
+.tablediv th{
+    vertical-align: middle;
+}
+
+#pager {
+    text-align: right;
+    padding-right: 5px;
+}
+
+#pager a {
+    text-decoration: none;
+}
+
+#pager a:hover {
+    color: #EE9816;
+}
+
+.gotop {
+    text-align: right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/*contact part*/
+.contact {
+    margin: 10px 50px 30px 50px;
+}
+
+.contact .panel-heading {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.contactContent {
+    font-size: 14px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.contactContent .panel {
+    border-color: lightsteelblue;
+}
+
+.thanks {
+    margin: 30px 50px 30px 50px;
+    font-size: 20px;
+    min-height: 500px;
+}
+
+.thanks img {
+    margin: 40px auto 40px 200px;
+}
+
+/*help part*/
+.copyright {
+    margin: 10px 50px 30px 50px;
+    min-height: 500px;
+}
+
+.copyrightTitle {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.copyrightContent {
+    font-size: 14px;
+    padding-left: 10px;
+    margin-left: 10px;
+}
+
+/*external*/
+.external {
+    margin: 20px 50px 30px 50px;
+    min-height: 500px;
+}
+
+.externalContent {
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.externalContent ol {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 30px;
+}
+
+.externalContent li {
+    margin-top: 10px;
+}
+
+.breadcrumb {
+    font-size: 1em;
+}

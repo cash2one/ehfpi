@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - Help</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'help/help.css' %}"/>
+    <script src='/static/help/help.js'></script>
+
+    <div class="helpMain">
+        <div class="row">
+            <div class="col-md-3 leftNav">
+                <div id="header">
+                    <h3><b>Quick HELP links</b></h3>
+                </div>
+                <hr>
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="{% url 'help:index' %}">Overview</a></li>
+                    <li><a href="{% url 'help:ehfHelp' %}">Background</a></li>
+                    <li><a href="{% url 'help:searchHelp' %}">Search</a></li>
+                    <li><a href="{% url 'help:browseHelp' %}">Browse</a></li>
+                    <li><a href="{% url 'help:analysisHelp' %}">Analysis</a></li>
+                    <li><a href="{% url 'help:restHelp' %}">RESTful API</a></li>
+                    <li><a href="{% url 'help:citeHelp' %}">Cite</a></li>
+                </ul>
+            </div>
+            <div class="col-md-9 rightContent">
+                <div class="gotop">
+                    <a href="#" title="Back to the top of the page"><span
+                            class="glyphicon glyphicon-circle-arrow-up"></span>
+                        Top</a>
+                </div>
+                <div class="title" id="rest"><a href="#">RESTful API</a></div>
+                <div class="content">
+                    The EHFPI web server features RESTful (REpresentational State Transfer) web services to fetch data.
+                    The API provides the fields described in the custom download. Each field may be used for restricting
+                    the set of EHFPI data you wish to receive.<br/><br/>
+                    <b>Examples:</b>
+                    <ul>
+                        <li>Retrieve all results in csv format: <a href="/ehfpi/rest/select/?format=csv"
+                                                                   target="_blank">/rest/select/?format=csv</a>
+                        </li>
+                        <li>Retrieve results for ehfpiAcc ehfpi00001 and ehfpi00002: <a
+                                href="/ehfpi/rest/select/?ehfpiAcc=ehfpi00001,ehfpi00002" target="_blank">/rest/select/?ehfpiAcc=ehfpi00001,ehfpi00002</a>
+                        </li>
+                        <li>
+                            Retrieve results for geneSymbol BCR and species HIV-1: <a
+                                href="/ehfpi/rest/select/?genesymbol=BCR&species=HIV-1" target="_blank">/rest/select/?genesymbol=BCR&species=HIV-1</a>
+                        </li>
+
+                    </ul>
+                    Below is the example output of the last query.
+                    <div><img src="/static/help/images/rest1.jpg"></div>
+
+                    You can specify the result format by appending format=csv or format=xml or format=json.
+                    Now EHFPI only support 'AND' relation of different fields.<br/><br/>
+
+                    Of course, you can get data with script, below is a python example:<br/>
+
+                    <div id="pythonCode">
+                        <code>import urllib2</code> <br/>
+                        <code>url =
+                            "http://biotech.bmi.ac.cn/ehfpi/rest/select/?ehfpiAcc=ehfpi00001,ehfpi00002&format=xml" </code><br/>
+                        <code>request = urllib2.Request(url)</code><br/>
+                        <code># request.add_header('Content-Type','application/json')</code><br/>
+                        <code>response = urllib2.urlopen(request.get_full_url())</code><br/>
+                        <code>print response.read()</code><br/>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

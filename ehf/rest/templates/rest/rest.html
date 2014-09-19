@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - REST</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'rest/rest.css' %}"/>
+    <div class="main">
+        <div class="rest">
+            <ol class="breadcrumb">
+                <li><a href="{% url 'ehf.views.index' %}">Home</a></li>
+                <li><a href="{% url 'download:custom' %}">Downloads</a></li>
+                <li class="active">REST</li>
+            </ol>
+            <div class="restTitle">
+                EHFPI RESTful Web Services
+            </div>
+            <div class="restcontent">
+                The EHFPI web server features <a href="http://en.wikipedia.org/wiki/Representational_state_transfer"
+                                                 target="_blank">RESTful</a> (REpresentational State Transfer) web
+                services to fetch data. The API provides the fields described in the
+                <a href ="{% url 'download:custom' %}">custom download</a>. Each field may be used for restricting the set of
+                EHFPI data you wish to receive.
+                <div class="panel panel-success" id="funcPanel">
+                    <div class="panel-heading">GET EHFPI Data</div>
+                    <div class="panel-body">
+                        <b>Examples:</b>
+                        <ul>
+                            <li>Retrieve all results in csv format: <a href="/ehfpi/rest/select/?format=csv" target="_blank">/rest/select/?format=csv</a>
+                            </li>
+                            <li>Retrieve results for ehfpiAcc ehfpi00001 and ehfpi00002: <a href="/ehfpi/rest/select/?ehfpiAcc=ehfpi00001,ehfpi00002" target="_blank">/rest/select/?ehfpiAcc=ehfpi00001,ehfpi00002</a>
+                            </li>
+                            <li>
+                                Retrieve results for geneSymbol BCR and species HIV-1: <a href="/ehfpi/rest/select/?genesymbol=BCR&species=HIV-1" target="_blank">/rest/select/?genesymbol=BCR&species=HIV-1</a>
+                            </li>
+
+
+                        </ul>
+                        You can specify the result format by appending <b>format=csv</b> or <b>format=xml</b> or <b>format=json</b>. Now EHFPI only
+                        support 'AND' relation of different fields.
+                    </div>
+                    <div>
+
+                    </div>
+                </div>
+
+                <div class="panel panel-success" id="funcPanel">
+                    <div class="panel-heading">Python Example Script</div>
+                    <div class="panel-body">
+                    <div id="pythonCode">
+                        <code>import urllib2</code> <br />
+                        <code>url = "http://biotech.bmi.ac.cn/ehfpi/rest/select/?ehfpiAcc=ehfpi00001,ehfpi00002&format=xml" </code><br />
+                        <code>request = urllib2.Request(url)</code><br />
+                        <code># request.add_header('Content-Type','application/json')</code><br />
+                        <code>response = urllib2.urlopen(request.get_full_url())</code><br />
+                        <code>print response.read()</code><br />
+                    </div>
+                    </div>
+                    <div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

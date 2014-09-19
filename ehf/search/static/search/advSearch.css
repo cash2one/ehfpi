@@ -1,0 +1,226 @@
+.se_spacer {
+    font-size: 1px;
+    height: 5px;
+    overflow: hidden;
+}
+
+.db_head3 {
+    font-weight: bold;
+    background-color: #6493c2;
+    color: #FFF;
+    border-color: #6493c2;
+    border-width: 1px 1px 0px;
+    border-style: solid;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+
+}
+
+.box_contentWrapper {
+    padding: 5px;
+    background-color: transparent;
+    font-weight: normal;
+}
+
+.perc100 {
+    width: 100%;
+    _width: 99%;
+}
+
+.lb_body3 {
+    background-color: #eaf2f8;
+    border-color: #6493c2;
+    border-width: 0px 1px;
+    border-style: solid;
+
+}
+
+.smarttable {
+    width: 100%;
+}
+
+.db_foot3 {
+    background-color: #6493c2;
+    border-color: #6493c2;
+    font-size: 4px;
+    border-width: 0px 1px 1px;
+    height: 5px;
+    margin-bottom: 30px;
+    border-style: solid;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+}
+
+.b_head3 {
+    background-color: #adc9e3;
+    border-color: #6493c2;
+    font-weight: bold;
+    border-width: 1px 1px 0px;
+    border-style: solid;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+}
+
+.b_head3 a:hover {
+    color: #cc6600;
+}
+
+.b_body3 {
+    background-color: #adc9e3;
+    background-color: white;
+    border-color: #6493c2;
+    border-width: 1px 1px 0px 1px;
+    border-style: solid;
+}
+
+.b_body3 td {
+    vertical-align: middle;
+}
+
+.b_body3 a:hover {
+    color: #cc6600;
+}
+
+#bottomDiv{
+    margin-top: 20px;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0px;
+}
+
+td {
+    vertical-align: top;
+    padding: 2px 5px;
+    border: 0px none;
+    margin: 0px;
+    outline: 0px none;
+}
+
+table.plain {
+    border: 0px;
+    border-spacing: 0px;
+    width: 100%;
+    _width: 99%;
+}
+
+h1 {
+    line-height: 1;
+    margin: 0.5em 0px;
+    padding-bottom: 2px;
+    text-shadow: 2px 2px 2px #CCC;
+    font-weight: bold;
+    border: 0px none;
+    outline: 0px none;
+    padding: 0px;
+}
+
+table.plain tr td {
+    vertical-align: top;
+}
+
+.rightCell {
+    text-align: right;
+}
+
+.b_foot3 {
+    border-color: #6493c2;
+    background-color: #adc9e3;
+    background-color: white;
+    font-size: 4px;
+    border-width: 0px 1px 1px;
+    height: 5px;
+    margin-bottom: 10px;
+    border-style: solid;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+}
+
+.smartParmLoading {
+    margin: 0px;
+    padding: 0px;
+    width: 1px;
+}
+
+.w_body3 {
+    background-color: #ffffff;
+    border-color: #6493c2;
+    border-width: 0px 1px;
+    border-style: solid;
+
+}
+
+.w_foot3 {
+    background-color: #ffffff;
+    border-color: #6493c2;
+    font-size: 4px;
+    border-width: 0px 1px 1px;
+    height: 5px;
+    margin-bottom: 10px;
+    border-style: solid;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+
+}
+
+.selectsmall {
+    margin-bottom: 3px;
+}
+
+.advSearchTable {
+    width: 100%;
+    position: relative;
+}
+
+.advSearchLabel {
+    width: 70px;
+    text-align: left;
+}
+
+.advSearchTable .selectTd{
+    min-width: 150px;
+    max-width: 500px;
+}
+
+.advSearchTable select{
+    height: 200px;
+}
+
+.advSearchInput {
+    width: 95%;
+    padding: 1px 2px;
+    border: 1px solid #999999;
+    color: #333333;
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 12px;
+    position: relative;
+}
+
+textarea.advSearchInput {
+    height: 50px;
+}
+
+.advanced{
+    margin:40px 50px 0px 50px;
+}

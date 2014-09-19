@@ -1,0 +1,276 @@
+/*main section part*/
+.main {
+    border: 1px solid;
+    background-color: white;
+    position: relative;
+}
+
+#title {
+    font-size: 14px;
+    margin: 40px 50px 10px 50px;
+}
+
+#des {
+    font-size: 14px;
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#des span {
+    color: #2B6092;
+}
+
+#displayBar {
+    text-align: right;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+
+.tablediv {
+    overflow: auto;
+    margin-right: 50px;
+    margin-left: 50px;
+    min-height: 500px;
+    max-height: 800px;
+    word-break: break-all;
+}
+
+.tablediv th[name] {
+    background-image: url(/static/images/up_down.gif);
+    background-repeat: no-repeat;
+    background-position: center left;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.tablediv th[name] a {
+    margin-left: 15px;
+    display: block;
+    text-decoration: none;
+}
+
+.tablediv th[name='title'] {
+    width: 400px;
+}
+
+.tablediv th[name='strain'] {
+    width: 250px;
+}
+
+/*function div of the table*/
+#functionDivWrapper {
+    margin: 0px 50px 0px 50px;
+}
+
+#functionDivWrapper #leftTd {
+    width: 80%;
+}
+
+#functionDivWrapper #rightTd {
+    vertical-align: bottom;
+}
+
+.functionDiv {
+    height: 80px;
+    border: 1px solid grey;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+
+.selectHint {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #002a80;
+
+}
+
+#buttonGroup button{
+    margin-left: 10px;
+}
+
+#searchAnalysisTip{
+    margin-left: 10px;
+}
+
+
+.popover-content {
+    color: #8b0000;
+}
+
+#pager {
+    text-align: right;
+    padding-right: 5px;
+    margin-right: 50px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+#pager a {
+    text-decoration: none;
+}
+
+.pagination {
+    margin: 0px;
+}
+
+#pager a:hover {
+    color: #EE9816;
+}
+
+.gotop {
+    text-align: right;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/*detail css*/
+.panel-heading {
+    font-size: 14px;
+}
+
+#advancedBread {
+    margin: 40px 50px 10px 50px;
+    font-size: 14px;
+}
+
+#detailBread {
+    margin: 40px 0px 10px 0px;
+    font-size: 14px;
+}
+
+.detail {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.details {
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+}
+
+.details label {
+    font-size: 14px;
+    font-weight: bold;
+    padding-right: 20px;
+    width: 160px;
+    text-align: right;
+}
+
+
+#screen label, #gene label {
+    width: 240px;
+}
+
+
+
+.genomeView p {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.genomeView a {
+    text-decoration: none;
+}
+
+/*advanced search section*/
+
+.advanceIntro {
+    margin: 30px 10px 10px 10px;
+}
+
+.advancePanel {
+    margin: 10px 10px 30px 10px;
+    min-height: 500px;
+}
+
+.submitPanel {
+    background-color: #3B84C3;
+    text-align: right;
+}
+
+.addCriteria {
+    background-color: #3B84C3;
+    font-size: 14px;
+    color: white;
+    text-align: right;
+    padding: 5px 10px 5px 0;
+    border-radius: 5px;
+}
+
+.criteriaHead {
+    background-color: #2B6092;
+    padding: 5px 0px 5px 5px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.criteriaHead .minus {
+    display: inline;
+    padding-left: 560px;
+}
+
+.criteriaContent {
+    height: 100px;
+    border: 1px solid #2B6092;
+    margin-bottom: 10px;
+    border-radius: 0px 0px 5px 5px;
+}
+
+#startOver, #doSearch {
+    vertical-align: bottom;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/*previewResult*/
+#accordion{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+#accordion .panel-title{
+    font-size: 14px;
+}
+
+#accordion .panel-title a {
+    display: block;
+}
+
+#accordion #articleItem{
+    margin-bottom: 10px;
+}
+
+
+#screenNumber{
+    font-weight: bold;
+    color: orangered;
+}
+
+tr[class=tableGroup]{
+    border-bottom: solid 1px;
+    font-weight: bold;
+}
+
+tr[class=tableGroup] td{
+    padding-top: 10px;
+}
+
+#longText{
+    padding-left: 0px !important;
+}
+
+#longRow {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+td[id='go'], td[id='pathway']{
+    max-width: 400px;
+}

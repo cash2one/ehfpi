@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - Help</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'help/help.css' %}"/>
+    <script src='/static/help/help.js'></script>
+
+    <div class="helpMain">
+        <div class="row">
+            <div class="col-md-3 leftNav">
+                <div id="header">
+                    <h3><b>Quick HELP links</b></h3>
+                </div>
+                <hr>
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="{% url 'help:index' %}">Overview</a></li>
+                    <li><a href="{% url 'help:ehfHelp' %}">Background</a></li>
+                    <li><a href="{% url 'help:searchHelp' %}">Search</a></li>
+                    <ul>
+                        <li><a href="#quickSearch">Quick Search</a></li>
+                        <li><a href="#advancedSearch">Advanced Search</a></li>
+                        <li><a href="#customSearch">Customize Search Results</a></li>
+                        <li><a href="#dataExport">Data Export of Search Results</a></li>
+                        <li><a href="#analysisFunc">Analysis of Search Results</a></li>
+                    </ul>
+                    <li><a href="{% url 'help:browseHelp' %}">Browse</a></li>
+                    <li><a href="{% url 'help:analysisHelp' %}">Analysis</a></li>
+                    <li><a href="{% url 'help:restHelp' %}">RESTful API</a></li>
+                    <li><a href="{% url 'help:citeHelp' %}">Cite</a></li>
+                </ul>
+            </div>
+            <div class="col-md-9 rightContent">
+                <div class="title" id="quickSearch"><a href="#">Quick Search</a></div>
+                <div class="content">
+                    EHFPI support four types to search:
+                    <ul>
+                        <li>Gene/Gene Product</li>
+                        A gene/protein can be queried by its Gene Symbol, previous name, synonyms, Entrez Gene ID,
+                        UniProt ID and Ensembl Gene ID.
+                        <li>Pathogen</li>
+                        A pathogen can be queried by its full name, abbreviation, pathogen aliases, and taxonomy
+                        information (strain, species, genus, family, group and kingdom).
+                        <li>Publication</li>
+                        A publication can be queried by its PUBMED id, title, journal, author, publication year.
+                        <li>EHFPI Acc</li>
+                        EHFPI Acc field is the identifier of EHFPI entry.
+                    </ul>
+                    <div><img src="/static/help/images/quicksearch1.png"></div>
+                    Quick search support autocomplete, if you choose a search type from the select, the autocomplete
+                    only display corresponding information.
+                    All field related to the query will be displayed by default. Note for each search type only the
+                    first five results will be
+                    displayed.
+                    <div><img src="/static/help/images/quicksearch2.png"></div>
+
+                </div>
+
+                <hr />
+                <div class="title" id="advancedSearch"><a href="#">Advanced Search</a></div>
+
+                <div class="content">
+                    You can combine the following five criteria to perform advanced search.
+                    <ul>
+                        <li>Gene/Gene Product</li>
+                        You are recommended to provide a list of gene symbol, entrez gene id, uniprotkb id, previous
+                        name and synonyms, separate
+                        by comma, e.g. cab5,cbx4. Or you can input one gene per line. <br/>
+                        Mixed id list is also supported.
+                        <li>Organism</li>
+                        Choose the kingdom and then select the corresponding species. You can select multiple entries.
+                        <li>Publication</li>
+                        You can filter author, journal and year field.
+                        <li>Screen Scope</li>
+                        Screen scope of the RNAi screen.
+                        <li>Phenotype</li>
+                        Phenotype of the essential host factor.
+                    </ul>
+                    <div><img src="/static/help/images/advancedsearch1.png"></div>
+
+                    Results that match all of the set conditions will be shown by default. You can change the logic to
+                    'any' at page bottom (left). Any of the existing conditions can be removed using the minus image
+                    button.
+                </div>
+
+                <hr />
+                <div class="title" id="customSearch"><a href="#">Customize Search Results</a></div>
+
+                <div class="content">
+                    If you want to change the default displayed results according to your own research interest, please
+                    click the 'Custom Display Columns' button above the Result Table (right).
+                    <div><img src="/static/help/images/customsearch1.jpg"></div>
+                    Then, choose the columns you want to display. <b>Note</b>: ehfpi acc, gene symbol, entrez gene id, pathogen
+                    (strain) and publication title are default displayed columns.
+                    <div><img src="/static/help/images/customsearch2.png"></div>
+
+                    Change the order of a specific columns by clicking the table title, e.g. EHFPI ACC. The first click
+                    will result in
+                    ascending order, and second click descending order.
+
+                </div>
+
+                <hr />
+                <div class="title" id="dataExport"><a href="#">Data Export of Search Results</a></div>
+
+                <div class="content">
+
+                    You can select all records (including all EHFPI information items) or the interested records of on
+                    the current page, then click the 'Download' button to obtain the results.
+                    <div><img src="/static/help/images/download1.jpg"></div>
+                    You can also choose the columns you want to for download. The file format is csv.
+                    <div><img src="/static/help/images/download2.png"></div>
+                </div>
+
+                <hr />
+                <div class="title" id="analysisFunc"><a href="#">Analyze Search Results</a></div>
+
+                <div class="content">
+                    Conveniently, you can perform analysis for all or selected EHF records by click the button above the
+                    search result. More details can be found in <a href="{% url 'help:analysisHelp' %}">analysis</a>
+                    part.
+                    <div><img src="/static/help/images/download1.jpg"></div>
+                </div>
+                <div class="gotop">
+                    <a href="#" title="Back to the top of the page"><span
+                            class="glyphicon glyphicon-circle-arrow-up"></span>
+                        Top</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

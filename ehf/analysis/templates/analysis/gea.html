@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - Analysis</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    {% load getDict %}
+    {#    <script src='/static/analysis/jstree/jstree.min.js'></script>#}
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jstree/3.0.1/jstree.min.js'></script>
+    <script src='/static/analysis/jstree/gea.js'></script>
+    <script src='/static/csrf.js'></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'analysis/analysis.css' %}"/>
+{#    <link rel="stylesheet" type="text/css" href="{% static 'analysis/jstree/themes/default/style.min.css' %}"/>#}
+    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/jstree/3.0.1/themes/default/style.min.css"/>
+
+    <div class="main">
+        <div class="gea">
+            <ol class="breadcrumb">
+                <li><a href="{% url 'ehf.views.index' %}">Home</a></li>
+                <li><a href='{% url 'analysis:index' %}'>Analysis</a></li>
+                <li class="active">Gene Enrichment Analysis</li>
+            </ol>
+
+            <div id="csrf" style="display:none" value="{% csrf_token %}"></div>
+            <div class="geaContent">
+                EHFPI links to <a href="http://david.abcc.ncifcrf.gov/" target="_blank">DAVID</a> to perform gene
+                enrichment analysis. Alternative links are also provided, but you have to submit the gene list manually.
+                You can choose
+                the genes of a specific pathogen to do the analysis.
+
+                <div class="left-part-gea">
+                    <input type="text" id="plugins4_q" value="" class="input gea_plugins4_q"
+                           placeholder="search pathogen">
+                            <span id="geaTip"><a href="{% url 'help:analysisHelp' %}#gea" target="_blank"><img
+                                    src="/static/images/info_20x20.png"></a></span>
+                    <span class="note">(DAVID API has some <a
+                            href="http://david.abcc.ncifcrf.gov/content.jsp?file=DAVID_API.html" target="_blank">limitations</a>, you can manually submit genes if the list is too long! (<b>>400</b>))</span>
+
+                    <div id="resizable" class="geaTree">
+                        <div id="jstree_gea_div">
+                            <ul>
+                                <li id="all">All Pathogens<span class="badge">{{ badge_taxonomy|get:"all" }}</span>
+                                    <ul>
+                                        {% for kingDic in tree %}
+                                            {% for kingdom,value in kingDic.iteritems %}
+                                                <li rel="kingdom"
+                                                    id="kingdom_{{ tree_taxonomy|get:kingdom }}">{{ kingdom }}<span
+                                                        class="badge">{{ badge_taxonomy|get:kingdom }}</span>
+                                                    <ul>
+                                                        {% for subItem,speciesDic in value.iteritems %}
+                                                            {% ifequal kingdom "virus" %}
+                                                                <li rel="family"
+                                                                    id="family_{{ tree_taxonomy|get:subItem }}">{{ subItem }}<span
+                                                                        class="badge">{{ badge_taxonomy|get:subItem }}</span>
+                                                                    {% else %}
+                                                                <li rel="genus"
+                                                                    id="genus_{{ tree_taxonomy|get:subItem }}">
+                                                                {{ subItem }}<span
+                                                                        class="badge">{{ badge_taxonomy|get:subItem }}</span>
+                                                            {% endifequal %}
+                                                        <ul>
+                                                            {% for species,articleList in speciesDic.iteritems %}
+                                                                <li data-jstree='{ "type" : "species" }'
+                                                                    id="species_{{ tree_taxonomy|get:species }}">{{ species }}<span
+                                                                        class="badge">{{ badge_taxonomy|get:species }}</span>
+                                                                    <ul>
+                                                                        {% for article in articleList %}
+                                                                            {% with myKey=species|add:"_"|add:article %}
+                                                                                <li data-jstree='{ "type" : "article" }'
+                                                                                    id="article_{{ tree_taxonomy|get:species }}_{{ tree_taxonomy|get:article }}">
+                                                                                {{ article }}<span
+                                                                                        class="badge">{{ badge_taxonomy|get:myKey }}</span>
+                                                                            {% endwith %}
+                                                                        {% endfor %}
+                                                                    </ul>
+                                                                </li>
+                                                            {% endfor %}
+                                                        </ul>
+                                                        </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </li>
+                                            {% endfor %}
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-part-gea">
+
+                    <div class="geaType">
+                        <label class="levelLabel">Analysis Type:</label>
+                        <select class="" id="analysisType">
+                            <option value="none" selected>Select a Type</option>
+                            <option value="go">DAVID GO</option>
+                            <option value="pathway">DAVID Pathway</option>
+                            <option value="others">Others</option>
+                        </select>
+                        <input type="button" id="doAnalysis" value="Analysis" class="btn btn-primary btn-sm"
+                               onclick="geaAnalysis();">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">GEA Analysis</h4>
+                        </div>
+                        <div class="modal-body">
+                            <label for="geaGeneList">Gene List</label>
+
+                            <p>Copy the gene list below and select a external analysis link.</p>
+
+                            <div id="geaGeneList" contenteditable="true"></div>
+
+                            <div id="typeDes">GO</div>
+                            <hr/>
+                            <ul class="geaUl">
+                                <li><a href="http://omicslab.genetics.ac.cn/GOEAST/php/batch_genes.php" target="_blank">GOEAST</a></li>
+                                <li><a href="http://www.pantherdb.org/" target="_blank">PANTHER</a></li>
+                                <li><a href="http://biit.cs.ut.ee/gprofiler/index.cgi" target="_blank">g:Profiler</a>
+                                </li>
+                            </ul>
+
+                            <div id="typeDes">Pathway</div>
+                            <hr/>
+                            <ul class="geaUl">
+                                <li>
+                                    <a href="http://www.reactome.org/PathwayBrowser/#TOOL=AT"
+                                       target="_blank">Reactome</a></li>
+                                <li><a href="http://pid.nci.nih.gov/search/batch_query.shtml" target="_blank">Pathway
+                                    Interaction Database</a></li>
+                                <li><a href="http://www.pathwaycommons.org/" target="_blank">Pathway Commons</a></li>
+                            </ul>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
+
+        </div>
+    </div>
+{% endblock %}

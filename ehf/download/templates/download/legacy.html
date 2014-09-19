@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - Downloads</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'download/download.css' %}"/>
+    <div class="main">
+        <div class="legacyDiv">
+            <ol class="breadcrumb">
+                <li><a href="{% url 'ehf.views.index' %}">Home</a></li>
+                <li><a href="{% url 'download:custom' %}">Download</a></li>
+                <li class="active">Release</li>
+            </ol>
+            {% for item in legacy %}
+
+            <div class="legacyTitle">
+            {% ifequal forloop.counter 1 %}
+                {{ item.name }}(current)
+            {% else %}
+                {{ item.name }}
+            {% endifequal %}
+            </div>
+            <div class="legacyContent">
+                <div class="legacyDate">{{ item.releaseDate|date:'M d, Y' }}</div>
+                <div class="legacyDes">{{ item.description|safe }}</div>
+            </div>
+            {% endfor %}
+
+        <div class="legacyRegister"><a href= {% url 'download:register' %}>Register</a> to download all EHFPI data.</div>
+        </div>
+
+    </div>
+{% endblock %}

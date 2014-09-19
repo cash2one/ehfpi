@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - About</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+{#    {% load chartit %}#}
+    <script src='/static/about/highcharts.js'></script>
+
+{#    {{ kingdomPie|load_charts:"kingdomPieDiv" }}#}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'about/about.css' %}"/>
+
+    <div class="main">
+        <div class="statistics">
+
+            <ol class="breadcrumb">
+                <li><a href="{% url 'ehf.views.index' %}">Home</a></li>
+                <li><a href="{% url 'about:index' %}">About</a></li>
+                <li class="active">Statistics</li>
+            </ol>
+
+{#            <div class="statisticsIntro">#}
+{#                <span class="glyphicon glyphicon-star"></span>&nbsp; EHFPI now holds <a#}
+{#                    href={% url 'browse:index' %} target="_blank">{{ geneNumber }} </a> genes from#}
+{#                <b>{{ speciesNumber }}</b> species of#}
+{#                {% for item in kingdom %}#}
+{#                    <a href={% url 'browse:kingdom'  item %} target="_blank">{{ item }}</a>#}
+{#                {% endfor %}#}
+{#                .#}
+{#            </div>#}
+{#            <div class="statisticsMap">#}
+{#                <div id='kingdomPieDiv' class="kingdomPieDiv"></div>#}
+{#            </div>#}
+
+            <div class="statisticsIntro">
+                <span class="glyphicon glyphicon-plus"></span>&nbsp;Overview of EHFPI data.
+            </div>
+
+            <div class="statisticsMap">
+                <img src="/static/images/about-view.png">
+            </div>
+
+{#            <div class="statisticsIntro">#}
+{#                <span class="glyphicon glyphicon-star"></span>&nbsp;The number of common EHFs opposed to pathogen#}
+{#                number.#}
+{#            </div>#}
+{##}
+{#            <div class="statisticsMap">#}
+{#                <img src="/static/images/index3.jpg" width="800px">#}
+{#            </div>#}
+
+            <div class="statisticsIntro">
+                <span class="glyphicon glyphicon-plus"></span>&nbsp;Overlap of EHFs for bacterial, viral and fungal pathogens.
+            </div>
+
+            <div class="statisticsMap">
+                <img src="/static/images/about-overlap.png">
+            </div>
+
+            <div class="statisticsIntro">
+                <span class="glyphicon glyphicon-plus"></span>&nbsp;Distribution of EHFs for all EHF genes (confirmed hits and primary hits).
+            </div>
+
+            <div class="statisticsMap">
+                <img src="/static/images/about-distribution.png">
+            </div>
+
+
+{#            <div class="statisticsIntro">#}
+{#                <span class="glyphicon glyphicon-star"></span>&nbsp; The number of EHFs and viruses from year 2007 to 2014.#}
+{#            </div>#}
+{##}
+{#            <div class="statisticsMap">#}
+{#                <img src="/static/images/index5.jpg">#}
+{#            </div>#}
+{##}
+{#            <div class="statisticsIntro">#}
+{#                <span class="glyphicon glyphicon-star"></span>&nbsp;The number of EHFs and bacteria from year 2007 to 2014.#}
+{#            </div>#}
+{##}
+{#            <div class="statisticsMap">#}
+{#                <img src="/static/images/index5.jpg" >#}
+{#            </div>#}
+
+
+        </div>
+
+
+    </div>
+{% endblock %}

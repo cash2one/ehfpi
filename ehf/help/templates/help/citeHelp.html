@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - Help</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'help/help.css' %}"/>
+
+    <div class="helpMain">
+        <div class="row">
+            <div class="col-md-3 leftNav">
+                <div id="header">
+                    <h3><b>Quick HELP links</b></h3>
+                </div>
+                <hr>
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="{% url 'help:index' %}">Overview</a></li>
+                    <li><a href="{% url 'help:ehfHelp' %}">Background</a></li>
+                    <li><a href="{% url 'help:searchHelp' %}">Search</a></li>
+                    <li><a href="{% url 'help:browseHelp' %}">Browse</a></li>
+                    <li><a href="{% url 'help:analysisHelp' %}">Analysis</a></li>
+                    <li><a href="{% url 'help:restHelp' %}">RESTful API</a></li>
+                    <li><a href="{% url 'help:citeHelp' %}">Cite</a></li>
+                    <ul>
+                        <li><a href="#citation">Citation</a></li>
+                    </ul>
+                </ul>
+            </div>
+            <div class="col-md-9 rightContent">
+                <div class="title" id="citation"><a href="#">Citation</a></div>
+                <div class="content">
+                    Under construction.
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

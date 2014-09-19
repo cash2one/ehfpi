@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - Help</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'help/help.css' %}"/>
+    <script src='/static/help/help.js'></script>
+
+    <div class="helpMain">
+        <div class="row">
+            <div class="col-md-3 leftNav">
+                <div id="header">
+                    <h3><b>Quick HELP links</b></h3>
+                </div>
+                <hr>
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="{% url 'help:index' %}">Overview</a></li>
+                    <li><a href="{% url 'help:ehfHelp' %}">Background</a></li>
+                    <ul>
+                        <li><a href="#ehf">essential host factor</a></li>
+                    </ul>
+                    <li><a href="{% url 'help:searchHelp' %}">Search</a></li>
+                    <li><a href="{% url 'help:browseHelp' %}">Browse</a></li>
+                    <li><a href="{% url 'help:analysisHelp' %}">Analysis</a></li>
+                    <li><a href="{% url 'help:restHelp' %}">RESTful API</a></li>
+                    <li><a href="{% url 'help:citeHelp' %}">Cite</a></li>
+
+                </ul>
+            </div>
+            <div class="col-md-9 rightContent">
+                <div class="title" id="citation"><a href="#">Essential Host Factor</a></div>
+                <div class="content">
+                    Essential Host Factors (EHFs) are a group of host cellular genes identified from genome-wide RNA
+                    interference (RNAi) screens, the knockdown effect of which greatly influence the infection of a
+                    pathogen but not the viability of host cells (designated as "confirmed hits" from confirmatory
+                    screen, see the workflow chart below for detailed information ).<br/>
+                    <img src="/static/images/index1_1.png"/>
+                    Generally, researches focus on the EHFs whose knockdown effect lead to the phenotype of totally
+                    abolished or significantly decreased pathogenic infections. In addition, EHFs can also be identified
+                    from a selected group of genes or a single gene that related to a specific phase of infection, e.g.,
+                    cell entry, phagocytosis. Meanwhile, EHF data are collected from literature, of which most
+                    researchers also provide further results of functional studies to validate the essentiality of one
+                    or a small groups of top candidate genes selected from confirmed hits (designated as "primary hits"
+                    from confirmatory screen, see the workflow chart below for detailed information ).<br/>
+                    <img src="/static/images/index1_1.png"/>
+                    Note: when a host cellular gene is identified as an EHF, a specific pathogen (specie/strain) and
+                    screen should be designated for clarity, meaning that the definition of EHF is pathogen/screen
+                    dependent.
+                </div>
+                <div class="gotop">
+                    <a href="#" title="Back to the top of the page"><span
+                            class="glyphicon glyphicon-circle-arrow-up"></span>
+                        Top</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - About</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'about/about.css' %}"/>
+    {#    <link rel="stylesheet" type="text/css" href="{% static 'analysis/jQuery-File-Upload/css/jquery.fileupload.css' %}"/>#}
+    <link rel="stylesheet" type="text/css"
+          href="http://cdn.jsdelivr.net/jquery.fileupload/9.5.2/css/jquery.fileupload.css"/>
+
+    {#    <script src='/static/analysis/jQuery-File-Upload/js/jquery.fileupload.js'></script>#}
+    {#    <script src='/static/analysis/jQuery-File-Upload/js/jquery.iframe-transport.js'></script>#}
+    {#    <script src='/static/analysis/jQuery-File-Upload/js/vendor/jquery.ui.widget.js'></script>#}
+    <script src="http://cdn.jsdelivr.net/jquery.fileupload/9.5.2/js/jquery.fileupload.js"></script>
+    <script src="http://cdn.jsdelivr.net/jquery.fileupload/9.5.2/js/jquery.iframe-transport.js"></script>
+    <script src="http://cdn.jsdelivr.net/jquery.fileupload/9.5.2/js/vendor/jquery.ui.widget.js"></script>
+
+    <script src="/static/about/submit.js"></script>
+
+    <div class="main">
+        <div class="submitAbout">
+            <ol class="breadcrumb">
+                <li><a href="{% url 'ehf.views.index' %}">Home</a></li>
+                <li><a href="{% url 'about:index' %}">About</a></li>
+                <li class="active">Submit</li>
+            </ol>
+
+            <div class="submitTitle">
+                Has new EHFPI data been published?
+            </div>
+            <div class="submitContent">
+                <div class="message">
+                    <ul>
+                        <li>You are welcome to update EHFPI by uploading data with <a
+                                href="/ehfpi/media/template/EHFPI_SubmissionTemplate.xls">our template</a>,
+                            illustration of all
+                            fields can be found in <a href="{% url 'download:custom' %}">custom download</a>.
+                        </li>
+                        <li>You can also fill in the form below to notify us (e.g., title, pubmed ID).</li>
+                    </ul>
+                    <b><a href= {% url 'about:submitHistory' %}>Here</a></b> you can find the update history of
+                    contributions made by our EHFPI users.
+                </div>
+                <div class="submitForm">
+                    <form method="post" enctype="multipart/form-data" role="form"
+                          action="{% url 'about:submit' %}">{% csrf_token %}
+                        <input name="type" type="hidden" value="file">
+
+                        <div class="fieldWrapper">
+                            <span class="btn btn-success btn-sm fileinput-button" id="fileinput">
+                                <i class="glyphicon glyphicon-plus"></i>
+                                <span>Add template...</span>
+                                <!-- The file input field used as target for the file upload widget -->
+{#                                <input id="fileupload" type="file" name="files" multiple="">#}
+
+                                {{ myFileForm.file }}
+                            </span>
+                            <span id="files" class="files"></span>
+                            {{ myFileForm.file.errors }}
+
+                        </div>
+                        <input type="submit" value="Submit" class="btn btn-primary btn-sm">
+                    </form>
+                </div>
+
+                <div class="submitForm">
+                    <form method="post" class="form-horizontal" role="form"
+                          action="{% url 'about:submit' %}">{% csrf_token %}
+
+                        <input name="type" type="hidden" value="form">
+
+                        <div class="fieldWrapper">
+                            <label for="id_email">Email*:</label><br/>
+                            {{ myForm.email.errors }}
+                            {{ myForm.email }}<span id="hint">(example@example.com)</span>
+                        </div>
+
+                        <div class="fieldWrapper">
+                            <label for="id_name">Name*:</label><br/>
+                            {{ myForm.name.errors }}
+                            {{ myForm.name }}<span id="hint">(John)</span>
+                        </div>
+
+                        <div class="fieldWrapper">
+                            <label for="id_institute">Institute*:</label><br/>
+                            {{ myForm.institute.errors }}
+                            {{ myForm.institute }}<span id="hint">(Academy of Military Medical Sciences)</span>
+                        </div>
+
+                        <div class="fieldWrapper">
+                            <label for="id_content">Content*:</label><br/>
+                            {{ myForm.content.errors }}
+                            {{ myForm.content }}
+                        </div>
+
+                        <input type="submit" value="Submit" class="btn btn-primary btn-sm">
+                    </form>
+                </div>
+
+            </div>
+            <div class="submitTitle">
+                Any other questions？
+            </div>
+            <div class="submitContent">
+                Feel free to <a href= {% url 'about:contact' %}>contact us</a> if you have any other questions.
+            </div>
+        </div>
+    </div>
+{% endblock %}

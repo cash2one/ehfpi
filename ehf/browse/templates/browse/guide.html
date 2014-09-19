@@ -1,0 +1,330 @@
+{% extends "base.html" %}
+{% load pagination_tags %}
+
+
+{% block title %}
+    <title>EHFPI - Browse</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'browse/browse.css' %}"/>
+
+    <div class="main">
+
+    <ol class="breadcrumb">
+        <li><a href="{% url 'ehf.views.index' %}">Home</a></li>
+        <li class="active">Browse</li>
+    </ol>
+    <script>
+        $(function () {
+            $("#accordion").accordion({
+                heightStyle: "content"
+            });
+        });
+    </script>
+
+    <div id="guideDes">
+        EHFPI contains detailed gene and screen information for EHFs of 25 pathogens, including 14 viral,
+        10 bacterial and 1 fungal species. All data are updated to May 20<sup>th</sup>, 2014.
+        Click <b><a href="{% url 'browse:index' %}" target="_blank">Here</a></b>
+        to browse all EHFPI data.
+    </div>
+
+    <div id="accordion">
+    <div>Viral Pathogens</div>
+
+    <div>
+        <p>Click the link at specific classification level to view EHF information of interest.
+        Click <a href="{% url 'browse:kingdom' 'virus' %}" target="_blank">here</a> to view EHF data for all viral pathogens.</p>
+
+        <div class="row">
+            <div class="col-md-4" id="col">
+                <div class="title"><a href="{% url 'browse:group' 'ssRNA-' %}"
+                                      target="_blank" title="group">Single-Stranded Negative-Sense RNA</a></div>
+
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-7">
+
+                            <div><a class="family" href="{% url 'browse:family' 'Orthomyxoviridae' %}"
+                                    target="_blank" title="family">Orthomyxoviridae</a></div>
+                            <ul class="species-ul">
+                                <li><a class="species" href="{% url 'browse:species' 'IAV' %}"
+                                       target="_blank" title="species">IAV</a>
+                                </li>
+                            </ul>
+
+                            <a class="family" href="{% url 'browse:family' 'Paramyxoviridae' %}"
+                               target="_blank" title="family">Paramyxoviridae</a>
+                            <ul class="species-ul">
+                                <li><a class="species" href="{% url 'browse:species' 'SeV' %}"
+                                       target="_blank" title="species">SeV</a>
+                                </li>
+                                <li><a class="species" href="{% url 'browse:species' 'HPIV-3' %}"
+                                       target="_blank" title="species">HPIV-3</a></li>
+                            </ul>
+
+                            <a class="family" href="{% url 'browse:family' 'Rhabdoviridae' %}"
+                               target="_blank" title="family">Rhabdoviridae</a>
+                            <ul class="species-ul">
+                                <li><a class="species" href="{% url 'browse:species' 'VSV' %}"
+                                       target="_blank" title="species">VSV</a>
+                                </li>
+                            </ul>
+
+
+                        </div>
+                        <div class="col-md-5">
+
+                            <a class="family" href="{% url 'browse:family' 'Arenaviridae' %}"
+                               target="_blank" title="family">Arenaviridae</a>
+                            <ul class="species-ul">
+                                <li><a class="species" href="{% url 'browse:species' 'LCMV' %}"
+                                       target="_blank" title="species">LCMV</a>
+                                </li>
+                            </ul>
+
+                            <a class="family" href="{% url 'browse:family' 'Bornaviridae' %}"
+                               target="_blank" title="family">Bornaviridae</a>
+                            <ul class="species-ul">
+                                <li><a class="species" href="{% url 'browse:species' 'BDV' %}"
+                                       target="_blank" title="species">BDV</a>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2" id="col">
+                <div class="title titleSpecial"><a href="{% url 'browse:group' 'ssRNA+' %}"
+                                                   target="_blank" title="group">Single-Stranded Positive-Sense RNA</a></div>
+
+                <div class="content">
+                    <a class="family" href="{% url 'browse:family' 'Flaviviridae' %}"
+                       target="_blank" title="family">Flaviviridae</a>
+                    <ul class="species-ul">
+                        <li><a class="species" href="{% url 'browse:species' 'HCV' %}" target="_blank" title="species">HCV</a>
+                        </li>
+                        <li><a class="species" href="{% url 'browse:species' 'DEN-2' %}"
+                               target="_blank">DEN-2</a>
+                        </li>
+                        <li><a class="species" href="{% url 'browse:species' 'WNV' %}" target="_blank" title="species">WNV</a>
+                        </li>
+                    </ul>
+
+                    <a class="family" href="{% url 'browse:family' 'Paramyxoviridae' %}"
+                       target="_blank" title="family">Togaviridae</a>
+                    <ul class="species-ul">
+                        <li><a class="species" href="{% url 'browse:species' 'SINV' %}" target="_blank" title="species">SINV</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <div class="col-md-2" id="col">
+                <div class="title titleSpecial"><a href="{% url 'browse:group' 'dsDNA' %}"
+                                      target="_blank" title="group">Double-Stranded DNA</a></div>
+
+                <div class="content">
+                    <a class="family" href="{% url 'browse:family' 'Herpesviridae' %}"
+                       target="_blank" title="family">Herpesviridae</a>
+                    <ul class="species-ul">
+                        <li><a class="species" href="{% url 'browse:species' 'HSV-1' %}"
+                               target="_blank" title="species">HSV-1</a>
+                        </li>
+                    </ul>
+                    <a class="family" href="{% url 'browse:family' 'Poxviridae' %}"
+                       target="_blank" title="family">Poxviridae</a>
+                    <ul class="species-ul">
+                        <li><a class="species" href="{% url 'browse:species' 'VACV' %}" target="_blank" title="species">VACV</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-2" id="col">
+                <div class="title titleSpecial"><a
+                        href="{% url 'browse:group' 'dsRNA' %}"
+                        target="_blank" title="group">Double-Stranded RNA</a></div>
+
+                <div class="content">
+                    <a class="family" href="{% url 'browse:family' 'Reoviridae' %}"
+                       target="_blank" title="family">Reoviridae</a>
+                    <ul class="species-ul">
+                        <li><a class="species" href="{% url 'browse:species' 'rotavirus' %}"
+                               target="_blank" title="species">rotavirus</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-2" id="col">
+                <div class="title"><a href="{% url 'browse:group' 'Retro-transcribed' %}"
+                                      target="_blank" title="group">Retro-transcribed</a></div>
+
+                <div class="content">
+
+                    <a class="family" href="{% url 'browse:family' 'Retroviridae' %}"
+                       target="_blank" title="family">Retroviridae</a>
+                    <ul class="species-ul">
+                        <li><a class="species" href="{% url 'browse:species' 'HIV-1' %}"
+                               target="_blank" title="species">HIV-1</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>Bacterial Pathogens</div>
+    <div>
+        <p>Click the link at specific classification level to view EHF information of interest.
+        Click <a href="{% url 'browse:kingdom' 'bacteria' %}" target="_blank">here</a> to view EHF data for all bacterial pathogens.</p>
+
+        <div class="row">
+            <div class="col-md-9" id="col">
+                <div class="title"><a href="{% url 'browse:group' 'Gram-' %}"
+                                      target="_blank" title="group">Gram-negative</a></div>
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div><a class="genus" href="{% url 'browse:genus' 'Escherichia' %}"
+                                    target="_blank" title="genus">Escherichia</a></div>
+                            <ul class="species-ul">
+                                <li><a class="species" href="{% url 'browse:species' 'E. coli' %}"
+                                       target="_blank" title="species">E. coli</a>
+                                </li>
+                            </ul>
+
+                            <div><a class="genus"
+                                    href="{% url 'browse:genus' 'Salmonella' %}"
+                                    target="_blank" title="genus">Salmonella</a></div>
+                            <ul class="species-ul">
+                                <li><a class="species" href="{% url 'browse:species' 'Salmonella enterica' %}"
+                                       target="_blank" title="species">Salmonella enterica</a>
+                                </li>
+                            </ul>
+
+
+                            <div><a class="genus"
+                                    href="{% url 'browse:genus' 'Pseudomonas' %}"
+                                    target="_blank" title="genus">Pseudomonas</a></div>
+                            <ul class="species-ul">
+                                <li><a class="species" href="{% url 'browse:species' 'Pseudomonas aeruginosa' %}"
+                                       target="_blank" title="species">Pseudomonas aeruginosa</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="col-md-4">
+                            <div><a class="genus" href="{% url 'browse:genus' 'Brucella' %}"
+                                    target="_blank" title="genus">Brucella</a></div>
+                            <ul class="species-ul">
+                                <li><a class="species"
+                                       href="{% url 'browse:species' 'Brucella abortus(Brucella melitensis)' %}"
+                                       target="_blank" title="species">Brucella abortus(Brucella melitensis)</a>
+                                </li>
+                            </ul>
+
+
+                            <div><a class="genus"
+                                    href="{% url 'browse:genus' 'Francisella' %}"
+                                    target="_blank" title="genus">Francisella</a></div>
+                            <ul class="species-ul">
+                                <li><a class="species" href="{% url 'browse:species' 'Francisella tularensis' %}"
+                                       target="_blank" title="species">Francisella tularensis</a>
+                                </li>
+                            </ul>
+
+                            <div><a class="genus"
+                                    href="{% url 'browse:genus' 'Serratia' %}"
+                                    target="_blank" title="genus">Serratia</a></div>
+                            <ul class="species-ul">
+                                <li><a class="species" href="{% url 'browse:species' 'Serratia marcescens' %}"
+                                       target="_blank" title="species">Serratia marcescens</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="col-md-4">
+                            <a class="genus" href="{% url 'browse:genus' 'Chlamydia' %}"
+                               target="_blank" title="genus">Chlamydia</a>
+                            <ul class="species-ul">
+                                <li><a class="species" href="{% url 'browse:species' 'Chlamydia trachomatis' %}"
+                                       target="_blank" title="species">Chlamydia trachomatis</a>
+                                </li>
+                            </ul>
+
+                            <a class="genus" href="{% url 'browse:genus' 'Chlamydophila' %}"
+                               target="_blank" title="genus">Chlamydophila</a>
+                            <ul class="species-ul">
+                                <li><a class="species" href="{% url 'browse:species' 'Chlamydia caviae' %}"
+                                       target="_blank" title="species">Chlamydia caviae</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3" id="col">
+                <div class="title"><a href="{% url 'browse:group' 'Gram+' %}"
+                                      target="_blank" title="group">Gram-positive</a></div>
+                <div class="content">
+
+                    <div><a class="genus" href="{% url 'browse:genus' 'Listeria' %}"
+                            target="_blank" title="genus">Listeria</a></div>
+
+                    <ul class="species-ul">
+                        <li><a class="species" href="{% url 'browse:species' 'Listeria monocytogenes' %}"
+                               target="_blank" title="species">Listeria monocytogenes</a>
+                        </li>
+                    </ul>
+
+
+                    <div><a class="genus" href="{% url 'browse:genus' 'Mycobacterium' %}"
+                            target="_blank" title="genus">Mycobacterium</a></div>
+
+                    <ul class="species-ul">
+                        <li><a class="species" href="{% url 'browse:species' 'Mycobacterium fortuitum' %}"
+                               target="_blank" title="species">Mycobacterium fortuitum</a>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div>Fungal Pathogens</div>
+    <div>
+        <p>Click the link at specific classification level to view EHF information of interest.
+        Click <a href="{% url 'browse:kingdom' 'fungi' %}" target="_blank">here</a> to view EHF data for all fungal pathogens.</p>
+
+        <div class="row">
+            <div class="col-md-4" id="col">
+                <div class="title">Diploid Fungus</div>
+
+                <div class="content">
+                    <a class="genus" href="{% url 'browse:genus' 'Candida' %}"
+                       target="_blank" title="genus">Candida</a>
+                    <ul class="species-ul">
+                        <li><a class="species" href="{% url 'browse:species' 'Candida albicans' %}"
+                               target="_blank" title="species">Candida albicans</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    </div>
+
+{% endblock %}

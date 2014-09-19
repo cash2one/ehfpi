@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - About</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'about/about.css' %}"/>
+    <div class="main">
+        <div class="copyright">
+
+            <ol class="breadcrumb">
+                <li><a href="{% url 'ehf.views.index' %}">Home</a></li>
+                <li><a href="{% url 'about:index' %}">About</a></li>
+                <li class="active">Copyright</li>
+            </ol>
+
+            <div class="copyrightTitle">
+                Copyright
+            </div>
+            <div class="copyrightContent">
+                EHFPI is licensed under a Creative Commons Attribution 3.0 Unported License. This means that you are
+                free to copy,
+                distribute, display and make commercial use of all records from the EHFPI database provided appropriate
+                credit is given.
+            </div>
+            <div class="copyrightTitle">
+                Acknowledgement
+            </div>
+            <div class="copyrightContent">
+                The database acknowledges several open-source projects:<br/>
+                <a href="https://www.djangoproject.com/" target="_blank">Django</a><br/>
+                <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a><br/>
+                <a href="http://www.jstree.com/" target="_blank">jsTree</a><br/>
+                <a href="http://d3js.org/" target="_blank">d3.js</a><br/>
+                <a href="http://philogb.github.io/jit/" target="_blank">JavaScript InfoVis Toolkit</a><br/>
+                <a href="https://github.com/twitter/typeahead.js/" target="_blank">typeahead.js</a><br/><br/>
+
+                Database data are curated by <a href="mailto:huibai13@hotmail.com">Hui Bai</a> and <a
+                    href="mailto:xiedafei@sina.com">Dafei Xie</a>.<br/>
+                Website design by <a href="mailto:liuyang@bmi.ac.cn">Yang Liu</a>. <br/>
+            </div>
+        </div>
+    </div>
+{% endblock %}

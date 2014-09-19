@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - Analysis</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'analysis/analysis.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'analysis/infovis/ForceDirected.css' %}"/>
+    <!--[if IE]><script src='/static/analysis/infovis/excanvas.js'></script><![endif]-->
+    <script src='/static/analysis/infovis/jit.js'></script>
+    <script src='/static/analysis/infovis/network.js'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery.fileDownload/1.4.2/jquery.fileDownload.js'></script>
+    <script src='/static/csrf.js'></script>
+
+    <div class="main otherMain" id="main">
+        <div id="geneList" style="display:none">{{ geneList }}</div>
+        <div id="aboveSpeciesList" style="display:none">{{ aboveSpeciesList }}</div>
+        <div id="csrf" style="display:none" value="{% csrf_token %}"></div>
+        <div id="mainDiv">
+            <div id="otherLoading">
+                <img src="/static/analysis/images/loading6.gif"/>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" language="JavaScript">
+        $(document).ready(function () {
+            URL_PREFIX = '/ehfpi';
+            var text = $('#geneList').text();
+            var aboveSpeciesList = $('#aboveSpeciesList').text();
+            //change to ajax post to avoid too long url
+            $.post(URL_PREFIX + "/analysis/overlap/displayNetwork", {'text': text, 'aboveSpeciesList': aboveSpeciesList, csrfmiddlewaretoken: '{{csrfmiddlewaretoken}}'}, evalCallbk);  //get search types from server
+        });
+    </script>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>404 - The page you were looking for doesn't exist - EHFPI</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <div class="errorMain">
+        <h3><b>Oops! Page not found!</b></h3><br/>
+
+        <p>You may have followed an old link, typed in the address incorrectly,
+            or are just trying to make us feel bad. :)</p>
+        <p>If you’re not sure what you’re looking for, please see the <a href="{% url 'help:index' %}">help</a> of EHFPI!</p>
+
+        <div class="errorimage"><img src="/static/images/404.jpg"></div>
+    </div>
+{% endblock %}

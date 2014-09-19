@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - About</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'about/about.css' %}"/>
+    <div class="main">
+        <div class="external">
+            <ol class="breadcrumb">
+                <li><a href={% url 'ehf.views.index' %}>Home</a></li>
+                <li><a href="{% url 'about:index' %}">About</a></li>
+                <li class="active">External Links</li>
+            </ol>
+            <div class="externalContent">
+                More useful tools and database resources:
+                <ol>
+                    <li><b>DEG</b> <a href="http://tubic.tju.edu.cn/deg/">http://tubic.tju.edu.cn/deg</a></li>
+                    <li><b>PHI-base</b> <a href="http://www.phi-base.org/">http://www.phi-base.org</a></li>
+                    <li><b>GenomeRNAi</b> <a href="http://www.genomernai.org/">http://www.genomernai.org</a></li>
+                    <li><b>VirusMINT</b> <a href="http://mint.bio.uniroma2.it/virusmint/Welcome.do">http://mint.bio.uniroma2.it/virusmint/Welcome.do</a></li>
+                    <li><b>VirHostNet</b> <a href="http://pbildb1.univ-lyon1.fr/virhostnet/index.php">http://pbildb1.univ-lyon1.fr/virhostnet/index.php</a></li>
+                    <li><b>VIPR</b> <a href="http://www.viprbrc.org/brc/home.spg?decorator=vipr">http://www.viprbrc.org/brc/home.spg?decorator=vipr</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+{% endblock %}

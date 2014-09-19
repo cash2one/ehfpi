@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load pagination_tags %}
+{% block title %}
+    <title>EHFPI - About</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    {% load tableSort %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'about/about.css' %}"/>
+    <script src='/static/about/about.js'></script>
+
+
+    <div class="main">
+        <div class="submitHistory">
+            <ol class="breadcrumb">
+                <li><a href="{% url 'ehf.views.index' %}">Home</a></li>
+                <li><a href="{% url 'about:index' %}">About</a></li>
+                <li class="active">Contribution List</li>
+            </ol>
+
+            <div class="submitHistoryContent">
+                Many thanks to the contributors listed below.
+                <div id="tablediv" class="tablediv">
+                    {% if result %}
+                        <table class="table table-hover table-striped table-bordered table-condensed">
+                            <thead>
+                            <tr class="tableHead">
+                                <th name="name">
+                                    <a href="?{% url_replace request 'order_by' 'name' %}">Name</a>
+
+                                </th>
+                                <th name="institute">
+                                    <a href="?{% url_replace request 'order_by' 'institute' %}">Institute</a>
+
+                                </th>
+                                <th name="email">
+                                    <a href="?{% url_replace request 'order_by' 'email' %}">Email</a>
+
+                                </th>
+                                <th name="content">
+                                    <a href="?{% url_replace request 'order_by' 'content' %}">Content</a>
+                                </th>
+                                <th name="time">
+                                    <a href="?{% url_replace request 'order_by' 'time' %}">time</a>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% autopaginate result %}
+                            {% for res in result %}
+                                <tr>
+                                    <td>{{ res.name }}</td>
+                                    <td>{{ res.institute }}</td>
+                                    <td>{{ res.email }}</td>
+                                    <td>{{ res.content }}</td>
+                                    <td>{{ res.time | date:'M d, Y' }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                        <div id="pager">{% paginate %}</div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="gotop">
+                <a href="#" title="Back to the top of the page"><span
+                        class="glyphicon glyphicon-circle-arrow-up"></span>
+                    Top</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

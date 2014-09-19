@@ -1,0 +1,14 @@
+/*default error page*/
+.errorMain {
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans','Helvetica', 'Verdana', 'Tahoma', 'sans-serif',serif;
+    background-color: white;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 30px 50px 10px 80px;
+
+}
+
+.errorMain .errorimage {
+    text-align: center;
+    margin: 10px auto 10px auto;
+}

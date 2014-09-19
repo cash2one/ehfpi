@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - Analysis</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'analysis/analysis.css' %}"/>
+
+    <div class="main">
+        <div class="overlapIndex">
+
+            <ol class="breadcrumb">
+                <li><a href="{% url 'ehf.views.index' %}">Home</a></li>
+                <li><a href="{% url 'analysis:index' %}">Analysis</a></li>
+                <li class="active">Overlap</li>
+            </ol>
+
+            <div class="overlapContent">
+
+                <div class="col-md-6" id="overlapDes">
+                    <div class="overlapType">
+                        <a href="#">EHF Overlap Analysis</a>
+                    </div>
+                    <div class="overlapDes">
+                        A heatmap which displays the common genes of pathogens. You can analyze in three categories:
+                        <ul>
+                            <li><a href='{% url 'analysis:overlapHeatMap' %}'>Taxonomy</a> Display the map at four
+                                different
+                                taxonomy
+                                levels. Note that for virus the genus level is not provided, for fungi and bacteria
+                                the
+                                family level is not provided.
+                            </li>
+                            <li>
+                                <a href='{% url 'analysis:overlapHeatMapArticle' %}'>Article</a> Display the map
+                                based on
+                                the article.
+                            </li>
+
+                        </ul>
+                        Click <b><a href="{% url 'analysis:statistics' %}">here</a></b> to view the list of EHF genes and their related pathogen lists.
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <img src="/static/analysis/images/analysisMain2.jpg">
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

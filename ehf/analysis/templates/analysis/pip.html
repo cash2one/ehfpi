@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load pagination_tags %}
+{% block title %}
+    <title>EHFPI - Analysis</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    {% load getDict %}
+    {#    <script src='/static/analysis/jstree/jstree.min.js'></script>#}
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jstree/3.0.1/jstree.min.js'></script>
+    <script src='/static/analysis/jstree/pip.js'></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'analysis/analysis.css' %}"/>
+{#    <link rel="stylesheet" type="text/css" href="{% static 'analysis/jstree/themes/default/style.min.css' %}"/>#}
+    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/jstree/3.0.1/themes/default/style.min.css"/>
+
+    <div class="main">
+        <div class="vtp">
+            <div class="vtpTitle">
+                <ol class="breadcrumb">
+                    <li><a href="{% url 'ehf.views.index' %}">Home</a></li>
+                    <li><a href="{% url 'analysis:index' %}">Analysis</a></li>
+                    <li class="active">PIP Analysis</li>
+                </ol>
+            </div>
+            <div class="vtpContent" id="vtpContent">
+                You can provide a gene list or choose specific pathogens. The PIP data are from
+                <a href="http://pbildb1.univ-lyon1.fr/virhostnet/index.php" target="_blank">VirHostNet</a>
+                and <a href="http://mint.bio.uniroma2.it/virusmint/Welcome.do" target="_blank">VirusMINT</a>.
+
+                <div id="accordion">
+                    <div>
+                        Gene List
+                    </div>
+                    <div>
+                        <div class="des">Input a list of gene symbol, separated by comma. Or one gene per line.</div>
+                        <div class="geneList">
+                            <textarea class="form-control " id="geneList" name="geneList" rows="10"
+                                      cols="10"
+                                      placeholder="gene separated by comma. e.g., gene1,gene2. Or one gene per line"></textarea>
+
+                        </div>
+                    </div>
+                    <div>
+                        Pathogen Taxonomy Tree
+
+                    </div>
+                    <div>
+                        <input type="text" id="vtp_plugins4_q" value="" class="input"
+                               placeholder="search pathogen">
+
+                        <div id="resizable" class="vtp_resizable">
+                            <div id="jstree_vtp_div">
+                                <ul>
+                                    <li id="all">All Pathogens
+                                        <ul>
+                                            {% for kingDic in tree %}
+                                                {% for kingdom,value in kingDic.iteritems %}
+                                                    <li rel="kingdom"
+                                                        id="kingdom_{{ tree_taxonomy|get:kingdom }}">{{ kingdom }}
+                                                        <ul>
+                                                            {% for subItem,strainList in value.iteritems %}
+                                                                {% ifequal kingdom "virus" %}
+                                                                    <li rel="family"
+                                                                        id="family_{{ tree_taxonomy|get:subItem }}">{{ subItem }}
+                                                                        {% else %}
+                                                                    <li rel="genus"
+                                                                        id="genus_{{ tree_taxonomy|get:subItem }}">
+                                                                    {{ subItem }}
+                                                                {% endifequal %}
+                                                            <ul>
+                                                                {% for species in strainList %}
+                                                                    <li data-jstree='{ "type" : "species" }'
+                                                                        id="species_{{ tree_taxonomy|get:species }}">{{ species }}</li>
+                                                                {% endfor %}
+                                                            </ul>
+                                                            </li>
+                                                            {% endfor %}
+                                                        </ul>
+                                                    </li>
+                                                {% endfor %}
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <input type="button" id="vtpAnalysis" value="Analyze" class="btn btn-primary btn-sm" onclick="getVTP();">
+        </div>
+
+
+    </div>
+
+
+{% endblock %}

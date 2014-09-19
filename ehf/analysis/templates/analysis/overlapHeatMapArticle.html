@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - Analysis</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    {% load getDict %}
+    {#    <script src='/static/analysis/jstree/jstree.min.js'></script>#}
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jstree/3.0.1/jstree.min.js'></script>
+    <script src='/static/analysis/jstree/heatmapArticle.js'></script>
+    {#    <script src='/static/analysis/d3/d3.min.js'></script>#}
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.8/d3.js'></script>
+    <script src='/static/csrf.js'></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'analysis/analysis.css' %}"/>
+{#    <link rel="stylesheet" type="text/css" href="{% static 'analysis/jstree/themes/default/style.min.css' %}"/>#}
+    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/jstree/3.0.1/themes/default/style.min.css"/>
+
+    <div class="main">
+        <div class="heatmap">
+            <div class="heatMapBread">
+                <ol class="breadcrumb">
+                    <li><a href="{% url 'ehf.views.index' %}">Home</a></li>
+                    <li><a href="{% url 'analysis:index' %}">Analysis</a></li>
+                    <li><a href="{% url 'analysis:overlap' %}">Overlap</a></li>
+                    <li class="active">Article Heatmap</li>
+                </ol>
+            </div>
+            <div class="row ">
+                <div class="col-md-3">
+                    <div class="left-part">
+                        <input type="text" id="plugins4_q" value="" class="input" placeholder="search article">
+                    <span id="heatmapArticleTip"><a href="{% url 'help:analysisHelp' %}#heatmap" target="_blank"><img
+                            src="/static/images/info_20x20.png"></a></span>
+
+                        <div id="resizable">
+                            <div id="jstree_div">
+                                <ul>
+                                    <li id="all">All Publications
+                                        <ul>
+                                            {% for acc,name in article.iteritems %}
+
+                                                <li data-jstree='{ "type" : "article" }'
+                                                    id="article_{{ acc }}">{{ name }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="searchHeatmap">
+                            Search heatmap:
+                            <div class="searchInput">
+                                <input type="text" class="form-control" id="searchNet" name="searchNet"
+                                       placeholder="search a gene" onkeydown="keyDown(event);">
+                            </div>
+                            <input type="button" value="Search" id="searchButton" class="btn btn-primary btn-sm"
+                                   onclick="searchNet(this);">
+                        </div>
+
+                        <div class="hintWrapper" id="hintWrapper">
+                            <b>Common Genes:</b>
+
+                            <div class="hint" id="hint" contenteditable="true">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-9">
+                    <div class="right-part">
+                        <div class="levelDivArticle">
+                            <input type="button" id="generate" value="Generate" class="btn btn-primary btn-sm"
+                                   onclick="getHeatMap();">
+                        </div>
+                        <div class="heatMapMain" id="heatMapMain">
+                            <div id="fig" class="fig">
+                            </div>
+                        </div>
+                        <div class="order">
+                            <p>Order:
+                                <select id="order">
+                                    <option value="name">by Name</option>
+                                    <option value="count">by Common Gene Number</option>
+                                    <option value="group">by Article Group</option>
+                                </select>
+                            <p>Use the drop-down menu to reorder the matrix and explore the data.
+
+                            <p>Built with <a href="http://d3js.org/">d3.js</a>.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

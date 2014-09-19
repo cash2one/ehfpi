@@ -1,0 +1,245 @@
+{% extends "base.html" %}
+{% load pagination_tags %}
+{% block title %}
+    <title>EHFPI - Analysis</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    {% load tableSort %}
+    {% load getDict %}
+    <script src='/static/analysis/jstree/gwasResult.js'></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'analysis/analysis.css' %}"/>
+
+{#    <script src='/static/browse/jquery.fileDownload.js'></script>#}
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery.fileDownload/1.4.2/jquery.fileDownload.js'></script>
+
+    <div class="main">
+    <div class="vtp">
+    <div class="gwasTitle">
+        <ol class="breadcrumb">
+            <li><a href="{% url 'ehf.views.index' %}">Home</a></li>
+            <li><a href="{% url 'analysis:index' %}">Analysis</a></li>
+            <li><a href="{% url 'analysis:gwasIndex' %}">GWAS Analysis</a></li>
+            <li class="active">GWAS Analysis Results</li>
+        </ol>
+    </div>
+    <div class="gwasContent" id="gwasContent">
+    <div class="gwasSummary">
+        <b>Summary</b>: <b>{{ GeneNumberSubmit }}</b> EHF gene{{ GeneNumberSubmit | pluralize }} are
+        submitted, and <b>{{ GeneNumberGWAS }}</b> are GWAS candidate disease/traits genes.
+        <span style="color: orangered">Please note that additional pathogens sharing the same EHF genes are also listed.</span>
+        Detailed information for a total of <b><span id="resultNumber">{{ interactions }}</span></b>
+        pair{{ interactions | pluralize }} of EHF- GWAS disease/traits connections are listed below.
+
+    </div>
+    <span id="ids" style="display:none">{{ ids }}</span>
+
+    <div id="functionDiv" class="functionDiv">
+        <div id="selectHint" class="selectHint">
+            <b><span id="selectNumber">0</span></b> items selected
+        </div>
+        <input type="checkbox" id="selectAllPage" value="selectAllPage" onclick="selectAllPage(this);">
+        <label id="selectAllPage"> Select all records </label>
+
+                        <span id="buttonGroup">
+                            <button id="downloadFunc" class="btn btn-primary btn-sm"
+                                    onclick="performFunction('download');">Download
+                            </button>
+
+
+                        </span>
+                    <span id="gwasAnalysisTip">(<a
+                            href="http://www.genome.gov/Pages/About/OD/OPG/GWAS%20Catalog/Tab_delimited_heading_descriptions_2014-02-26.pdf"
+                            target="_blank">Here</a> is the link of heading descriptions)</span>
+        <button id="filter" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#drugModal">
+            Filter
+        </button>
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="drugModal" tabindex="-1" role="dialog" aria-labelledby="drugModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Filter Result</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div id="listDes">Submitted Pathogens</div>
+                    <hr/>
+                    {% if aboveSpecies %}
+                        <div class="pathogenList">
+                            <div class="checkboxAll">
+                                <label class="checkbox-inline"><input type="checkbox" id="selectAllColumnsSubmitted"
+                                                                      value="All"
+                                                                      onclick="changeState(this,'submitted')"><b>Select
+                                    All</b></label>
+
+                                <table class="checkTable">
+                                    <tr>
+                                        {% for item in aboveSpecies %}
+
+                                            <td><label class="checkbox-inline"><input type="checkbox"
+                                                                                      name="drugColumn"
+                                                                                      id="drugSubmitted"
+                                                                                      value="{{ speciesDictReverse|get:item }}"
+                                                                                      onclick="stillSelectAllFilter(this,'submitted');"> {{ item }}
+                                            </label></td>
+                                            {% if forloop.counter|divisibleby:2 %}
+                                                </tr>
+                                                <tr>
+                                            {% endif %}
+
+                                        {% endfor %}
+                                        </tr>
+                                </table>
+                            </div>
+                        </div>
+                    {% endif %}
+
+
+
+
+                    <div id="listDes">Other Pathogens</div>
+                    <hr/>
+                    {% if otherSpecies %}
+                        <div class="pathogenList">
+                            <div class="checkboxAll">
+                                <label class="checkbox-inline"><input type="checkbox" id="selectAllColumnsOthers"
+                                                                      value="All"
+                                                                      onclick="changeState(this,'other')"><b>Select
+                                    All</b></label>
+
+                                <table class="checkTable">
+                                    <tr>
+                                        {% for item in otherSpecies %}
+
+                                            <td><label class="checkbox-inline"><input type="checkbox"
+                                                                                      name="drugColumn"
+                                                                                      id="drugOthers"
+                                                                                      value="{{ speciesDictReverse|get:item }}"
+                                                                                      onclick="stillSelectAllFilter(this,'other');"> {{ item }}
+                                            </label></td>
+                                            {% if forloop.counter|divisibleby:2 %}
+                                                </tr>
+                                                <tr>
+                                            {% endif %}
+
+                                        {% endfor %}
+                                        </tr>
+
+                                </table>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal"
+                            onclick="filterTable(this);">Filter
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <div class="gwasTable">
+        <div id="tablediv" class="tablediv">
+            {% if  result %}
+                <table class="table table-hover table-striped table-bordered table-condensed">
+                    <thead>
+                    <tr class="tableHead">
+                        <th id="tableSelectAll">
+                            <input type="checkbox" id="selectCurrentPage" value="selectCurrentPage"
+                                   onclick="selectCurrentPage(this)">
+                        </th>
+                        <th name="species"><a
+                                href="?{% url_replace request 'order_by' 'species' %}">Pathogen(species)</a>
+                        </th>
+                        <th name="reportedGene"><a
+                                href="?{% url_replace request 'order_by' 'reportedGene' %}">Submitted
+                            EHF</a>
+                        </th>
+                        <th name="mappedGene"><a href="?{% url_replace request 'order_by' 'mappedGene' %}">Mapped
+                            Gene</a>
+                        </th>
+                        <th name="disease"><a
+                                href="?{% url_replace request 'order_by' 'disease' %}">Disease/Trait</a>
+                        </th>
+                        <th name="snps"><a href="?{% url_replace request 'order_by' 'snps' %}">SNPs</a>
+                        </th>
+                        <th name="pvalue"><a
+                                href="?{% url_replace request 'order_by' 'pvalue' %}">p-Value</a></th>
+                        <th name="study"><a
+                                href="?{% url_replace request 'order_by' 'study' %}">Publication</a></th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% autopaginate result %}
+                    {% for res in result %}
+                        <tr>
+                            <td id="tableSelect">
+                                <input type="checkbox" name="tableRowCheckBox"
+                                       id={{ res.acc }} value={{ res.acc }}
+                                       onclick="stillSelectAll(this);">
+                            </td>
+                            <td>
+                                <a href="http://www.ncbi.nlm.nih.gov/taxonomy/{{ res.speciesTaxonomy }}"
+                                   target="_blank">{{ res.species }}</a>
+                            </td>
+                            <td>
+                                <a href="http://www.genome.gov/gwastudies/index.cfm?gene={{ res.reportedGene }}#searchForm"
+                                   target="_blank">{{ res.reportedGene }}</a>
+                            </td>
+                            <td>
+                                {{ res.mappedGene }}
+                            </td>
+                            <td>
+                                {{ res.disease }}
+                            </td>
+                            <td>
+                                <a href="http://www.ncbi.nlm.nih.gov/projects/SNP/snp_ref.cgi?rs={{ res.snps|slice:'2:' }}"
+                                   target="_blank">{{ res.snps }}</a>
+                            </td>
+                            <td>
+                                {{ res.pvalue }}
+                            </td>
+
+
+                            <td>
+
+                                <a href="http://www.ncbi.nlm.nih.gov/pubmed/{{ res.pubmedId }}"
+                                   target="_blank">{{ res.study }}</a>
+
+                            </td>
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <div id="pager">{% paginate %}</div>
+            {% else %}
+                <p>No results.</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="gotop">
+        <a href="#" title="Back to the top of the page"><span
+                class="glyphicon glyphicon-circle-arrow-up"></span>
+            Top</a>
+    </div>
+    </div>
+    </div>
+    </div>
+
+{% endblock %}

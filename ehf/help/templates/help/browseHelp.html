@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - Help</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'help/help.css' %}"/>
+    <script src='/static/help/help.js'></script>
+
+    <div class="helpMain">
+        <div class="row">
+            <div class="col-md-3 leftNav">
+                <div id="header">
+                    <h3><b>Quick HELP links</b></h3>
+                </div>
+                <hr>
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="{% url 'help:index' %}">Overview</a></li>
+                    <li><a href="{% url 'help:ehfHelp' %}">Background</a></li>
+                    <li><a href="{% url 'help:searchHelp' %}">Search</a></li>
+                    <li><a href="{% url 'help:browseHelp' %}">Browse</a></li>
+                    <ul>
+                        <li><a href="#preview">Browse Preview</a></li>
+                        <li><a href="#filterResult">Filter Results</a></li>
+                        <li><a href="#customBrowse">Customize Browse Results</a></li>
+                        <li><a href="#dataExport">Data Export of Results</a></li>
+                        <li><a href="#analysisFunc">Analysis of Results</a></li>
+                    </ul>
+                    <li><a href="{% url 'help:analysisHelp' %}">Analysis</a></li>
+                    <li><a href="{% url 'help:restHelp' %}">RESTful API</a></li>
+                    <li><a href="{% url 'help:citeHelp' %}">Cite</a></li>
+                </ul>
+            </div>
+            <div class="col-md-9 rightContent">
+                <div class="title" id="preview"><a href="#">Browse Preview</a></div>
+                <div class="content">
+                    In the browse part, you can view all EHFPI entries (see next section for direct link). All pathogens
+                    that have validated EHF information in EHFPI are displayed as according to taxonomy classification
+                    (e.g., kingdom, group, family, genus, and species).
+                    <div><img src="/static/help/images/browse1.jpg"></div>
+
+                    Or you may choose a pathogen of interest and the EHF results are presented as a two-level preview.
+                    In the first level preview, a summary of RNAi screens with publication title and phenotype
+                    information about all strains/subtypes tested under the same pathogen name are listed. Here is an
+                    example result list for viral specie HIV-1. The left column provides information for all tested HIV
+                    strains.
+
+                    <div><img src="/static/help/images/browse2.jpg"></div>
+                    Click the link for a "publication title" of interest, the second level preview will be displayed,
+                    showing details about the corresponding article, screen and EHF genes information. This page
+                    provides
+                    you a three-part result list. The first part is "article information", including Title, Authors,
+                    Journal, Year, PubmedId and
+                    Abstract. The second part is "screen information", including screen scope, type, reagent, target
+                    organism, phenotype, bioModel description, confirmatory screen description,primary screen
+                    description, calculated hits number, confirmed hits number, primary hits number, and note. The
+                    third part is the list of article-dependent EHF genes with custom display.
+                    <div><img src="/static/help/images/browse3.png" style="margin-bottom: 0px !important;"><img
+                            src="/static/help/images/browse4.png" style="margin-top: 0px !important;"></div>
+
+
+                </div>
+                <div class="gotop">
+                    <a href="#" title="Back to the top of the page"><span
+                            class="glyphicon glyphicon-circle-arrow-up"></span>
+                        Top</a>
+                </div>
+
+                <hr />
+                <div class="title" id="filterResult"><a href="#">Filter Results</a></div>
+                <div class="content">
+                    Alternatively, you can browse all EHFPI entries by clicking the link in browse page or <a
+                        href="http://biotech.bmi.ac.cn/ehfpi/browse/">here</a>. We provide a result guidance tree for
+                    you to filter the entries.<br/>
+                    You can filter all entries in EHFPI within four fields:
+                    <ul>
+                        <li>Pathogen</li>
+                        Presented at the kingdom and species level only.
+                        <li>Year</li>
+                        Year of Publication.
+                        <li>Journal</li>
+                        Journal of publication.
+                        <li>Phenotype</li>
+                        The knockdown effect of a specific (group of) gene(s) on pathogenic infection, e.g., increased
+                        infection, and inhibited infection.
+                    </ul>
+                    It may take time for the selected results to load, please be patient!
+                    <div><img src="/static/help/images/filterbrowse1.png"></div>
+                    Please note that the size of filter window is adjustable. The number mark at the end of each
+                    guidance item represents the total number of EHFPI accessions under that statistical category. The
+                    results displayed in the right window will change according to your selection.
+
+                </div>
+
+                <hr />
+                <div class="title" id="customBrowse"><a href="#">Customize Browse Results</a></div>
+
+                <div class="content">
+                    If you want to change the default displayed results according to your own research interest, please
+                    click the 'Custom Display Columns' button above the Result Table (right).
+                    <div><img src="/static/help/images/custombrowse1.jpg"></div>
+                    Then, choose the columns you want to display. <b>Note</b>: ehfpi acc, gene symbol, pathogen species,
+                    publication title
+                    and phenotype are default displayed columns.
+
+                    <div><img src="/static/help/images/custombrowse2.png"></div>
+
+                    Change the order of a specific columns by clicking the table title, e.g. EHFPI ACC. The first click
+                    will result in
+                    ascending order, and second click descending order.
+
+                </div>
+
+                <hr />
+                <div class="title" id="dataExport"><a href="#">Data Export of Results</a></div>
+
+                <div class="content">
+
+                    You can select all records (including all EHFPI information items) or the interested records of on
+                    the current page, then click the 'Download' button to obtain the results.
+                    <div><img src="/static/help/images/custombrowse1.jpg"></div>
+                    You can also choose the columns you want to for download. The file format is csv.
+                    <div><img src="/static/help/images/download2.png"></div>
+                </div>
+
+                <hr />
+                <div class="title" id="analysisFunc"><a href="#">Analysis of Results</a></div>
+
+                <div class="content">
+                    Conveniently, you can perform analysis for all or selected EHF records by click the button above the
+                    search result. More details can be found in <a href="{% url 'help:analysisHelp' %}">analysis</a>
+                    part.
+                    <div><img src="/static/help/images/custombrowse1.jpg"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

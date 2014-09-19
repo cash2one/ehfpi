@@ -1,0 +1,42 @@
+.main {
+    border: 1px solid;
+    background-color: white;
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+.rest{
+    margin:10px 50px 30px 50px;
+}
+
+.restTitle {
+    font-size: 16px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    margin-left: 10px;
+}
+
+.restcontent{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#funcPanel{
+    margin: 20px 0px 20px 0px;
+}
+
+#funcPanel li{
+    margin-top: 10px;
+}
+
+#pythonCode {
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #f9f2f4;
+    border-radius: 4px;
+}
+
+
+.breadcrumb{
+    font-size: 14px;
+}

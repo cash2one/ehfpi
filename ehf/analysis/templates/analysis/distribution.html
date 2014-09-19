@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% load pagination_tags %}
+{% block title %}
+    <title>EHFPI - Analysis</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    {% load chartit %}
+    <script src='/static/about/highcharts.js'></script>
+    {#        <script src='http://cdnjs.cloudflare.com/ajax/libs/highcharts/4.0.3/highcharts.js'></script>#}
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'analysis/analysis.css' %}"/>
+    {{ charts|load_charts:"allColumn,primaryColumn" }}
+
+    <div class="main">
+        <div class="overlapIndex">
+
+            <ol class="breadcrumb">
+                <li><a href="{% url 'ehf.views.index' %}">Home</a></li>
+                <li><a href="{% url 'analysis:index' %}">Analysis</a></li>
+                <li><a href="{% url 'analysis:overlap' %}">Overlap</a></li>
+                <li class="active">Distribution</li>
+            </ol>
+
+
+            <div class="overlapContent">
+                <div>
+                    <div class="distributionTitle">EHFs distribution of all genes</div>
+                    <div class="distributionDes">This graph shows EHFs distribution of all genes. x axis represents the
+                        interacted pathogen
+                        number, y axis represents the EHF number.
+                    </div>
+
+                    <div class="statisticsMap">
+                        <div id='allColumn' class="allColumn"></div>
+                    </div>
+
+                    <div class="distributionDes">Gene List whose interacted pathogen number is greater than 3.
+                    </div>
+                    <div id="tablediv" class="distributionTable">
+                        <table class="table table-hover table-striped table-bordered table-condensed">
+                            <thead>
+                            <tr class="tableHead">
+                                <th>Pathogen Number</a>
+                                </th>
+                                <th>Gene Number
+                                </th>
+                                <th id="geneList">Gene List</a>
+                                </th>
+                                <th>Drug info</a>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for res in resultAll %}
+                                <tr>
+                                    <td>
+                                        {{ res.pathogenNumber }}
+                                    </td>
+                                    <td>
+                                        {{ res.geneNumber }}
+                                    </td>
+                                    <td>
+                                        <a href="/ehfpi/analysis/overlap/statistics?geneSymbol={{ res.geneList }}">{{ res.geneList }}</a>
+                                    </td>
+                                    <td>
+                                        <a href="/ehfpi/analysis/drugResults/?jsTreeList=&geneList={{ res.geneList }}"><span
+                                                class="glyphicon glyphicon-share-alt">drug</span></a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+                <div>
+                    <div class="distributionTitle">EHFs distribution of primary hits</div>
+                    <div class="distributionDes">This graph shows EHFs distribution for primary hits (systematic
+                        analysis or
+                        functional study).
+                    </div>
+
+                    <div class="statisticsMap">
+                        <div id='primaryColumn' class="primaryColumn"></div>
+                    </div>
+                    <div class="distributionDes">Gene List whose interacted pathogen number is greater than 2.
+                    </div>
+                    <div id="tablediv" class="distributionTable">
+                        <table class="table table-hover table-striped table-bordered table-condensed">
+                            <thead>
+                            <tr class="tableHead">
+                                <th>Pathogen Number</a>
+                                </th>
+                                <th>Gene Number
+                                </th>
+                                <th id="geneList">Gene List</a>
+                                </th>
+                                <th>Drug info</a>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for res in resultPrimary %}
+                                <tr>
+                                    <td>
+                                        {{ res.pathogenNumber }}
+                                    </td>
+                                    <td>
+                                        {{ res.geneNumber }}
+                                    </td>
+                                    <td>
+                                        <a href="/ehfpi/analysis/overlap/statistics?geneSymbol={{ res.geneList }}">{{ res.geneList }}</a>
+                                    </td>
+                                    <td>
+                                        <a href="/ehfpi/analysis/drugResults/?jsTreeList=&geneList={{ res.geneList }}"><span
+                                                class="glyphicon glyphicon-share-alt">drug</span></a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+{% endblock %}

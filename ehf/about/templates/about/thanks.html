@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - About</title>
+{% endblock %}
+
+{% block content %}
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'about/about.css' %}"/>
+<div class = "main">
+    <div class = "thanks">
+        Thanks, we will reply to you as soon as possible.<br/>
+        <img src="/static/about/thanks.gif">
+    </div>
+</div>
+{% endblock %}

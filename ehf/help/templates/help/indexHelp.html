@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - Help</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'help/help.css' %}"/>
+
+    <div class="helpMain">
+        <div class="row">
+            <div class="col-md-3 leftNav">
+                <div id="header">
+                    <h3><b>Quick HELP Links</b></h3>
+                </div>
+                <hr>
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="{% url 'help:index' %}">Overview</a></li>
+                    <li><a href="{% url 'help:ehfHelp' %}">Background</a></li>
+                    <li><a href="{% url 'help:searchHelp' %}">Search</a></li>
+                    <li><a href="{% url 'help:browseHelp' %}">Browse</a></li>
+                    <li><a href="{% url 'help:analysisHelp' %}">Analysis</a></li>
+                    <li><a href="{% url 'help:restHelp' %}">RESTful API</a></li>
+                    <li><a href="{% url 'help:citeHelp' %}">Cite</a></li>
+                </ul>
+            </div>
+            <div class="col-md-9 rightContent">
+                <div class="titleIndex">Background information about essential host factor</div>
+                <div class="contentIndex"><a href="{% url 'help:ehfHelp' %}">What is essential host factor</a></div>
+
+                <div class="titleIndex">EHFPI provides a powerful search interface to query information</div>
+                <div class="contentIndex"><a href="{% url 'help:searchHelp' %}">How to find the data you want</a></div>
+
+                <div class="titleIndex">What can I do with EHFPI</div>
+                <div class="contentIndex">
+                    <p><a href="{% url 'help:browseHelp' %}">Browse data and custom download</a></p>
+                    <p><a href="{% url 'help:analysisHelp' %}">Perform multiple analysis</a></p>
+                    <p><a href="{% url 'help:restHelp' %}">Use restful web service</a></p>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

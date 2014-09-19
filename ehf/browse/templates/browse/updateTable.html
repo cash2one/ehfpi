@@ -1,0 +1,284 @@
+{% load pagination_tags %}
+{% load tableSort %}
+{% load splitString %}
+<div id="tablediv" class="tablediv">
+{% if  result %}
+    <table class="table table-hover table-striped table-bordered table-condensed">
+    <thead>
+    <tr class="tableHead">
+        <th id="tableSelectAll">
+            <input type="checkbox" id="selectCurrentPage" value="selectCurrentPage"
+                   onclick="selectCurrentPage(this)">
+        </th>
+        {% for key,value in displayColumnsDic %}
+            <th name="{{ key }}"><a href="?{% url_replace request 'order_by' key %}">{{ value }}</a></th>
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+    {% autopaginate result %}
+    {% for res in result %}
+        <tr>
+        <td id="tableSelect">
+            <input type="checkbox" name="tableRowCheckBox" id={{ res.ehfpiAcc }} value={{ res.ehfpiAcc }}
+                   onclick="stillSelectAll(this);">
+        </td>
+        {% for key,value in displayColumnsDic %}
+                {% ifequal key 'ehfpiAcc' %}
+                    <td>
+                        <a href="{% url 'search:searchDetail' res.ehfpiAcc %}"
+                           target="_blank" title="click to view details">{{ res.ehfpiAcc }}</a>
+                    </td>
+                {% endifequal %}
+
+                {% ifequal key 'entrezId' %}
+                    <td>
+                        {% ifequal res.entrezId "-" %}
+                            {{ res.entrezId }}
+                        {% else %}
+                            <a href="http://www.ncbi.nlm.nih.gov/gene/{{ res.entrezId }}"
+                               target="_blank" title="link to NCBI gene">{{ res.entrezId }}</a>
+                        {% endifequal %}
+                    </td>
+                {% endifequal %}
+
+                {% ifequal key 'uniprotId' %}
+                    <td>
+                        {% ifequal res.uniprotId "-" %}
+                            {{ res.uniprotId }}
+                        {% else %}
+                            <a href="http://www.uniprot.org/uniprot/{{ res.uniprotId }}"
+                               target="_blank" title="link to uniprot website">{{ res.uniprotId }}</a>
+                        {% endifequal %}
+
+                    </td>
+                {% endifequal %}
+
+                {% ifequal key 'species' %}
+                    <td>
+                        {% ifequal res.species "-" %}
+                            {{ res.species }}
+                        {% else %}
+                            <a href="http://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id={{ res.speciesTaxonomy }}"
+                               target="_blank" title="link to NCBI taxonomy">{{ res.species }}</a>
+                        {% endifequal %}
+
+                    </td>
+                {% endifequal %}
+
+                {% ifequal key 'genus' %}
+                    <td>
+                        {% ifequal res.genus "-" %}
+                            {{ res.genus }}
+                        {% else %}
+                            <a href="http://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id={{ res.genusTaxonomy }}"
+                               target="_blank" title="link to NCBI taxonomy">{{ res.genus }}</a>
+                        {% endifequal %}
+
+                    </td>
+                {% endifequal %}
+
+                {% ifequal key 'family' %}
+                    <td>
+                        {% ifequal res.family "-" %}
+                            {{ res.family }}
+                        {% else %}
+                            <a href="http://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id={{ res.familyTaxonomy }}"
+                               target="_blank" title="link to NCBI taxonomy">{{ res.family }}</a>
+                        {% endifequal %}
+
+                    </td>
+                {% endifequal %}
+
+                {% ifequal key 'kingdom' %}
+                    <td>
+                        {% ifequal res.kingdom "-" %}
+                            {{ res.kingdom }}
+                        {% else %}
+                            <a href="http://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id={{ res.kingdomTaxonomy }}"
+                               target="_blank" title="link to NCBI taxonomy">{{ res.kingdom }}</a>
+                        {% endifequal %}
+
+                    </td>
+                {% endifequal %}
+
+                {% ifequal key 'geneSymbol' %}
+                    <td>{{ res.geneSymbol }}</td>
+                {% endifequal %}
+
+                {% ifequal key 'geneDescription' %}
+                    <td>{{ res.geneDescription }}</td>
+                {% endifequal %}
+
+                {% ifequal key 'previousName' %}
+                    <td>{{ res.previousName }}</td>
+                {% endifequal %}
+
+                {% ifequal key 'synonyms' %}
+                    <td>{{ res.synonyms }}</td>
+                {% endifequal %}
+
+                {% ifequal key 'proteinName' %}
+                    <td>{{ res.proteinName }}</td>
+                {% endifequal %}
+
+                {% ifequal key 'ensemblGeneId' %}
+                    <td>{{ res.ensemblGeneId }}</td>
+                {% endifequal %}
+
+                {% ifequal key 'targetOrganism' %}
+                    <td>{{ res.targetOrganism }}</td>
+                {% endifequal %}
+
+                {% ifequal key 'drosophilaGene' %}
+                    <td>{{ res.drosophilaGene }}</td>
+                {% endifequal %}
+
+                {% ifequal key 'humanHomolog' %}
+                    <td>{{ res.humanHomolog }}</td>
+                {% endifequal %}
+
+                {% ifequal key 'go' %}
+                    <td id="go">
+                        {% for goId in res.go|splitStr:',' %}
+                            <a href="http://amigo.geneontology.org/amigo/term/{{ goId }}" target="_blank">{{ goId }}</a>
+                        {% endfor %}
+                    </td>
+                {% endifequal %}
+
+                {% ifequal key 'pathway' %}
+                    <td id="pathway">
+                        {% for keggId in res.pathway|splitStr:',' %}
+                            <a href="http://www.genome.jp/kegg-bin/show_pathway?{{ keggId }}" target="_blank">{{ keggId }}</a>
+                        {% endfor %}
+                    </td>
+                {% endifequal %}
+
+                {% ifequal key 'isVTP' %}
+                    <td>{{ res.isVTP |yesno:"Yes,No,Perhaps" }}</td>
+                {% endifequal %}
+
+                {% ifequal key 'resources' %}
+                    <td>{{ res.resources }}</td>
+                {% endifequal %}
+
+                {% ifequal key 'geneNote' %}
+                    <td>{{ res.geneNote }}</td>
+                {% endifequal %}
+
+                {% ifequal key 'fullName' %}
+                    <td>{{ res.fullName }}</td>
+                {% endifequal %}
+
+                {% ifequal key 'abbreviation' %}
+                    <td>{{ res.abbreviation }}</td>
+                {% endifequal %}
+
+                {% ifequal key 'aliases' %}
+                    <td>{{ res.aliases }}</td>
+                {% endifequal %}
+
+                {% ifequal key 'strain' %}
+                    <td>{{ res.strain }}</td>
+                {% endifequal %}
+
+                {% ifequal key 'group' %}
+                    <td>{{ res.group }}</td>
+                {% endifequal %}
+
+                {% ifequal key 'title' %}
+                    <td>{{ res.title }}</td>
+                {% endifequal %}
+
+                {% ifequal key 'author' %}
+                    <td>{{ res.author }}</td>
+                {% endifequal %}
+
+                {% ifequal key 'pubmedId' %}
+                    <td>{{ res.pubmedId }}</td>
+                {% endifequal %}
+
+                {% ifequal key 'year' %}
+                    <td>{{ res.year }}</td>
+                {% endifequal %}
+
+                {% ifequal key 'journal' %}
+                    <td>{{ res.journal }}</td>
+                {% endifequal %}
+
+                {% ifequal key 'abstract' %}
+                    <td>{{ res.abstract }}</td>
+                {% endifequal %}
+
+
+                {% ifequal key 'doi' %}
+                    <td>{{ res.doi }}</td>
+                {% endifequal %}
+
+
+                {% ifequal key 'scope' %}
+                    <td>{{ res.scope }}</td>
+                {% endifequal %}
+
+
+                {% ifequal key 'assayType' %}
+                    <td>{{ res.assayType }}</td>
+                {% endifequal %}
+
+
+                {% ifequal key 'reagent' %}
+                    <td>{{ res.reagent }}</td>
+                {% endifequal %}
+
+
+                {% ifequal key 'phenotype' %}
+                    <td>{{ res.phenotype }}</td>
+                {% endifequal %}
+
+
+                {% ifequal key 'bioModelDescription' %}
+                    <td>{{ res.bioModelDescription }}</td>
+                {% endifequal %}
+
+
+                {% ifequal key 'confirmatoryScreenDescription' %}
+                    <td>{{ res.confirmatoryScreenDescription }}</td>
+                {% endifequal %}
+
+
+                {% ifequal key 'primaryScreenDescription' %}
+                    <td>{{ res.primaryScreenDescription }}</td>
+                {% endifequal %}
+
+
+                {% ifequal key 'hitsNumber' %}
+                    <td>{{ res.hitsNumber }}</td>
+                {% endifequal %}
+
+
+                {% ifequal key 'confirmedHitsNumber' %}
+                    <td>{{ res.confirmedHitsNumber }}</td>
+                {% endifequal %}
+
+
+                {% ifequal key 'primaryHitsNumber' %}
+                    <td>{{ res.primaryHitsNumber }}</td>
+                {% endifequal %}
+
+                {% ifequal key 'screenNote' %}
+                    <td>{{ res.screenNote }}</td>
+                {% endifequal %}
+
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+
+{% else %}
+    <p>No results.</p>
+{% endif %}
+</div>
+{% if  result %}
+    <div id="pager">{% paginate %}</div>
+{% endif %}

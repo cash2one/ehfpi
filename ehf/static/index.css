@@ -1,0 +1,131 @@
+#index_row{
+    background-color: white;
+
+}
+
+.intro {
+    padding: 30px 30px 10px 50px;
+}
+
+.intro p{
+    font-size: 16px;
+}
+
+.welcome{
+    font-family: arial, verdana, sans-serif;;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.mycarousel {
+    margin: 0px 50px 20px 50px;
+}
+
+/*main section part*/
+
+#index_row{
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    border:1px solid;
+}
+
+#index_col_9{
+    padding-right: 0px;
+    padding-left: 0px !important;
+}
+
+#index_col_3{
+    padding-left: 0px;
+    padding-right: 0px !important;
+}
+
+#rightCell{
+    border-left: 1px dashed #d3d3d3;
+}
+
+/*news part*/
+.news {
+    margin-top: 40px;
+    padding: 0px 20px 20px 20px;
+    background-color: white;
+}
+
+.news hr{
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.news h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.news ul {
+    margin-right: 5px;
+    padding-left: 25px;
+}
+
+.news li {
+    margin-bottom: 5px;
+}
+
+.news li a:link, .news h3 a:link, .mark a:link {
+    color: black;
+    color: #002a80;
+}
+
+.mark {
+    text-align: right;
+    margin-right: 30px;
+}
+
+.versions,.contact,.stat{
+    padding: 10px 20px 20px 20px;
+    background-color: white;
+}
+
+.versions b,.contact b, .stat b{
+    font-size: 18px;
+}
+.versions hr,.contact hr, .stat hr{
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.stat ul {
+    margin-top: 6px;
+    margin-right: 5px;
+    padding-left: 25px;
+}
+
+
+
+.contactDes{
+    margin-top: 10px;
+}
+
+.versionDetail{
+    color: orangered;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.panel-heading {
+    background-color: red;
+}
+
+.breadcrumb {
+    font-size: 14px;
+    margin: 40px 50px 0px 50px;
+}
+
+/*browser detect*/
+#detectModalLabel {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#detectModalContent {
+    font-size: 16px;
+}

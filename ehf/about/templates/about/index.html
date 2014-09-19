@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - About</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'about/about.css' %}"/>
+
+    <div class="main">
+        <div class="aboutIndex">
+            <ol class="breadcrumb">
+                <li><a href="{% url 'ehf.views.index' %}">Home</a></li>
+                <li class="active">About</li>
+            </ol>
+
+            <div class="AboutItem">
+                <div class="AboutTitle">
+                    <a href= {% url 'about:statistics' %}>Statistics</a>
+                </div>
+                <div class="AboutContent">
+                    This is a brief statistics of the data in EHFPI database.
+                </div>
+            </div>
+
+            <div class="AboutItem">
+                <div class="AboutTitle">
+                    <a href= {% url 'about:siteIndex' %}>Site Index</a>
+                </div>
+                <div class="AboutContent">
+                    This part provides the navigation of main pages in the EHFPI database
+                </div>
+            </div>
+
+            <div class="AboutItem">
+                <div class="AboutTitle">
+                    <a href= {% url 'about:submit' %}>Submit</a>
+                </div>
+                <div class="AboutContent">
+                    Users can provide literature information to our websites. What's more, we provide a excel
+                    templates which can be used to submit detail data to EHFPI database.
+                </div>
+            </div>
+
+            <div class="AboutItem">
+                <div class="AboutTitle">
+                    <a href= {% url 'about:copyright' %}>Copyright</a>
+                </div>
+                <div class="AboutContent">
+                    The copyright information and acknowledgement.
+                </div>
+            </div>
+
+            <div class="AboutItem">
+                <div class="AboutTitle">
+                    <a href= {% url 'about:external' %}>External Links</a>
+                </div>
+                <div class="AboutContent">
+                    Useful links that may be helpful for your research.
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - Analysis</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'analysis/analysis.css' %}"/>
+
+    <div class="main">
+        <div class="analysisIndex">
+            <ol class="breadcrumb">
+                <li><a href="{% url 'ehf.views.index' %}">Home</a></li>
+                <li class="active">Analysis</li>
+            </ol>
+            <div class="analysisContent">
+                <div class="analysisDes">Currently EHFPI provide six analysis functions.</div>
+
+
+                <div class="analysisType">
+                    <a href="{% url 'analysis:overlapNetwork' %}">EHF-pathogen Network</a>
+                </div>
+                <div class="analysisDes">
+                    <ul>
+                        <li>
+                            Overlay EHFPI genes shared by different pathogens at designated level, and displayed onto a
+                            <a href="{% url 'analysis:overlapNetwork' %}">pathogen-EHF network</a>.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="analysisType">
+                    <a href="{% url 'analysis:overlap' %}">EHF Overlap Analysis</a>
+                </div>
+                <div class="analysisDes">
+                    <ul>
+                        <li>
+                            Overlay EHFPI genes shared by screens/publications reported from different labs, as
+                            displayed in a Heatmap representation of screen/publication titles(<a
+                                href="{% url 'analysis:overlapHeatMap' %}">taxonomy</a> or
+                            <a href="{% url 'analysis:overlapHeatMapArticle' %}">article</a>).
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="analysisType">
+                    <a href="{% url 'analysis:gea' %}">Gene Enrichment Analysis</a>
+                </div>
+                <div class="analysisDes">
+                    <ul>
+                        <li><a href="http://david.abcc.ncifcrf.gov/" target="_blank">DAVID</a> for function annotation
+                            of EHFPI genes, as in GO Bioprocess and KEGG pathway.
+                        </li>
+                        <li>
+                            <a href="http://omicslab.genetics.ac.cn/GOEAST/php/batch_genes.php" target="_blank">GOEAST</a>, <a href="http://www.pantherdb.org/" target="_blank">PANTHER</a> and <a
+                                href="http://biit.cs.ut.ee/gprofiler/index.cgi" target="_blank">g:Profiler</a> for function annotation
+                            of EHFPI genes, as in GO Bioprocess.
+                        </li>
+                        <li>
+                            <a href="http://www.reactome.org/PathwayBrowser/#TOOL=AT" target="_blank">Reactome</a>,
+                            <a href="http://pid.nci.nih.gov/search/batch_query.shtml" target="_blank">Pathway Interaction Database</a>
+                            and <a href="http://www.pathwaycommons.org/" target="_blank">Pathway Commons</a> for function annotation
+                            of EHFPI genes, as in pathway.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="analysisType">
+                    <a href="{% url 'analysis:pip' %}">Pathogen Interacting Proteins (PIPs) Analysis</a>
+                </div>
+                <div class="analysisDes">
+                    <ul>
+                        <li>
+                            List of EHFPI genes whose protein products are experimentally validated as <a
+                                href="{% url 'analysis:pip' %}">pathogen interacting proteins</a>.
+                        </li>
+                        <li>
+                            Verification of a custom-provided set of gene as EHFs and/or PIPs, with detailed
+                            information concerning related pathogen type(s) and screen(s).
+                        </li>
+                    </ul>
+                    (Note: Reference PIP data for designated pathogens are from <a href="http://pbildb1.univ-lyon1.fr/virhostnet/index.php" target="_blank">VirHostNet</a>
+                and <a href="http://mint.bio.uniroma2.it/virusmint/Welcome.do" target="_blank">VirusMINT</a>)
+                </div>
+
+                <div class="analysisType">
+                    <a href="{% url 'analysis:drug' %}">Drug Target Analysis</a>
+                </div>
+                <div class="analysisDes">
+                    <ul>
+                        <li>
+                            Network representation of EHFPI genes that are experimentally validated as <a
+                                href="{% url 'analysis:drug' %}">drug targets</a>.
+                        </li>
+                    </ul>
+                    (Note:Reference drug data are from <a href="http://www.drugbank.ca/" target="_blank">DrugBank</a>)
+                </div>
+
+                <div class="analysisType">
+                    <a href="{% url 'analysis:gwasIndex' %}">GWAS Candidate Gene Analysis</a>
+                </div>
+                <div class="analysisDes">
+                    <ul>
+                        <li>
+                            Identification and statistics of EHFPI genes as <a href="{% url 'analysis:gwasIndex' %}">Genome-wide
+                            association study (GWAS)
+                            candidate genes</a>, of which the common genetic variants, e.g., single-nucleotide
+                            polymorphisms
+                            (SNPs), in different individuals are associated with a trait/disease.
+                        </li>
+                    </ul>
+                    (Note:Reference GWAS data are from <a href="http://www.genome.gov/gwastudies/" target="_blank">gwastudies</a>)
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - Downloads</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'download/download.css' %}"/>
+    <div class="main">
+        <div class="customDiv">
+            <ol class="breadcrumb">
+                <li><a href="{% url 'ehf.views.index' %}">Home</a></li>
+                <li><a href="{% url 'download:custom' %}">Downloads</a></li>
+                <li class="active">Custom</li>
+            </ol>
+
+            <div class="customTitle">
+                Download all data
+            </div>
+            <div class="customContent">
+                To download all EHF data with associated pathogens and detailed screen information provided by EHFPI,
+                You need to <a href= {% url 'download:register' %}>register</a> first. <a
+                    href="{% url 'download:legacy' %}">Here</a> you can find descriptions of all EHFPI releases.
+            </div>
+            <div class="customTitle">
+                Download data of interest
+            </div>
+            <div class="customContent">
+                You can download data directly from search result and browse result. Or you can select the items of
+                interest at the web page of download for all.
+            </div>
+            <div class="customTitle">
+                Download format
+            </div>
+            <div class="customContent">
+                EHFPI contains the following fields:
+                <table class="table table-striped table-bordered">
+                    <thead>
+                    <tr class="tableHead">
+                        <th>Database Identifer</th>
+                        <th>Filed</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for des in description %}
+                        <tr>
+                            <td>{{ des.databaseId }}</td>
+                            <td>{{ des.name }}</td>
+                            <td>{{ des.description }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

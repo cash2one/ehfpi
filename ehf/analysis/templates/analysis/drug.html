@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - Analysis</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    {% load getDict %}
+    {#    <script src='/static/analysis/jstree/jstree.min.js'></script>#}
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jstree/3.0.1/jstree.min.js'></script>
+    <script src='/static/analysis/jstree/drug.js'></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'analysis/analysis.css' %}"/>
+    {#    <link rel="stylesheet" type="text/css" href="{% static 'analysis/jstree/themes/default/style.min.css' %}"/>#}
+    <link rel="stylesheet" type="text/css"
+          href="http://cdnjs.cloudflare.com/ajax/libs/jstree/3.0.1/themes/default/style.min.css"/>
+
+    <div class="main">
+        <div class="drug">
+            <ol class="breadcrumb">
+                <li><a href="{% url 'ehf.views.index' %}">Home</a></li>
+                <li><a href='{% url 'analysis:index' %}'>Analysis</a></li>
+                <li class="active">Drug Target Analysis</li>
+            </ol>
+
+            <div class="drugContent">
+                For researchers interested in antimicrobial discovery, EHFPI provides specialized information for EHFs
+                that are also the confirmed targets of drugs
+                (Note: date from <a href="http://www.drugbank.ca/" target="_blank">DrugBank</a> 4.1, and only drugs
+                with <span style="color: orangered">known pharmacological action</span> are considered).
+                You can choose the EHF genes of specific pathogen(s) to perform the analysis.
+
+                <div id="drugLabel">
+                    1. Choose pathogens from taxonomy tree
+                </div>
+                <div class="left-part-gea">
+                    <input type="text" id="plugins4_q" value="" class="input drug_plugins4_q"
+                           placeholder="search pathogen">
+                            <span id="drugTip"><a href="{% url 'help:analysisHelp' %}#drug" target="_blank"><img
+                                    src="/static/images/info_20x20.png"></a></span>
+
+                    <div id="resizable" class="drugTree">
+                        <div id="jstree_drug_div">
+                            <ul>
+                                <li id="all">All Pathogens<span class="badge">{{ badge_taxonomy|get:"all" }}</span>
+                                    <ul>
+                                        {% for kingDic in tree %}
+                                            {% for kingdom,value in kingDic.iteritems %}
+                                                <li rel="kingdom"
+                                                    id="kingdom_{{ tree_taxonomy|get:kingdom }}">{{ kingdom }}<span
+                                                        class="badge">{{ badge_taxonomy|get:kingdom }}</span>
+                                                    <ul>
+                                                        {% for subItem,speciesDic in value.iteritems %}
+                                                            {% ifequal kingdom "virus" %}
+                                                                <li rel="family"
+                                                                    id="family_{{ tree_taxonomy|get:subItem }}">{{ subItem }}<span
+                                                                        class="badge">{{ badge_taxonomy|get:subItem }}</span>
+                                                                    {% else %}
+                                                                <li rel="genus"
+                                                                    id="genus_{{ tree_taxonomy|get:subItem }}">
+                                                                {{ subItem }}<span
+                                                                        class="badge">{{ badge_taxonomy|get:subItem }}</span>
+                                                            {% endifequal %}
+                                                        <ul>
+                                                            {% for species,articleList in speciesDic.iteritems %}
+                                                                <li data-jstree='{ "type" : "species" }'
+                                                                    id="species_{{ tree_taxonomy|get:species }}">{{ species }}<span
+                                                                        class="badge">{{ badge_taxonomy|get:species }}</span>
+                                                                    <ul>
+                                                                        {% for article in articleList %}
+                                                                            {% with myKey=species|add:"_"|add:article %}
+                                                                                <li data-jstree='{ "type" : "article" }'
+                                                                                    id="article_{{ tree_taxonomy|get:species }}_{{ tree_taxonomy|get:article }}">
+                                                                                {{ article }}<span
+                                                                                        class="badge">{{ badge_taxonomy|get:myKey }}</span>
+                                                                            {% endwith %}
+                                                                        {% endfor %}
+                                                                    </ul>
+                                                                </li>
+                                                            {% endfor %}
+                                                        </ul>
+                                                        </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </li>
+                                            {% endfor %}
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-part-gea">
+                    <form method="get" role="form"
+                          action="{% url 'analysis:drugResults' %}"
+                          onsubmit='return validEmpty(this);'>
+
+                        <input type="hidden" name="jsTreeList" id="jsTreeList" value=""/>
+
+                        <div id="drugLabel">
+                            OR<br/>
+                            2. Input a list of gene symbol
+                        </div>
+
+                        <div class="network_text">
+                            <div class="des">Input a list of gene symbol, separated by comma or one gene per line.</div>
+
+                            <div class="drugGeneList">
+                                <textarea class="form-control " id="geneList" name="geneList" rows="10" cols="20"
+                                          placeholder="gene separated by comma. e.g., xpo1,cbx4. or one gene per line"></textarea>
+
+                            </div>
+                            <br/>
+                        </div>
+
+
+                        <input type="submit" id="drugAnalysis" value="submit" class="btn btn-primary btn-sm"
+                               onclick="geaAnalysis();">
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

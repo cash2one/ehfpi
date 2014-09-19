@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load pagination_tags %}
+
+{% block title %}
+    <title>EHFPI - News</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'news/news.css' %}"/>
+
+    <div class="main">
+
+        <div class="news-group">
+            <ol class="breadcrumb">
+                <li><a href="{% url 'ehf.views.index' %}">Home</a></li>
+                <li class="active">News</li>
+            </ol>
+
+            {% autopaginate news 5 %}
+            {% for newsItem in news %}
+                <div class="newItem" id="{{ forloop.counter }}">
+                    <div class="title">{{ newsItem.title }}</div>
+                    <div class="time">{{ newsItem.time|date:"d F, Y" }} </div>
+                    <div class="content">{{ newsItem.content | safe }}</div>
+                </div>
+            {% endfor %}
+        </div>
+        <div id="pager">{% paginate %}</div>
+
+    </div>
+{% endblock %}

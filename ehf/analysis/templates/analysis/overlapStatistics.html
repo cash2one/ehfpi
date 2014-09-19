@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% load pagination_tags %}
+{% block title %}
+    <title>EHFPI - Analysis</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    {% load tableSort %}
+    <link rel="stylesheet" type="text/css" href="{% static 'analysis/analysis.css' %}"/>
+    <script src='/static/analysis/statistics.js'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery.fileDownload/1.4.2/jquery.fileDownload.js'></script>
+
+    <div class="main">
+        <div class="overlapIndex">
+
+            <ol class="breadcrumb">
+                <li><a href="{% url 'ehf.views.index' %}">Home</a></li>
+                <li><a href="{% url 'analysis:index' %}">Analysis</a></li>
+                <li><a href="{% url 'analysis:overlap' %}">Overlap</a></li>
+                <li class="active">Statistics</li>
+            </ol>
+
+            <span id="ids" style="display:none">{{ ids }}</span>
+            <span id="resultNumber" style="display:none">{{ interactions }}</span>
+
+            <div id="csrf" style="display:none" value="{% csrf_token %}"></div>
+
+            <div class="overlapContent" style="min-height: 600px">
+                <div class="statisticsDes">This table lists the specific EHF gene and its related pathogen number and
+                    pathogen list. Click <b><a href="{% url 'analysis:distribution' %}">here</a></b> to view the distribution of confirmed hits and primary hits.
+                </div>
+
+                <div id="functionDiv" class="functionDiv">
+                    <div id="selectHint" class="selectHint">
+                        <b><span id="selectNumber">0</span></b> items selected
+                    </div>
+                    <input type="checkbox" id="selectAllPage" value="selectAllPage" onclick="selectAllPage(this);">
+                    <label id="selectAllPage"> Select all records </label>
+
+                        <span id="buttonGroup">
+                            <button id="downloadFunc" class="btn btn-primary btn-sm"
+                                    onclick="performFunction('download');">Download
+                            </button>
+
+                            <form action="{% url 'analysis:statistics' %}" id="statisticsForm" method="get" role="form"
+                                  name="searchForm">
+
+                                <input name="geneSymbol" class="queryStatistics" id="queryStatistics" type="text"
+                                       placeholder="Search Gene">
+
+                                <button type="submit" class="btn btn-primary btn-sm"><span
+                                        class="glyphicon glyphicon-search"></span> Search
+                                </button>
+                            </form>
+
+                        </span>
+
+                </div>
+
+                <div id="tablediv" class="overlapStatisticsTable">
+                    {% if  result %}
+                        <table class="table table-hover table-striped table-bordered table-condensed">
+                            <thead>
+                            <tr class="tableHead">
+                                <th id="tableSelectAll">
+                                    <input type="checkbox" id="selectCurrentPage" value="selectCurrentPage"
+                                           onclick="selectCurrentPage(this)">
+                                </th>
+                                <th name="geneSymbol"><a href="?{% url_replace request 'order_by' 'geneSymbol' %}">Gene
+                                    Symbol</a>
+                                </th>
+                                <th name="speciesNumber"><a
+                                        href="?{% url_replace request 'order_by' 'speciesNumber' %}">Pathogen Number</a>
+                                </th>
+                                <th name="speciesList"><a href="?{% url_replace request 'order_by' 'speciesList' %}">Pathogen
+                                    List</a>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% autopaginate result %}
+                            {% for res in result %}
+                                <tr>
+                                    <td id="tableSelect">
+                                        <input type="checkbox" name="tableRowCheckBox"
+                                               id={{ res.geneSymbol }} value={{ res.geneSymbol }}
+                                               onclick="stillSelectAll(this);">
+                                    </td>
+                                    <td>
+                                        <a href="/ehfpi/search/quick/?searchType=gene&query={{ res.geneSymbol }}"
+                                           target="_blank">{{ res.geneSymbol }}</a>
+                                    </td>
+                                    <td>
+                                        {{ res.speciesNumber }}
+                                    </td>
+
+                                    <td>
+                                        {{ res.speciesList }}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                        <div id="pager">{% paginate %}</div>
+                    {% else %}
+                        <p>No results.</p>
+                    {% endif %}
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

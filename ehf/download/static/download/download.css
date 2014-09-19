@@ -1,0 +1,156 @@
+.main {
+    border: 1px solid;
+    background-color: white;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    min-height: 700px;
+}
+
+
+
+/*custom part*/
+.customDiv,.legacyDiv{
+    margin:10px 50px 30px 50px;
+    font-size: 14px;
+}
+
+.customTitle {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+
+}
+
+.customContent {
+    font-size: 14px;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.customContent table{
+    margin-top: 10px;
+}
+
+/*register part*/
+.register {
+    margin:10px 50px 30px 50px;
+    font-size: 14px;
+}
+
+.register .btn{
+    margin-top: 10px !important;
+    margin-left: 0px !important;
+}
+
+.fieldWrapper {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.fieldWrapper input,textarea {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    display: inline;
+}
+
+.fieldWrapper .errorlist{
+    padding-left: 20px;
+    color: red;
+}
+
+.fieldWrapper #hint{
+    margin-left: 10px;
+    opacity: 0.5;
+}
+
+.fieldWrapper #hint a{
+    color: black;
+}
+
+.fieldError {
+    margin-bottom: 20px;
+}
+
+.err {
+    color: red;
+}
+
+.downloadAll {
+    margin:10px 50px 30px 50px;
+}
+
+.downloadAll .btn{
+    margin-left: 0px;
+}
+
+.downloadAll #versionSelect{
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.downloadAllContent{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.checkboxAll {
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 20px 20px 20px 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.checkTable {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.checkTable td{
+    padding-right: 20px;
+}
+
+.field input,textarea {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+.breadcrumb{
+    font-size: 14px;
+}
+
+.legacyTitle{
+    font-weight: bold;
+}
+.legacyDate {
+    color: lightslategrey;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.legacyDes{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.legacyDiv{
+    min-height: 500px;
+}
+
+.legacyRegister{
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+tr[class=tableGroup]{
+    border-bottom: solid 1px;
+    font-weight: bold;
+}
+
+tr[class=tableGroup] td{
+    padding-top: 10px;
+}

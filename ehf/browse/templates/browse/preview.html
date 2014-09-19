@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load pagination_tags %}
+
+
+{% block title %}
+    <title>EHFPI - Browse</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    {% load tableSort %}
+    <link rel="stylesheet" type="text/css" href="{% static 'browse/browse.css' %}"/>
+    <script src='/static/browse/jstree/preview.js'></script>
+
+    <div class="main">
+
+        <ol class="breadcrumb">
+            <li><a href="{% url 'ehf.views.index' %}">Home</a></li>
+            <li><a href="{% url 'browse:guide' %}">Browse</a></li>
+            <li class="active">Preview</li>
+        </ol>
+
+        <div id="preview">
+            <div class="previewsummary">
+                Summary: {{ type }} "<span id="preDes">{{ id }}</span>" contains <span>{{ publicationNum }}</span>
+                publication{{ publicationNum|pluralize }}, <span>{{ pathogenNum }}</span>
+                {% ifequal type 'species' %}
+                    strain{{ pathogenNum|pluralize }}.
+                {% else %}
+                    species{{ pathogenNum|pluralize:'es' }}.
+                {% endifequal %}
+            </div>
+            <div class="tablediv">
+                <table class="table table-hover table-striped table-bordered table-condensed">
+                    <thead>
+                    <tr class="tableHead">
+                        {% ifequal type 'species' %}
+                            <th name="strain"><a href="?{% url_replace request 'order_by' 'strain' %}">strain</a></th>
+                        {% else %}
+                            <th name="species"><a href="?{% url_replace request 'order_by' 'species' %}">Species</a>
+                            </th>
+                        {% endifequal %}
+                        <th name="title" id="titlePreview"><a href="?{% url_replace request 'order_by' 'title' %}">Publication
+                            Title</a></th>
+                        <th name="phenotype"><a href="?{% url_replace request 'order_by' 'phenotype' %}">Phenotype</a>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% autopaginate result %}
+                    {% for res in result %}
+                        <tr>
+                            {% ifequal type 'species' %}
+                                <td>{{ res.strain }}</td>
+                                <td>
+                                    <a href="{% url 'browse:previewResult' %}?pubmedId={{ res.pubmedId }}&strain={{ res.strain }}">{{ res.title }}</a>
+                                </td>
+                            {% else %}
+                                <td>{{ res.species }}</td>
+                                <td>
+                                    <a href="{% url 'browse:previewResult' %}?pubmedId={{ res.pubmedId }}&species={{ res.speciesTaxonomy }}">{{ res.title }}</a>
+                                </td>
+                            {% endifequal %}
+
+                            <td>{{ res.phenotype }}</td>
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <div id="pager">{% paginate %}</div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

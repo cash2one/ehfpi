@@ -1,0 +1,495 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - Search</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'search/search.css' %}"/>
+
+    <div class="main">
+    <div class="detail">
+    <div id="detailBread">
+        <ol class="breadcrumb">
+            <li><a href="{% url 'ehf.views.index' %}">Home</a></li>
+            <li><a href="{% url 'search:index' %}">Search</a></li>
+            <li class="active">Search Detail</li>
+        </ol>
+    </div>
+    <div class="panel panel-info">
+    <div class="panel-heading">Accession <b>{{ id }}</b> Information</div>
+    <div class="panel-body">
+    <div class="tabbable tabs-left">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#1" data-toggle="tab"><b>Screen Information</b></a></li>
+        <li><a href="#2" data-toggle="tab"><b>Gene Information</b></a></li>
+        <li><a href="#3" data-toggle="tab"><b>Pathogen Information</b></a></li>
+        <li><a href="#4" data-toggle="tab"><b>Publication Information</b></a></li>
+    </ul>
+    <div class="tab-content">
+    <div class="tab-pane active" id="1">
+        <div id="screen" class="details">
+            {% for res in result %}
+                <div class="row" id="longRow">
+                    <div class="col-md-3">
+                        <label>Screen Scope:</label>
+                    </div>
+                    <div class="col-md-9" id="longText">
+                        {{ res.scope }}
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-3">
+                        <label>Assay Type:</label>
+                    </div>
+                    <div class="col-md-9" id="longText">
+
+                        {{ res.AssayType }}
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-3">
+                        <label>Reagent:</label>
+                    </div>
+                    <div class="col-md-9" id="longText">
+                        {{ res.reagent }}
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-3">
+                        <label>Target Organism:</label>
+                    </div>
+                    <div class="col-md-9" id="longText">
+                        {{ res.targetOrganism }}
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-3">
+                        <label>Phenotype:</label>
+                    </div>
+                    <div class="col-md-9" id="longText">
+                        {{ res.phenotype }}
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-3">
+                        <label>BioModel Description:</label>
+                    </div>
+                    <div class="col-md-9" id="longText">
+
+                        {{ res.bioModelDescription }}
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-3">
+                        <label>confirmatory Screen Description:</label>
+                    </div>
+                    <div class="col-md-9" id="longText">
+
+                        {{ res.confirmatoryScreenDescription }}
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-3">
+                        <label>primary Screen Description:</label>
+                    </div>
+                    <div class="col-md-9" id="longText">
+
+                        {{ res.primaryScreenDescription }}
+                        <br/>
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-3">
+                        <label>Hits Number:</label>
+                    </div>
+                    <div class="col-md-9" id="longText">
+                        {{ res.hitsNumber }}
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-3">
+                        <label>ConfirmedHits Number:</label>
+                    </div>
+                    <div class="col-md-9" id="longText">
+                        {{ res.confirmedHitsNumber }}
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-3">
+                        <label>PrimaryHits Number:</label>
+                    </div>
+                    <div class="col-md-9" id="longText">
+                        {{ res.primaryHitsNumber }}
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-3">
+                        <label>Note:</label>
+                    </div>
+                    <div class="col-md-9" id="longText">
+                        {{ res.note }}
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="tab-pane" id="2">
+        <div id="gene" class="details">
+            {% for res in result %}
+                <div class="row" id="longRow">
+                    <div class="col-md-3">
+                        <label>Gene Symbol:</label>
+                    </div>
+                    <div class="col-md-9" id="longText">
+
+                        {{ res.geneSymbol }}
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-3">
+                        <label>Gene Description:</label>
+                    </div>
+                    <div class="col-md-9" id="longText">
+
+                        {{ res.geneDescription }}
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-3">
+                        <label>Previous Name:</label>
+                    </div>
+                    <div class="col-md-9" id="longText">
+
+                        {{ res.previousName }}
+                    </div>
+                </div>
+
+
+                <div class="row" id="longRow">
+                    <div class="col-md-3">
+                        <label>Synonyms:</label>
+                    </div>
+                    <div class="col-md-9" id="longText">
+
+                        {{ res.synonyms }}
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-3">
+                        <label>Entrez Gene ID:</label>
+                    </div>
+                    <div class="col-md-9" id="longText">
+
+                        {% ifnotequal res.entrezId '-' %}
+                            <a href="http://www.ncbi.nlm.nih.gov/gene/{{ res.entrezId }}"
+                               target="_blank">{{ res.entrezId }}</a>
+                        {% else %}
+                            {{ res.entrezId }}
+                        {% endifnotequal %}
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-3">
+                        <label>UniprotKB ID:</label>
+                    </div>
+                    <div class="col-md-9" id="longText">
+
+                        {% ifnotequal res.uniprotId '-' %}
+                            <a href="http://www.uniprot.org/uniprot/{{ res.uniprotId }}"
+                               target="_blank">{{ res.uniprotId }}</a>
+                        {% else %}
+                            {{ res.uniprotId }}
+                        {% endifnotequal %}
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-3">
+                        <label>Protein Name:</label>
+                    </div>
+                    <div class="col-md-9" id="longText">
+
+                        {{ res.proteinName }}
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-3">
+                        <label>Ensembl Gene ID:</label>
+                    </div>
+                    <div class="col-md-9" id="longText">
+
+                        {{ res.ensemblGeneId }}
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-3">
+                        <label>Target Organism:</label>
+                    </div>
+                    <div class="col-md-9" id="longText">
+
+                        {{ res.targetOrganism }}
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-3">
+                        <label>Human Homolog:</label>
+                    </div>
+                    <div class="col-md-9" id="longText">
+
+                        {{ res.humanHomolog }}
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-3">
+                        <label>GO Annotation:</label>
+                    </div>
+                    <div class="col-md-9" id="longText" style="word-break:break-all">
+                        {{ res.go }}
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-3">
+                        <label>KEGG Pathway:</label>
+                    </div>
+                    <div class="col-md-9" id="longText">
+
+                        {{ res.pathway }}
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-3">
+                        <label>is VTP:</label>
+                    </div>
+                    <div class="col-md-9" id="longText">
+
+                        {{ res.isVTP|yesno:"Yes,No,Perhaps" }}
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-3">
+                        <label>Resources(virHostNet):</label>
+                    </div>
+                    <div class="col-md-9" id="longText">
+
+                        {{ res.resources }}
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-3">
+                        <label>Note:</label>
+                    </div>
+                    <div class="col-md-9" id="longText">
+
+                        {{ res.gene_note }}
+                    </div>
+                </div>
+
+
+                <div class="genomeView">
+                    <label>View in Genome Browser:</label>
+                    {% ifnotequal das|length 0 %}
+                        Ensembl(
+                        {% for item in das %}
+                            <a href='http://www.ensembl.org/Homo_sapiens/Location/View?r={{ item.chromN }}:{{ item.startN }}-{{ item.stopN }}'
+                               target="_blank">{{ forloop.counter }}</a>
+                            {% ifnotequal forloop.counter das|length %}
+                                |
+                            {% endifnotequal %}
+                        {% endfor %}
+                        )
+                        UCSC Genome Viewer(
+                        {% for item in das %}
+                            <a href='http://genome.ucsc.edu/cgi-bin/hgTracks?db=hg19&position=chr{{ item.chromN }}:{{ item.startN }}-{{ item.stopN }}'
+                               target="_blank">{{ forloop.counter }}</a>
+                            {% ifnotequal forloop.counter das|length %}
+                                |
+                            {% endifnotequal %}
+                        {% endfor %}
+                        )
+                    {% endifnotequal %}
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="tab-pane" id="3">
+        <div id="pathogen" class="details">
+            {% for res in result %}
+                <label>Full Name:</label>
+                {{ res.fullName }}
+                <br/>
+
+                <label>Abbreviation:</label>
+                {{ res.abbreviation }}
+                <br/>
+
+                <label>Aliases:</label>
+                {{ res.aliases }}
+                <br/>
+
+                <label>Strain:</label>
+                {{ res.strain }}
+                <br/>
+
+                <label>Species:</label>
+                <a href="http://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id={{ res.speciesTaxonomy }}"
+                   target="_blank">{{ res.species }}</a>
+                <br/>
+
+                <label>Genus:</label>
+                {% ifnotequal res.genus '-' %}
+                    <a href="http://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id={{ res.speciesTaxonomy }}"
+                       target="_blank">{{ res.genus }}</a>
+                {% else %}
+                    {{ res.genus }}
+                {% endifnotequal %}
+                <br/>
+
+                <label>Family:</label>
+                {% ifnotequal res.family '-' %}
+                    <a href="http://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id={{ res.familyTaxonomy }}"
+                       target="_blank">{{ res.family }}</a>
+                {% else %}
+                    {{ res.family }}
+                {% endifnotequal %}
+                <br/>
+
+                <label>Group:</label>
+                {{ res.group }}
+                <br/>
+
+                <label>Kingdom:</label>
+                <a href="http://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id={{ res.kingdomTaxonomy }}"
+                   target="_blank">{{ res.kingdom }}</a>
+                <br/>
+
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="tab-pane" id="4">
+        <div id="publication" class="details">
+            {% for res in result %}
+
+                <div class="row" id="longRow">
+                    <div class="col-md-2">
+                        <label>Title:</label>
+                    </div>
+                    <div class="col-md-10" id="longText">
+                        {{ res.title }}
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-2">
+                        <label>Author:</label>
+                    </div>
+                    <div class="col-md-10" id="longText">
+
+                        {{ res.author }}
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-2">
+                        <label>Publication Year:</label>
+                    </div>
+                    <div class="col-md-10" id="longText">
+
+                        {{ res.year }}
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-2">
+                        <label>Journal:</label>
+                    </div>
+                    <div class="col-md-10" id="longText">
+
+                        {{ res.journal }}
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-2">
+                        <label>Pubmed ID:</label>
+                    </div>
+                    <div class="col-md-10" id="longText">
+
+                        <a href="http://www.ncbi.nlm.nih.gov/pubmed/{{ res.pubmedId }}"
+                           target="_blank">{{ res.pubmedId }}</a>
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-2">
+                        <label>Abstract:</label>
+                    </div>
+                    <div class="col-md-10" id="longText">
+
+                        <div>{{ res.abstract }}</div>
+                    </div>
+                </div>
+
+                <div class="row" id="longRow">
+                    <div class="col-md-2">
+                        <label>DOI:</label>
+                    </div>
+                    <div class="col-md-10" id="longText">
+
+                        {% ifnotequal res.doi '-' %}
+                            <a href="http://dx.doi.org/{{ res.doi }}" target="_blank">{{ res.doi }}</a>
+                        {% else %}
+                            {{ res.doi }}
+                        {% endifnotequal %}
+                    </div>
+                </div>
+
+                {#                <label>File Download:</label>#}
+                {#                <a href='{{ res.articleFile.url }}' target="_blank">{{ res.pubmedId }}.pdf</a>#}
+                {#                <br/>#}
+
+            {% endfor %}
+        </div>
+    </div>
+    </div>
+
+    </div>
+    </div>
+    </div>
+
+    <div class="gotop">
+        <a href="#" title="Back to the top of the page"><span
+                class="glyphicon glyphicon-circle-arrow-up"></span>
+            Top</a>
+    </div>
+    </div>
+    </div>
+{% endblock %}

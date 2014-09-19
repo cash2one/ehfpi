@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - Analysis</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    {% load getDict %}
+{#    <script src='/static/analysis/jstree/jstree.min.js'></script>#}
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jstree/3.0.1/jstree.min.js'></script>
+
+    <script src='/static/analysis/jstree/heatmap.js'></script>
+{#    <script src='/static/analysis/d3/d3.min.js'></script>#}
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.8/d3.js'></script>
+    <script src='/static/csrf.js'></script>
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'analysis/analysis.css' %}"/>
+{#    <link rel="stylesheet" type="text/css" href="{% static 'analysis/jstree/themes/default/style.min.css' %}"/>#}
+    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/jstree/3.0.1/themes/default/style.min.css"/>
+
+    <div class="main">
+        <div class="heatmap">
+            <div class="heatMapBread">
+                <ol class="breadcrumb">
+                    <li><a href="{% url 'ehf.views.index' %}">Home</a></li>
+                    <li><a href="{% url 'analysis:index' %}">Analysis</a></li>
+                    <li><a href="{% url 'analysis:overlap' %}">Overlap</a></li>
+                    <li class="active">Taxonomy Heatmap</li>
+                </ol>
+            </div>
+
+            <div class="row ">
+                <div class="col-md-3">
+                    <div class="left-part">
+                        <input type="text" id="plugins4_q" value="" class="input" placeholder="search pathogen">
+
+                        <div id="resizable">
+                            <div id="jstree_div">
+                                <ul>
+                                    <li id="all">All Pathogens
+                                        <ul>
+                                            {% for kingDic in tree %}
+                                                {% for kingdom,value in kingDic.iteritems %}
+                                                    <li rel="kingdom" title="kingdom"
+                                                        id="kingdom_{{ tree_taxonomy|get:kingdom }}">{{ kingdom }}
+                                                        <ul>
+                                                            {% ifequal kingdom "Virus" %}
+                                                                {% for subItem,subValue in value.iteritems %}
+                                                                    <li data-jstree='{ "type" : "group" }' title="group"
+                                                                        id="group_{{ tree_taxonomy|get:subItem }}">{{ subItem }}
+                                                                        <ul>
+                                                                            {% for family,speciesList in subValue.iteritems %}
+                                                                                <li data-jstree='{ "type" : "family" }'
+                                                                                    title="family"
+                                                                                    id="family_{{ tree_taxonomy|get:family }}">{{ family }}
+                                                                                    <ul>
+                                                                                        {% for species in speciesList %}
+                                                                                            <li data-jstree='{ "type" : "species" }'
+                                                                                                title="species"
+                                                                                                id="species_{{ tree_taxonomy|get:species }}">{{ species }}</li>
+                                                                                        {% endfor %}
+                                                                                    </ul>
+                                                                                </li>
+                                                                            {% endfor %}
+                                                                        </ul>
+                                                                    </li>
+                                                                {% endfor %}
+                                                            {% endifequal %}
+
+                                                            {% ifequal kingdom "Bacteria" %}
+                                                                {% for subItem,subValue in value.iteritems %}
+                                                                    <li data-jstree='{ "type" : "group" }' title="group"
+                                                                        id="group_{{ tree_taxonomy|get:subItem }}">{{ subItem }}
+                                                                        <ul>
+                                                                            {% for genus,speciesList in subValue.iteritems %}
+                                                                                <li data-jstree='{ "type" : "genus" }'
+                                                                                    title="genus"
+                                                                                    id="genus_{{ tree_taxonomy|get:genus }}">{{ genus }}
+                                                                                    <ul>
+                                                                                        {% for species in speciesList %}
+                                                                                            <li data-jstree='{ "type" : "species" }'
+                                                                                                title="species"
+                                                                                                id="species_{{ tree_taxonomy|get:species }}">{{ species }}</li>
+                                                                                        {% endfor %}
+                                                                                    </ul>
+                                                                                </li>
+                                                                            {% endfor %}
+                                                                        </ul>
+                                                                    </li>
+                                                                {% endfor %}
+                                                            {% endifequal %}
+
+                                                            {% ifequal kingdom "Fungi" %}
+                                                                {% for subItem,subValue in value.iteritems %}
+                                                                    <li data-jstree='{ "type" : "genus" }' title="genus"
+                                                                        id="genus_{{ tree_taxonomy|get:subItem }}">{{ subItem }}
+                                                                        <ul>
+                                                                            {% for species in subValue %}
+                                                                                <li data-jstree='{ "type" : "species" }'
+                                                                                    title="species"
+                                                                                    id="species_{{ tree_taxonomy|get:species }}">{{ species }}</li>
+                                                                            {% endfor %}
+                                                                        </ul>
+                                                                    </li>
+                                                                {% endfor %}
+                                                            {% endifequal %}
+
+
+                                                        </ul>
+                                                    </li>
+                                                {% endfor %}
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="searchHeatmap">
+                            Search heatmap:
+                            <div class="searchInput">
+                                <input type="text" class="form-control" id="searchNet" name="searchNet"
+                                       placeholder="search a gene" onkeydown="keyDown(event);">
+                            </div>
+                            <input type="button" value="Search" id="searchButton" class="btn btn-primary btn-sm"
+                                   onclick="searchNet(this);">
+                        </div>
+
+                        <div class="hintWrapper" id="hintWrapper">
+                            <b>Common Genes:</b>
+
+                            <div class="hint" id="hint" contenteditable="true">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-9">
+                    <div class="right-part">
+                        <label class="levelLabel">Display Level:</label>
+
+                        <div class="levelDiv">
+                            <div class="col-xs-3">
+                                <select class="form-control" id="level">
+                                    <option value="kingdom">Kingdom</option>
+                                    <option value="group">Group</option>
+                                    <option value="family">Family</option>
+                                    <option value="genus">Genus</option>
+                                    <option value="species">Species</option>
+                                </select>
+                            </div>
+                            <input type="button" id="generate" value="Generate" class="btn btn-primary"
+                                   onclick="getHeatMap();">
+                        </div>
+                        <div class="heatMapMain" id="heatMapMain">
+
+                            <div id="fig" class="fig">
+                            </div>
+                        </div>
+                        <div class="order">
+                            <p>Order:
+                                <select id="order">
+                                    <option value="name">by Name</option>
+                                    <option value="count">by Common Gene Number</option>
+                                    <option value="group">by Pathogen Group</option>
+                                </select>
+                            <p>Use the drop-down menu to reorder the matrix and explore the data.
+
+                            <p>Built with <a href="http://d3js.org/">d3.js</a>.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,188 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    {% block title %}
+    {% endblock %}
+
+    <meta name="keywords" content="ehfpi|essential host factors|pathogenic infection|drug discovery">
+    <meta name="description" content="EHFPI, a database of Essential Host Factors (EHFs) for Pathogenic Infections.">
+
+    <script src='/static/versionDetect.js'></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    {#    <script src="http://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>#}
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}"/>
+
+    {#    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css"/>#}
+    {#    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>#}
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"/>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+
+    <script src='/static/base.js'></script>
+    {##}
+    {#    <script src='/static/typeahead.bundle.min.js'></script>#}
+    {#    <script src='/static/bloodhound.js'></script>#}
+
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.2/typeahead.bundle.min.js'></script>
+    {#    <script src='/static/bloodhound.js'></script>#}
+
+    {#    <script src='/static/html2canvas.js'></script>#}
+    {#    <script src='http://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js'></script>#}
+    <script src='/static/jquery.clearsearch.js'></script>
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.0/jquery.qtip.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.0/jquery.qtip.min.js"></script>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
+        <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+<div class="container">
+    <div class="top">
+        <img src="/static/images/logo10.png"/>
+
+        <div id="logo">
+            <div id="top-logo-title">Database of <span style="color:#99cc99">Essential Host Factors</span> for <span
+                    style="color: #ff9933">Pathogenic Infection</span></div>
+            <div id="top-des"><a href="{% url 'about:statistics' %}" target="_blank">statistics</a> | <a
+                    href="{% url 'help:index' %}" target="_blank">Help</a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-default " role="navigation">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li id="home"><a href="{% url 'ehf.views.index' %}"><span class="glyphicon glyphicon-home"></span> Home</a>
+                </li>
+
+                <li id="search" class="dropdown">
+                    <a href="{% url 'search:index' %}" class="dropdown-toggle"><span
+                            class="glyphicon glyphicon-search"></span> Search<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'ehf.views.index' %}">Quick Search</a></li>
+                        <li><a href="{% url 'search:advancedSearch' %}">Advanced</a></li>
+                    </ul>
+                </li>
+
+                <li id="browse"><a href="{% url 'browse:guide' %}"><span class="glyphicon glyphicon-list"></span> Browse</a>
+                </li>
+
+                <li id="analysis" class="dropdown">
+                    <a href="{% url 'analysis:index' %}" class="dropdown-toggle"><span
+                            class="glyphicon glyphicon-wrench"></span> Analysis<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'analysis:overlapNetwork' %}" title="EHF-pathogen Network">EHF-pathogen
+                            Network</a></li>
+
+                        <li><a href="{% url 'analysis:overlap' %}" title="EHF Overlap Analysis">EHF Overlap Analysis</a>
+                        </li>
+                        <li><a href="{% url 'analysis:gea' %}" title="Gene Enrichment Analysis">Gene Enrichment
+                            Analysis</a></li>
+                        <li><a href="{% url 'analysis:pip' %}" title="Pathogen Interacting Proteins">PIPs Analysis</a>
+                        </li>
+                        <li><a href="{% url 'analysis:drug' %}" title="Drug Target Analysis">Drug Target Analysis</a>
+                        </li>
+                        <li><a href="{% url 'analysis:gwasIndex' %}" title="GWAS Candidate Gene Analysis">GWAS Candidate
+                            Gene Analysis</a></li>
+                    </ul>
+                </li>
+
+                <li id="download" class="dropdown">
+                    <a href="{% url 'download:custom' %}" class="dropdown-toggle"><span
+                            class="glyphicon glyphicon-download"></span> Downloads<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'download:custom' %}">Custom Downloads</a></li>
+                        <li><a href="{% url 'rest:index' %}">REST Service</a></li>
+                    </ul>
+                </li>
+
+                <li id="about" class="dropdown">
+                    <a href="{% url 'about:index' %}" class="dropdown-toggle"><span
+                            class="glyphicon glyphicon-info-sign"></span> About<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'about:statistics' %}">Statistics</a></li>
+                        <li><a href="{% url 'about:siteIndex' %}">Site Index</a></li>
+                        <li><a href="{% url 'about:submit' %}">Submit</a></li>
+                        <li><a href="{% url 'about:copyright' %}">Copyright</a></li>
+                        <li><a href="{% url 'about:external' %}">External Links</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+
+            <ul class="nav navbar-nav navbar-right nav-admin">
+                <li><a href="/ehfpi/admin/"><span class="glyphicon glyphicon-user"></span> Admin</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+
+
+    <div class="search">
+
+        <!-- search form-->
+        <form action="{% url 'search:quickSearch' %}" method="get" role="form" name="searchForm">
+            <select class="form-control" id="select-type" name="searchType" onchange="changeTips(this.value)">
+                <option value="all">All</option>
+                <option value="gene">Gene/Gene Product</option>
+                <option value="pathogen">Pathogen</option>
+                <option value="publication">Publication</option>
+                <option value="ehfpiacc">EHFPI Acc</option>
+            </select>
+            <span>
+                <input name="query" class="query" id="focusedInpu" type="text" placeholder="Search everything">
+                <button type="submit" id="queryBtn" class="btn btn-default"><span
+                        class="glyphicon glyphicon-search"></span> Search
+                </button>
+            </span>
+            <span id="searchTip"><a href={% url 'help:searchHelp' %} target="_blank"><img
+                    src="/static/images/info_20x20.png"></a></span>
+
+        </form>
+    </div>
+    <noscript>
+        <div style="padding-left:8px;margin-bottom:10px;font-weight:bold;color:#FF0000;font-size:16px">
+            This browser is either not Javascript enabled or has it turned off.<br/>
+            This site will not function correctly without Javascript.
+        </div>
+    </noscript>
+
+    {% block content %}
+
+    {% endblock %}
+
+    <div class="footer">
+        EHFPI is supported by a grant from National Nature Science Foundation of China.<br/>
+        Copyright &copy; 2013-2015 Beijing Institute of Radiation Medicine
+        <span class="visit">
+            <script type="text/javascript"
+                    src="http://ja.revolvermaps.com/2/3.js?i=0zddcdiwdca&amp;b=0&amp;s=30&amp;m=0&amp;cl=ffffff&amp;co=010020&amp;cd=aa0000&amp;v0=60&amp;v1=60&amp;r=1"
+                    async="async"></script>
+            </span>
+    </div>
+
+</div>
+
+
+</body>
+</html>

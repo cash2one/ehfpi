@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - Analysis</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'analysis/analysis.css' %}"/>
+
+    {#    <script src='/static/analysis/cytoscape/cytoscape.min.js'></script>#}
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/cytoscape/2.2.9/cytoscape.js"></script>
+
+    {#    <link rel="stylesheet" type="text/css"#}
+    {#          href="/static/analysis/cytoscape/panzoom/font-awesome-4.0.3/css/font-awesome.css"/>#}
+    <link rel="stylesheet" type="text/css"
+          href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
+
+    <script src='/static/analysis/cytoscape/arbor.js'></script>
+    {#    <script src='http://cdnjs.cloudflare.com/ajax/libs/arbor/0.91.0/arbor.min.js'></script>#}
+
+    <script src='/static/analysis/cytoscape/panzoom/cytoscape.js-panzoom.js'></script>
+    <link rel="stylesheet" type="text/css" href="/static/analysis/cytoscape/panzoom/cytoscape.js-panzoom.css"/>
+
+    <script src="/static/analysis/cytoscape/navigator/cytoscape.js-navigator.js"></script>
+    <link href="/static/analysis/cytoscape/navigator/cytoscape.js-navigator.css" rel="stylesheet" type="text/css"/>
+
+    <script src="/static/analysis/cytoscape/qtip/cytoscape.js-qtip.js"></script>
+
+    <script src='/static/csrf.js'></script>
+    <script src='/static/analysis/ppi.js'></script>
+
+
+    <div class="main otherMain" id="main">
+        <div id="geneList" style="display:none">{{ geneList }}</div>
+        <div id="otherLoading">
+            <img src="/static/analysis/images/loading6.gif"/>
+        </div>
+
+        <div id="ppiView" class="hidePPI">
+            <div class="function">
+                <label>Save Graph:</label>
+                <select name="scope" id="scope">
+                    <option value="current">current</option>
+                    <option value="entire">entire</option>
+                </select>
+
+                <button class="btn btn-primary btn-sm" onclick="saveGraph(this);">Save</button>
+
+                <label id="searchLabel">Search Graph:</label>
+                <input type="text" id="searchGraph" name="searchGraph"
+                       placeholder="search a protein" onkeydown="keyDown(event);">
+                <input type="button" value="Search" id="searchGraphButton" class="btn btn-primary btn-sm"
+                       onclick="searchNet(this);">
+                <span id="ppiNetworkTip"><a href="/ehfpi/help/analysisHelp#pip" target="_blank">
+                    <img src="/static/images/info_20x20.png"></a></span>
+
+                <span id="title">
+                    <img src="/static/analysis/images/ppi1.jpg" width="18px" height="18px"><label>Submitted</label>
+                    <img src="/static/analysis/images/ppi2.jpg" width="18px" height="18px"><label>Others</label>
+                </span>
+            </div>
+            <div id="cy">
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" language="JavaScript">
+        $(document).ready(function () {
+            URL_PREFIX = '/ehfpi';
+            var geneList = $('#geneList').text();
+            //change to ajax post to avoid too long url
+            $.post(URL_PREFIX + "/analysis/pip/displayPPI/", {'geneList': geneList}, evalCallbk);  //get search types from server
+        });
+    </script>
+
+{% endblock %}

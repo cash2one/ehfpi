@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - News</title>
+{% endblock %}
+
+{% block content %}
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'news/news.css' %}" />
+
+<div class="main">
+    {% for newItem in news %}
+    <div class="panel panel-primary">
+    <!-- Default panel contents -->
+        <div class="panel-heading">{{ newItem.title }}</div>
+        <div class="panel-body">
+            {{ newItem.author }} <br />
+            {{ newItem.time }} <br />
+            {{ newItem.content|safe }}
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EHFPI - please update your browser</title>
+    <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}"/>
+
+</head>
+<body>
+<div class="versionTop">
+    <img src="/static/images/logo10.png"/>
+
+    <div class="logo">
+        <div id="top-logo-title">Database of <span style="color:#99cc99">Essential Host Factors</span> for <span
+                    style="color: #ff9933">Pathogenic Infection</span></div>
+    </div>
+</div>
+<div class="versionMain">
+    <div id="detectModalContent">
+        <p>This website uses html5 svg/canvas to display result, we detect your browser doesn't
+            support html5 svg/canvas. For proper display and a better interactive image, please use a newish browser
+            e.g.</p>
+        <table>
+            <tr>
+                <td><a href="http://www.mozilla.com/firefox/" target="_blank"><img src="/static/images/firefox.png"></a></td>
+                <td><a href="http://www.google.com/chrome/" target="_blank"><img src="/static/images/chrome.png"></a></td>
+                <td><a href="http://www.apple.com/safari/" target="_blank"><img src="/static/images/safari.png"></a></td>
+                <td><a href="http://ie.microsoft.com/" target="_blank"><img src="/static/images/ie.png"></a></td>
+            </tr>
+
+            <tr>
+                <td>Firefox 3.6+</td>
+                <td>Google Chrome</td>
+                <td>Safari 5 or newer</td>
+                <td>IE 9 or newer</td>
+            </tr>
+        </table>
+
+    </div>
+
+</div>
+<div class="versionfooter">
+    Copyright &copy; 2013-2015 Beijing Institute of Radiation Medicine
+</div>
+
+</body>

@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - Analysis</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    {% load getDict %}
+    {#    <script src='/static/analysis/jstree/jstree.min.js'></script>#}
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jstree/3.0.1/jstree.min.js'></script>
+    <script src='/static/analysis/jstree/gwas.js'></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'analysis/analysis.css' %}"/>
+{#    <link rel="stylesheet" type="text/css" href="{% static 'analysis/jstree/themes/default/style.min.css' %}"/>#}
+    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/jstree/3.0.1/themes/default/style.min.css"/>
+
+    <div class="main">
+        <div class="gwas">
+            <ol class="breadcrumb">
+                <li><a href="{% url 'ehf.views.index' %}">Home</a></li>
+                <li><a href='{% url 'analysis:index' %}'>Analysis</a></li>
+                <li class="active">GWAS Analysis</li>
+            </ol>
+
+            <div class="gwasContent">
+                For researchers interested in studying infection-disease associations, EHFPI provides further
+                annotation/interpretation of EHF genes as candidate disease/traits genes identified from Genome Wide
+                Association Studies(<a href="http://www.genome.gov/gwastudies/" target="_blank">The NHGRI GWAS Catalog</a>). You can
+                choose the EHF genes of specific pathogen(s) to perform the analysis.
+
+                <div class="left-part-gea">
+                    <input type="text" id="plugins4_q" value="" class="input gea_plugins4_q"
+                           placeholder="search pathogen">
+                            <span id="gwasTip"><a href="{% url 'help:analysisHelp' %}#gwas" target="_blank"><img
+                                    src="/static/images/info_20x20.png"></a></span>
+
+                    <div id="resizable" class="gwasTree">
+                        <div id="jstree_gwas_div">
+                            <ul>
+                                <li id="all">All Pathogens<span class="badge">{{ badge_taxonomy|get:"all" }}</span>
+                                    <ul>
+                                        {% for kingDic in tree %}
+                                            {% for kingdom,value in kingDic.iteritems %}
+                                                <li rel="kingdom"
+                                                    id="kingdom_{{ tree_taxonomy|get:kingdom }}">{{ kingdom }}<span
+                                                        class="badge">{{ badge_taxonomy|get:kingdom }}</span>
+                                                    <ul>
+                                                        {% for subItem,speciesDic in value.iteritems %}
+                                                            {% ifequal kingdom "virus" %}
+                                                                <li rel="family"
+                                                                    id="family_{{ tree_taxonomy|get:subItem }}">{{ subItem }}<span
+                                                                        class="badge">{{ badge_taxonomy|get:subItem }}</span>
+                                                                    {% else %}
+                                                                <li rel="genus"
+                                                                    id="genus_{{ tree_taxonomy|get:subItem }}">
+                                                                {{ subItem }}<span
+                                                                        class="badge">{{ badge_taxonomy|get:subItem }}</span>
+                                                            {% endifequal %}
+                                                        <ul>
+                                                            {% for species,articleList in speciesDic.iteritems %}
+                                                                <li data-jstree='{ "type" : "species" }'
+                                                                    id="species_{{ tree_taxonomy|get:species }}">{{ species }}<span
+                                                                        class="badge">{{ badge_taxonomy|get:species }}</span>
+                                                                    <ul>
+                                                                        {% for article in articleList %}
+                                                                            {% with myKey=species|add:"_"|add:article %}
+                                                                                <li data-jstree='{ "type" : "article" }'
+                                                                                    id="article_{{ tree_taxonomy|get:species }}_{{ tree_taxonomy|get:article }}">
+                                                                                {{ article }}<span
+                                                                                        class="badge">{{ badge_taxonomy|get:myKey }}</span>
+                                                                            {% endwith %}
+                                                                        {% endfor %}
+                                                                    </ul>
+                                                                </li>
+                                                            {% endfor %}
+                                                        </ul>
+                                                        </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </li>
+                                            {% endfor %}
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-part-gea">
+                    <form method="get" role="form"
+                          action="{% url 'analysis:gwasResults' %}"
+                          onsubmit='return validEmpty(this);'>
+
+                        <input type="hidden" name="jsTreeList" id="jsTreeList" value=""/>
+                        <input type="submit" id="gwasAnalysis" value="submit" class="btn btn-primary btn-sm">
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

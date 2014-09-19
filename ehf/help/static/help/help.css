@@ -1,0 +1,75 @@
+.helpMain {
+    background-color: white;
+    border:1px solid;
+    padding-bottom: 20px;
+    padding-right: 40px;
+    min-height: 700px;
+}
+
+.leftNav{
+    padding-left: 50px;
+    min-height: 500px;
+}
+
+.leftNav #header{
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+.leftNav li a{
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.rightContent{
+    margin-top: 50px;
+}
+
+.titleIndex {
+    font-weight: bold;
+    margin-top: 18px;
+}
+
+.contentIndex{
+    margin-left: 10px;
+}
+
+.contentIndex p{
+    margin-bottom: 0px;
+}
+
+.title{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 30px auto 10px 0px;
+    color: #0088CC;
+}
+
+.content{
+    padding-right: 20px;
+}
+
+.content img{
+    margin: 20px 0 20px 0;
+}
+
+
+#pythonCode {
+    margin-left: 0px;
+    margin-top: 20px;
+    margin-right: 10px;
+    background-color: #f9f2f4;
+    border-radius: 4px;
+}
+
+.gotop{
+    text-align: right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    position: fixed;
+    bottom: 0px;
+}
+
+

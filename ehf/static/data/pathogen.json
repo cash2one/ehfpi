@@ -1,0 +1,404 @@
+[
+    {
+        "pathogen": "Mycobacterium fortuitum"
+    },
+    {
+        "pathogen": "Rotavirus"
+    },
+    {
+        "pathogen": "Influenza virus H1N1 strain A/PR/8/34 ('PR8')"
+    },
+    {
+        "pathogen": "Candida albicans"
+    },
+    {
+        "pathogen": "Serratia marcescens"
+    },
+    {
+        "pathogen": "rotavirus"
+    },
+    {
+        "pathogen": "Human herpesvirus 1"
+    },
+    {
+        "pathogen": "HIV-1 (IIIB strain)"
+    },
+    {
+        "pathogen": "HIV-1"
+    },
+    {
+        "pathogen": "Togaviridae"
+    },
+    {
+        "pathogen": "Francisella"
+    },
+    {
+        "pathogen": "influenza A H1N1 virus (A/WSN/33), swine-origin influenza A/Hamburg/04/2009 (H1N1) virus"
+    },
+    {
+        "pathogen": "WSN virus or H5N1 influenza A/Indonesia/7/05 (Indonesia 7; isolated from a patient)"
+    },
+    {
+        "pathogen": "probable synonym or variety: \"Pseudomonas polycolor\" Clara 1930,Pseudomonas pyocyanea,Pseudomonas polycolor,Micrococcus pyocyaneus,Bacterium pyocyaneum,Bacterium aeruginosum,Bacillus pyocyaneus,Bacillus aeruginosus"
+    },
+    {
+        "pathogen": "VACV"
+    },
+    {
+        "pathogen": "highly pathogenic avian-origin influenza A virus of the H5N1 subtype (A/Vietnam/1203/2004)"
+    },
+    {
+        "pathogen": "dsDNA"
+    },
+    {
+        "pathogen": "Vaccinia virus"
+    },
+    {
+        "pathogen": "Salmonella enterica ser. Choleraesuis,Salmonella choleraesuis,Salmonella cholerae-suis,Bacillus cholerae-suis"
+    },
+    {
+        "pathogen": "Hepatitis C virus"
+    },
+    {
+        "pathogen": "vesicular stomatitis virus VSV"
+    },
+    {
+        "pathogen": "IAV"
+    },
+    {
+        "pathogen": "Borna disease virus"
+    },
+    {
+        "pathogen": "Brucella melitensis biovar Abortus"
+    },
+    {
+        "pathogen": "lymphocytic choriomeningitis virus (LCMV)"
+    },
+    {
+        "pathogen": "Mycobacterium"
+    },
+    {
+        "pathogen": "avian influenza virus,Influenzavirus,Influenza virus sp.,Influenza virus"
+    },
+    {
+        "pathogen": "Paramyxoviridae"
+    },
+    {
+        "pathogen": "dsRNA"
+    },
+    {
+        "pathogen": "parainfluenza virus type 3 PIV-3,human parainfluenza virus 3 HPIV3"
+    },
+    {
+        "pathogen": "ssRNA+"
+    },
+    {
+        "pathogen": "unidentified influenza virus"
+    },
+    {
+        "pathogen": "ssRNA-"
+    },
+    {
+        "pathogen": "Salmonella enterica"
+    },
+    {
+        "pathogen": "Vesicular stomatitis virus"
+    },
+    {
+        "pathogen": "Herpes simplex virus 1,Human herpesvirus type 1"
+    },
+    {
+        "pathogen": "Reoviridae"
+    },
+    {
+        "pathogen": "murine parainfluenza virus 1"
+    },
+    {
+        "pathogen": "Arenaviridae"
+    },
+    {
+        "pathogen": "vaccinia virus VV"
+    },
+    {
+        "pathogen": "Gram-"
+    },
+    {
+        "pathogen": "Gram+"
+    },
+    {
+        "pathogen": "HIV-1, strain IIIB virus"
+    },
+    {
+        "pathogen": "Francisella tularensis ssp. novicida strain U112"
+    },
+    {
+        "pathogen": "Virus"
+    },
+    {
+        "pathogen": "E. coli"
+    },
+    {
+        "pathogen": "WNV"
+    },
+    {
+        "pathogen": "Pseudomonas"
+    },
+    {
+        "pathogen": "Sendai virus"
+    },
+    {
+        "pathogen": "Salmonella"
+    },
+    {
+        "pathogen": "Escherichia"
+    },
+    {
+        "pathogen": "DEN-2"
+    },
+    {
+        "pathogen": "Chlamydophila"
+    },
+    {
+        "pathogen": "HCV"
+    },
+    {
+        "pathogen": "Listerella hepatolytica,Erysipelothrix monocytogenes,Corynebacterium parvulum,Corynebacterium infantisepticum,Bacterium monocytogenes hominis,Bacterium monocytogenes"
+    },
+    {
+        "pathogen": "human immunodeficiency virus-1 HIV-1,human immunodeficiency virus type-1 HIV-1"
+    },
+    {
+        "pathogen": "Brucella (Brucella melitensis strain 16M (WT) and B. abortus strain 2308 (WT),and their derivedmutants)"
+    },
+    {
+        "pathogen": "Borna disease virus(rVSV\u0394G*/BDVG,a replication-competent recombinant vesicular stomatitis virus (VSV) expressing the BDV G)"
+    },
+    {
+        "pathogen": "BDV"
+    },
+    {
+        "pathogen": "C. albicans CAF2-1 strain (URA3/ura3::kimm434)"
+    },
+    {
+        "pathogen": "Brucella abortus(Brucella melitensis)"
+    },
+    {
+        "pathogen": "post-transfusion hepatitis non A non B virus,human hepatitis virus C HCV,human hepatitis C virus HCV,human hepatitis C virus,hepatitis C virus HCV"
+    },
+    {
+        "pathogen": "HSV-1"
+    },
+    {
+        "pathogen": "Serratia"
+    },
+    {
+        "pathogen": "Listeria monocytogenes DH-L1039, a green fluorescent protein (GFP)-expressing L. monocytogenes strain derived from wild-type 10403S;DH-L1137, a variant lacking the pore-forming cytolysin listeriolysin O (LLO)"
+    },
+    {
+        "pathogen": "Rotaviruses"
+    },
+    {
+        "pathogen": "LCMV"
+    },
+    {
+        "pathogen": "Pasteurella tularensis,Francisella tularense,Brucella tularensis,Bacterium tularense"
+    },
+    {
+        "pathogen": "Mycobacterium minetti,Mycobacterium giae"
+    },
+    {
+        "pathogen": "Chlamydia caviae"
+    },
+    {
+        "pathogen": "Orthomyxoviridae"
+    },
+    {
+        "pathogen": "Francisella tularensis"
+    },
+    {
+        "pathogen": "Bacillus marcescens"
+    },
+    {
+        "pathogen": "human parainfluenza virus type 3 (HPIV3)"
+    },
+    {
+        "pathogen": "Flu-VSV-GR Luc (FVG-R) virus, in which VSV-G and Renilla luciferase genes replaced the viral HA and NA open reading frames"
+    },
+    {
+        "pathogen": "Listeria monocytogenes"
+    },
+    {
+        "pathogen": "prototype alphavirus Sindbis virus (engineered to express firefly luciferase in the cytoplasm of infected cells,SINV-Luc)"
+    },
+    {
+        "pathogen": "Listeria"
+    },
+    {
+        "pathogen": "Chlamydophila caviae"
+    },
+    {
+        "pathogen": "Pseudomonas aeruginosa"
+    },
+    {
+        "pathogen": "Chlamydia"
+    },
+    {
+        "pathogen": "Human parainfluenza virus 3"
+    },
+    {
+        "pathogen": "bacterium E3,Enterococcus coli,Bacterium coli commune,Bacterium coli,Bacillus coli"
+    },
+    {
+        "pathogen": "vaccinia virus (VACV)"
+    },
+    {
+        "pathogen": "vesicular stomatitis virus (VSV)"
+    },
+    {
+        "pathogen": "Hepatitis C virus (JFH1 HCV strain)"
+    },
+    {
+        "pathogen": "HSV1,HSV-1"
+    },
+    {
+        "pathogen": "Escherichia coli"
+    },
+    {
+        "pathogen": "Sindbis virus dsSIN"
+    },
+    {
+        "pathogen": "Borna disease virus BDV"
+    },
+    {
+        "pathogen": "SeV"
+    },
+    {
+        "pathogen": "Mycobacterium fortuitum (EJR154) map24::GFP"
+    },
+    {
+        "pathogen": "Bornaviridae"
+    },
+    {
+        "pathogen": "Candida"
+    },
+    {
+        "pathogen": "HCV (pJFHxJ6-CNS2C3 (WT))"
+    },
+    {
+        "pathogen": "Human immunodeficiency virus 1"
+    },
+    {
+        "pathogen": "Chlamydia trachomatis"
+    },
+    {
+        "pathogen": "dengue-2 virus,dengue 2 virus DEN-2,Dengue virus type II,Dengue virus type 2"
+    },
+    {
+        "pathogen": "infectious JFH-1 genotype 2a virus"
+    },
+    {
+        "pathogen": "mature virion (MV) form of a recombinant VACV that expresses enhanced green fluorescent protein (EGFP) under a synthetic early/late viral promoter (VACVEGFP)"
+    },
+    {
+        "pathogen": "Poxviridae"
+    },
+    {
+        "pathogen": "West Nile virus (North American WNV isolate (New York 2000))"
+    },
+    {
+        "pathogen": "Lymphocytic choriomeningitis virus"
+    },
+    {
+        "pathogen": "DEN2-S2 virus"
+    },
+    {
+        "pathogen": "lymphocytic choriomeningitis virus LCMV"
+    },
+    {
+        "pathogen": "influenza A virus A/Puerto Rico/8/34 H1N1 (PR8)"
+    },
+    {
+        "pathogen": "SINV"
+    },
+    {
+        "pathogen": "A/WSN/33 strain (WSN33) of influenza A virus (IAV)"
+    },
+    {
+        "pathogen": "HCV genotype 1b N strain subgenomic replicon cells expressing HCV NS3-NS5B and the secreted alkaline phosphatase (SEAP) reporter protein"
+    },
+    {
+        "pathogen": "Dengue virus 2"
+    },
+    {
+        "pathogen": "Retro-transcribed"
+    },
+    {
+        "pathogen": "Salmonella enterica subspecies 1 serovar Typhimurium(wild-type S. Tmwt pM975)"
+    },
+    {
+        "pathogen": "West Nile virus"
+    },
+    {
+        "pathogen": "Brucella"
+    },
+    {
+        "pathogen": "Candida stellatoidea type I,Candida stellatoidea"
+    },
+    {
+        "pathogen": "Flaviviridae"
+    },
+    {
+        "pathogen": "HPIV-3"
+    },
+    {
+        "pathogen": "fluorescein isothiocyanate (FITC)-labelled E. coli"
+    },
+    {
+        "pathogen": "Sendai virus (SeV)"
+    },
+    {
+        "pathogen": "Rhabdoviridae"
+    },
+    {
+        "pathogen": "Brucella abortus"
+    },
+    {
+        "pathogen": "Sindbis virus"
+    },
+    {
+        "pathogen": "HIV-1,LAV-1,HIV1,HIV"
+    },
+    {
+        "pathogen": "Fungi"
+    },
+    {
+        "pathogen": "HXB2 HIV-1"
+    },
+    {
+        "pathogen": "Rickettsia trachomatis,Rickettsia trachomae,Chlamydozoon trachomatis"
+    },
+    {
+        "pathogen": "HCV321 and HCV138"
+    },
+    {
+        "pathogen": "HPIV-3,HPIV3"
+    },
+    {
+        "pathogen": "Renilla luciferase influenza virus"
+    },
+    {
+        "pathogen": "VSV"
+    },
+    {
+        "pathogen": "Herpesviridae"
+    },
+    {
+        "pathogen": "Retroviridae"
+    },
+    {
+        "pathogen": "Herpes Simplex Virus Type 1 (HSV-1 strain C12)"
+    },
+    {
+        "pathogen": "Bacteria"
+    }
+]

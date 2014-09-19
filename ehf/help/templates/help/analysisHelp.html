@@ -1,0 +1,343 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - Help</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'help/help.css' %}"/>
+    <script src='/static/help/help.js'></script>
+
+    <div class="helpMain">
+    <div class="row">
+    <div class="col-md-3 leftNav">
+        <div id="header">
+            <h3><b>Quick HELP links</b></h3>
+        </div>
+        <hr>
+        <ul class="nav nav-pills nav-stacked">
+            <li><a href="{% url 'help:index' %}">Overview</a></li>
+            <li><a href="{% url 'help:ehfHelp' %}">Background</a></li>
+            <li><a href="{% url 'help:searchHelp' %}">Search</a></li>
+            <li><a href="{% url 'help:browseHelp' %}">Browse</a></li>
+            <li><a href="{% url 'help:analysisHelp' %}">Analysis</a></li>
+            <ul>
+                <li><a href="#network">EHF-pathogen Network</a></li>
+                <li><a href="#heatmapAnalysis">EHF overlap analysis</a></li>
+                <li><a href="#gea">GEA Analysis</a></li>
+                <li><a href="#pip">PIPs Analysis</a></li>
+                <li><a href="#drugAnalysis">Drug Target Analysis</a></li>
+                <li><a href="#gwasAnalysis">GWAS Candidate Gene Analysis</a></li>
+            </ul>
+            <li><a href="{% url 'help:restHelp' %}">RESTful API</a></li>
+            <li><a href="{% url 'help:citeHelp' %}">Cite</a></li>
+        </ul>
+    </div>
+    <div class="col-md-9 rightContent">
+
+
+    <div class="gotop">
+        <a href="#" title="Back to the top of the page"><span
+                class="glyphicon glyphicon-circle-arrow-up"></span>
+            Top</a>
+    </div>
+    <div class="title" id="network"><a href="#">EHF-pathogen Network</a></div>
+    <div class="content">
+        A network representation of the EHF genes and pathogens is provided based on the custom gene list.
+        You can provide gene symbols in three ways:
+        <ul>
+            <li>EHFPI guidance tree</li>
+            <li>Input a gene list</li>
+            Genes should be separated by comma, e.g., cab5,cbx4, or one gene per line.
+            <li>Upload a text file</li>
+            text file, gene separated by comma e.g., cab5,cbx4. Or one gene per line.
+        </ul>
+        <div><img src="/static/help/images/network1.jpg"></div>
+        Please note that it may take minutes to load the network if you submit too large amount of genes.
+        In the EHF-pathogen network, dots represent genes and stars represent pathogens. An edge connecting
+        a gene and a pathogen represents this gene is an EHF of this pathogen. The edges are differentially
+        colored according the phenotypes. Below is an example figure of EHF-Brucella abortus(Brucella
+        melitensis) netwrok.
+        <div><img src="/static/help/images/network2.png"></div>
+        The left top window is a result display, showing all the pathogen(s) that share(s) the designated
+        gene(s) as EHF(s) and corresponding numbers. <br/>
+        The following operations are supported in the network window:
+        <ul>
+            <li><b>
+                Filter the result.</b>
+            </li>
+            You can select one or several pathogen species in the result display window. The corresponding
+            nodes (stars and dots) will be highlighted.
+            <li><b>Mouse over a node's label to select a node and its connections.</b></li>
+            The edges connected to the selected node will be highlighted. If you point at a gene (dot), the
+            label will display its full name, and its related pathogen information will be shown in the left
+            bottom panel. If you point at a pathogen(star), the label will display strains/subtypes of the
+            pathogen, and the characteristics of its EHF genes (common/specific) will be summarized and
+            shown in the left bottom panel.
+
+            <li><b>click on the 'x' link to delete a node.</b></li>
+            You can hide the pathogen node by clicking the 'x' link, if the gene node connected to this node
+            is specific (means only connected to one pathogen node), the node will hide too.
+            <li><b>Drag nodes around.</b></li>
+            You can drag the node to the place you want in the window for better view.
+            <li><b>Zoom and pan the figure.</b></li>
+            You can zoom the figure with mouse wheel, or use the 'zoom in' and 'zoom out' button on the
+            right top of network window. You can also pan the graph.
+            <li><b>Search the network.</b></li>
+            You can search gene symbol(s) or pathogen(s) in the network. When an exact match is found, the
+            corresponding nodes will be highlighted.
+            <li><b>Save the network as an image or csv file.</b></li>
+            Only visible filed of the network window is saved, but csv file contains all information.
+
+        </ul>
+        Please note that single nodes may not be placed in the visible scope of the network window. You can
+        zoom in to see all nodes.
+
+    </div>
+    <hr/>
+    <div class="title" id="heatmapAnalysis"><a href="#">EHF overlap analysis</a></div>
+    A EHF overlap analysis displays the common EHF genes of pathogens in a heatmap representation. You can
+    run the analysis in two aspects:
+    <ul>
+        <li>Taxonomy</li>
+        Common EHF genes of pathogen(s) will be custom displayed at four different taxonomy levels (i.e.
+        kingdom, family, specie, and strain). Please note that for viral pathogens, the analysis at genus
+        level is not provided, and for fungal and bacteria l pathogens, the analysis at family level is not
+        provided.
+        <li>Article</li>
+        Common EHF genes for a specific will be custom displayed based on the published articles that
+        reports the RNAi screen results pathogen. To distinguish different pathogen species tested in one
+        article, we further add pathogen information to the guidance tree.
+    </ul>
+    <div><img src="/static/help/images/heatmap2.png"></div>
+    <br/>
+
+    Below is an example of EHF overlap analysis result using taxonomy. In the heatmap, squares are
+    differentially colored according to the number of shared EHF genes for a pair of pathogens (names shall
+    be notified with mouse arrow placed on the square). And the exact number is placed in the center of each
+    square, with the detailed information displayed in the left bottom panel as in a 'Common Genes' list.
+    This window can be moved in the page at your convenience.
+
+    <div class="content">
+        <div><img src="/static/help/images/heatmap1.png"></div>
+    </div>
+
+    By default, the result is generated and ordered by name at kingdom level. You can
+    also change the dominant display order. Now, EHFPI supports three orders:
+    <ul>
+        <li>name</li>
+        <li>common gene number</li>
+        <li>pathogen group</li>
+        e.g., species of the same family.
+    </ul>
+
+    Clicking the square to see the corresponding result page. See <a
+            href="{% url 'help:searchHelp' %}">search</a> for more help.
+    Please note that the size of guidance tree window is adjustable and supports search for further
+    information.
+    <br/><br/>
+
+    What's more, you can view the list of EHF genes and their related pathogen lists. The table below list the EHF genes
+    and their interacted pathogen number and pathogen list.
+    <div class="content">
+        <div><img src="/static/help/images/statistics.png"></div>
+    </div>
+    You can download specific or all entries for further analysis. You can also filter the result, the search field
+    supports searching multiple
+    gene symbols separated by comma or semicolon. Leave the field empty to return all results.
+    <br/><br/>
+    We also provide the distribution statistics of EHFs. Besides the statistics of all EHF genes, statistics of primary
+    hits is also given. In the column graph, x axis represents interacted pathogen number, and y axis represents EHF
+    number.
+    For example, in the first column graph, there are 716 EHF genes who interact with 2 pathogens (note the pathogens
+    for different EHFs may be different). This graph provides an overview of overlap statistics. You can save the column
+    graph as an image or a pdf file.<br/><br/>
+    The column graph doesn't provide detailed gene information, so we present the gene list in a separate table.
+    Generally EHFs with
+    more interacted pathogens get more attention.
+
+    <div class="content">
+        <div><img src="/static/help/images/distribution.png"></div>
+    </div>
+
+    <hr/>
+
+    <div class="title" id="gea"><a href="#">GEA Analysis</a></div>
+    <div class="content">
+        EHFPI provides direct links to <a href="http://david.abcc.ncifcrf.gov/" target="_blank">DAVID</a> to
+        perform gene enrichment analysis. You can choose the EHF genes of a specific pathogen or from a
+        screen reported by a specific publication to run the analysis. In the filter window, the number mark
+        at the end of each guidance item represents the total number of EHFPI accessions under this
+        statistical category. Please note that the size of filter window is adjustable.
+        <div><img src="/static/help/images/gea1.jpg"></div>
+        We provide GO and KEGG pathway analysis by default. For more details, please refer to DAVID help.
+        Please note that DAVID API has limitations on the total number of genes for submission!
+        <br/><br/>
+        To provide the user more alternatives, we also link to other external tools such as <a
+            href="http://omicslab.genetics.ac.cn/GOEAST/php/batch_genes.php" target="_blank">GOEAST</a>, <a
+            href="http://www.pantherdb.org/" target="_blank">PANTHER</a>,
+        <a href="http://biit.cs.ut.ee/gprofiler/index.cgi" target="_blank">g:Profiler</a>,
+        <a href="http://www.reactome.org/PathwayBrowser/#TOOL=AT"
+           target="_blank">Reactome</a>, <a href="http://pid.nci.nih.gov/search/batch_query.shtml" target="_blank">Pathway
+        Interaction Database</a> and <a href="http://www.pathwaycommons.org/" target="_blank">Pathway Commons</a>. You can copy the
+        gene symbols and go to a specific link for analysis.
+
+        <div><img src="/static/help/images/gea2.png"></div>
+
+    </div>
+
+    <hr/>
+    <div class="title" id="pip"><a href="#">PIPs Analysis</a></div>
+    <div class="content">
+        PIPs analysis provides information on whether or not the protein product of an EHF gene is
+        experimentally validated as a pathogen interacting protein. The PIPs data are from <a
+            href="http://pbildb1.univ-lyon1.fr/virhostnet/index.php" target="_blank">VirHostNet</a>
+        and <a href="http://mint.bio.uniroma2.it/virusmint/Welcome.do" target="_blank">VirusMINT</a>.
+        You can provide a gene list or choose EHF genes of specific pathogen(s) to view the analysis result.
+        <div><img src="/static/help/images/vtp1.jpg"></div>
+        <div><img src="/static/help/images/vtp11.jpg"></div>
+        The result page includes a summary of the analysis and a list of brief information regarding the
+        EHFs whose protein products are also PIPs.
+        <div><img src="/static/help/images/vtp2.jpg"></div>
+        <div>
+            You can also download PIPs analysis data or perform GEA, network analysis and view PPI network based on the
+            result.
+        </div>
+        <div>
+            Below is an example PPI network, the protein-protein interaction data are from <a
+                href="http://www.hprd.org/" target="_blank">HPRD</a>.
+        </div>
+        <div><img src="/static/help/images/vtp3.jpg"></div>
+        The following operations are supported in the ppi network window:
+        <ul>
+            <li><b>Click a node to select a node and its connections.</b></li>
+            When clicking a node, the node and its neighbourhood (edges and nodes connected to the node) are
+            highlighted. Moreover, a tip which shows the detailed
+            protein and related nodes information will be displayed.
+            <li><b>Click an edge to select an edge.</b></li>
+            When clicking an edge, the experiment type and literature information will be displayed in a popover tip
+            window.
+            <li><b>Drag nodes around.</b></li>
+            You can drag a single node or a group of nodes (select a rectangle area with left mouse button) to the place
+            you want in the window for better view.
+            <li><b>Zoom and pan the figure.</b></li>
+            You can zoom and pan the figure with mouse wheel, or with the buttons on the left top of the network window.
+            <li><b>Search the network.</b></li>
+            You can search gene symbol, HPRD id or Refseq id in the network. When an exact match is found, the
+            corresponding node and its neighborhood will be highlighted.
+            <li><b>Save the network as an image.</b></li>
+            You can save graph in current viewport or entire graph as an png image.
+            <li><b>Navigator the graph.</b></li>
+            You can navigate the graph with the widget on the right bottom of the window. This widget shows a bird's eye
+            view of the graph such that the entire graph is visible. Using this
+            widget, the user can zoom and pan the graph.
+
+        </ul>
+
+    </div>
+
+    <hr/>
+    <div class="title" id="drugAnalysis"><a href="#">Drug Target Analysis</a></div>
+    <div class="content">
+        <div>
+            Drug target analysis provides specialized information for pathogens whose EHF genes or protein products
+            are also validated targets of FDA-approved drugs and other drugs(experimental, investigational,
+            withdrawn, nutraceutical). The
+            EHF-drug connection is defined as the EHF gene of a specific pathogen species and the targets of a
+            specific drug or small bioactive chemical compound/molecule share at least one gene/protein product.
+        </div>
+        <div>
+            The drug target data are from <a href="http://www.drugbank.ca/" target="_blank">DrugBank</a> (only drug
+            with known pharmacological action is included). You
+            can choose EHF genes of specific pathogen(s) to view the analysis result.
+
+        </div>
+        <div><img src="/static/help/images/drug1.png"></div>
+        The result page includes a summary of the analysis and a list of brief information of pathogen species,
+        drug target and drug.<br/>Here is an example of result for Brucella abortus(Brucella melitensis). You
+        may find that besides submitted pathogen specie(s), the EHF-drug connections for additional pathogen
+        specie(s) who share EHF genes of Brucella abortus(Brucella melitensis) are also presented.<br/>
+        You can see the detailed drug information by clicking the DrugBank ID external
+        link.
+        <div><img src="/static/help/images/drug2.png"></div>
+        <div>
+            To view result list of specific pathogen species, you can filter the table by clicking the 'Filter' button
+            on the right top of the table. Submitted pathogens are selected by default.
+            <div><img src="/static/help/images/drug3.jpg"></div>
+        </div>
+        <div>You can also download the results of interest. Or you can view the EHF-drug connections in a network
+            representation. The EHF-drug network is built in this way: an edge is connected between a specific
+            pathogen
+            and a drug if the EHF gene of this pathogen specie is a target of the drug.
+
+        </div>
+        <div>Here is an example of EHF-drug network for Brucella abortus(Brucella melitensis). You may find that
+            besides
+            submitted pathogen specie(s), the EHF-drug connections for additional pathogen specie(s) who share EHF
+            genes
+            of Brucella abortus(Brucella melitensis) are also presented.
+        </div>
+        <div><img src="/static/help/images/drug4.jpg"></div>
+        The left top window is a result display, showing all the pathogen(s) that share(s) the designated
+        drug(s) and corresponding numbers. <br/>
+        The following operations are supported in the network window:
+        <ul>
+            <li><b>
+                Filter the result.</b>
+            </li>
+            You can select one or several pathogen species in the result display window. The corresponding
+            nodes (triangles and dots) will be highlighted. And the related drug list will displayed in the left
+            bottom panel.
+            <li><b>Mouse over a node's label to select a node and its connections.</b></li>
+            The edges connected to the selected node will be highlighted. If you point at a drug (dot), the
+            tip will display its DrugBank ID, and its related pathogen information will be shown in the left
+            bottom panel, as well as the drug target that links the drug and the pathogen. If you point at a
+            pathogen(triangle), the tip will display strains/subtypes of the
+            pathogen, and the related drug information (approved and others) will be summarized and
+            shown in the left bottom panel.
+
+            <li><b>click on the 'x' link to delete a node.</b></li>
+            You can hide the pathogen node by clicking the 'x' link, if the drug node connected to this node
+            is specific (means only connected to one pathogen node), the node will hide too.
+            <li><b>Drag nodes around.</b></li>
+            You can drag the node to the place you want in the window for better view.
+            <li><b>Zoom and pan the figure.</b></li>
+            You can zoom the figure with mouse wheel, or use the 'zoom in' and 'zoom out' button on the
+            right top of network window. You can also pan the graph.
+            <li><b>Search the network.</b></li>
+            You can search drug(name and DrugBank ID) or pathogen(s) in the network. When an exact match is found, the
+            corresponding nodes will be highlighted.
+            <li><b>Save the network as an image.</b></li>
+            Only visible filed of the network window is saved.
+            <li><b>Click edge to get drug target info.</b></li>
+            Since there exists a hidden layer(drug target) in the network, you can also get drug target
+            information by clicking the edge between pathogen node and drug node.
+
+        </ul>
+        Please note that single nodes may not be placed in the visible scope of the network window. You can
+        zoom in to see all nodes.
+
+    </div>
+
+    <hr/>
+    <div class="title" id="gwasAnalysis"><a href="#">GWAS Candidate Gene Analysis</a></div>
+    <div class="content">
+
+        <a href="http://www.genome.gov/gwastudies/" target="_blank">The NHGRI GWAS Catalog</a> supports Genome-wide association
+        study (GWAS) that screens for the candidate genes, of
+        which the common genetic variants, e.g., single-nucleotide polymorphisms (SNPs), in different individuals
+        are associated with a trait/disease. EHFPI provides further annotation/interpretation of EHF genes as
+        candidate disease/traits genes identified from Genome Wide Association Studies.
+        You can choose the EHF genes of specific pathogen(s) to perform the analysis.
+        <div><img src="/static/help/images/gwas1.png"></div>
+        The result page includes a summary of the analysis and a list of brief information.
+        <div><img src="/static/help/images/gwas2.png"></div>
+        You can also download GWAS data. A detailed description of each field can be found <a
+            href="http://www.genome.gov/Pages/About/OD/OPG/GWAS%20Catalog/Tab_delimited_heading_descriptions_2014-02-26.pdf"
+            target="_blank">here</a>.
+    </div>
+
+    </div>
+    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - About</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'about/about.css' %}"/>
+
+    <div class="main">
+        <div class="contact">
+
+            <ol class="breadcrumb">
+                <li><a href="{% url 'ehf.views.index' %}">Home</a></li>
+                <li><a href="{% url 'about:index' %}">About</a></li>
+                <li class="active">Contact</li>
+            </ol>
+
+            <div class="contactContent">
+                <p>you can contact us in three ways</p>
+
+                <div class="panel panel-primary">
+                    <!-- Default panel contents -->
+                    <!-- List group -->
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <form method="post" class="form-horizontal" role="form"
+                                  action="{% url 'about:contact' %}">{% csrf_token %}
+
+                                <div class="fieldWrapper">
+                                    <label for="id_title">Title*:</label><br/>
+                                    {{ myForm.title.errors }}
+                                    {{ myForm.title }}<span id="hint">(question)</span>
+                                </div>
+
+                                <div class="fieldWrapper">
+                                    <label for="id_content">Content*:</label><br/>
+                                    {{ myForm.content.errors }}
+                                    {{ myForm.content }}
+                                </div>
+
+                                <div class="fieldWrapper">
+                                    <label for="id_email">Email*:</label><br/>
+                                    {{ myForm.email.errors }}
+                                    {{ myForm.email }}<span id="hint">(example@example.com)</span>
+                                </div>
+
+                                <input type="submit" value="Submit" class="btn btn-primary btn-sm">
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel panel-primary">
+                    <!-- Default panel contents -->
+                    <!-- List group -->
+                    <ul class="list-group">
+                        <li class="list-group-item">You can send mail to<br/>
+                            <b>Hui Bai</b> (<a href="mailto:huibai13@hotmail.com">huibai13@hotmail.com</a>)<br/>
+                            <b>Yang Liu</b> (<a href="mailto:liuyang@bmi.ac.cn">liuyang@bmi.ac.cn</a>)<br/>
+                            Beijing Institute of Radiation Medicine<br/>
+                            Beijing, P.R.China<br/>
+                            </li>
+                    </ul>
+                </div>
+                <div class="panel panel-primary">
+                    <!-- Default panel contents -->
+                    <!-- List group -->
+                    <ul class="list-group">
+                        <li class="list-group-item">You can also join our mailing list at <a href="https://groups.google.com/d/forum/ehfpi" target="_blank">ehfpi@googlegroups.com</a>.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

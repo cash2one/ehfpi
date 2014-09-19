@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - Downloads</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'download/download.css' %}"/>
+    <div class="main">
+        <div class="register">
+            <ol class="breadcrumb">
+                <li><a href="{% url 'ehf.views.index' %}">Home</a></li>
+                <li><a href="{% url 'download:custom' %}">Download</a></li>
+                <li><a href="{% url 'download:custom' %}">Custom</a></li>
+                <li class="active">Register</li>
+            </ol>
+            <div class="panel panel-success">
+                <!-- Default panel contents -->
+                <div class="panel-heading">Register to download</div>
+                <div class="panel-body">
+                    <form method="post" class="form-horizontal" role="form"
+                          action=" {% url 'download:register' %}">{% csrf_token %}
+
+                        <div class="fieldWrapper">
+                            <label for="id_name">Name*:</label><br/>
+                            {{ myForm.name.errors }}
+                            {{ myForm.name }}<span id="hint">(John)</span>
+                        </div>
+
+                        <div class="fieldWrapper">
+                            <label for="id_institute">Institute*:</label><br/>
+                            {{ myForm.institute.errors }}
+                            {{ myForm.institute }}<span id="hint">(Academy of Military Medical Sciences)</span>
+                        </div>
+
+                        <div class="fieldWrapper">
+                            <label for="id_city">City*:</label><br/>
+                            {{ myForm.city.errors }}
+                            {{ myForm.city }}<span id="hint">(Beijing)</span>
+                        </div>
+
+                        <div class="fieldWrapper">
+                            <label for="id_country">Country*:</label><br/>
+                            {{ myForm.country.errors }}
+                            {{ myForm.country }}<span id="hint">(China)</span>
+                        </div>
+
+                        <div class="fieldWrapper">
+                            <label for="id_email">Email*:</label><br/>
+                            {{ myForm.email.errors }}
+                            {{ myForm.email }}<span id="hint">(example@example.com)</span>
+                        </div>
+
+                        <input type="submit" class="btn btn-primary btn-sm" value="Continue">
+                    </form>
+                </div>
+
+
+            </div>
+
+            <div style="font-size: 16px;font-weight: bold">OR go to <a href="{% url 'download:downloadAll' %}">download</a> directly!</div>
+        </div>
+    </div>
+{% endblock %}

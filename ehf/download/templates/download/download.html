@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - Downloads</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'download/download.css' %}"/>
+    <script src='/static/download/download.js'></script>
+
+    <div class="main">
+        <div class="downloadAll">
+            <ol class="breadcrumb">
+                <li><a href={% url 'ehf.views.index' %}>Home</a></li>
+                <li><a href="{% url 'download:custom' %}">Download</a></li>
+                <li><a href="{% url 'download:custom' %}">Custom</a></li>
+                <li class="active">DownloadAll</li>
+            </ol>
+
+            <div class="downloadAllContent">
+                <form action="{% url 'download:gencsv' %}" method="post" role="form"
+                      name="downloadForm"> {% csrf_token %}
+                    Select Release:<br/>
+
+                    <div class="row" id="versionSelect">
+                        <div class="col-xs-3">
+                            <select class="form-control" name="version">
+                                {% for item in version %}
+                                    {% ifequal forloop.counter 1 %}
+                                        <option value="{{ item.verId }}">{{ item.name }}(current)</option>
+                                    {% else %}
+                                        <option value="{{ item.verId }}">{{ item.name }}</option>
+                                    {% endifequal %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    Select Columns included in the file:<br/>
+
+                    <div class="checkboxAll">
+                        <label class="checkbox-inline"><input type="checkbox" id="selectAll" value="All"
+                                                              onclick="changeState(this)"><b>Select All</b></label>
+
+
+                        <table class="checkTable">
+                            <tr class="tableGroup">
+                                <td colspan="4">Gene Info:</td>
+                            </tr>
+                            <tr>
+                                {% for item1,item2 in result %}
+                                    <td><label class="checkbox-inline"><input type="checkbox" name="checkboxDownload"
+                                                                              id="checkboxDownload"
+                                                                              value="{{ item1 }}"> {{ item2 }}</label>
+                                    </td>
+                                    {% ifequal forloop.counter 4 %}
+                                        </tr>
+                                        <tr>
+                                    {% endifequal %}
+                                {% ifequal forloop.counter 8 %}
+                                    </tr>
+                                    <tr>
+                                {% endifequal %}
+                                {% ifequal forloop.counter 12 %}
+                                    </tr>
+                                    <tr>
+                                {% endifequal %}
+                                {% ifequal forloop.counter 16 %}
+                                    </tr>
+                                    <tr>
+                                {% endifequal %}
+                                {% ifequal forloop.counter 17 %}
+                                    </tr>
+                                    <tr class="tableGroup">
+                                        <td colspan="4">Pathogen Info:</td>
+                                    </tr>
+                                    <tr>
+                                {% endifequal %}
+                                {% ifequal forloop.counter 21 %}
+                                    </tr>
+                                    <tr>
+                                {% endifequal %}
+                                {% ifequal forloop.counter 25 %}
+                                    </tr>
+                                    <tr>
+                                {% endifequal %}
+                                {% ifequal forloop.counter 26 %}
+                                    </tr>
+                                    <tr class="tableGroup">
+                                        <td colspan="4">Pathogen Info:</td>
+                                    </tr>
+                                    <tr>
+                                {% endifequal %}
+                                {% ifequal forloop.counter 30 %}
+                                    </tr>
+                                    <tr>
+                                {% endifequal %}
+                                  {% ifequal forloop.counter 33 %}
+                                    </tr>
+                                    <tr class="tableGroup">
+                                        <td colspan="4">Pathogen Info:</td>
+                                    </tr>
+                                    <tr>
+                                {% endifequal %}
+                                {% ifequal forloop.counter 37 %}
+                                    </tr>
+                                    <tr>
+                                {% endifequal %}
+                                {% ifequal forloop.counter 41 %}
+                                    </tr>
+                                    <tr>
+                                {% endifequal %}
+
+                                {% endfor %}
+                                </tr>
+                        </table>
+                        <input type="submit" class="btn btn-primary btn-sm" value="Download" id="">
+
+                    </div>
+                </form>
+                <a href={% url 'download:custom' %} target="_blank">Here</a> you can find a more detailed description of
+                the fields.
+            </div>
+        </div>
+    </div>
+{% endblock %}

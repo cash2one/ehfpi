@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - Search</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'search/advSearch.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'search/search.css' %}"/>
+    <script src='/static/search/advSearch.js'></script>
+
+    <div class="main">
+    <div class="advanced">
+        <ol class="breadcrumb">
+            <li><a href={% url 'ehf.views.index' %}>Home</a></li>
+            <li><a href="{% url 'search:index' %}">Search</a></li>
+            <li class="active">Advanced Search</li>
+        </ol>
+
+        <div class="advanceIntro" id="advanceIntro">
+            <p>In the advanced search section, you can combine at most five search criteria, that is, Gene/Gene product, Pathogen, Publication, Screen scope and Phenotype.</p>
+        </div>
+        <div class="advancePanel" id="advancePanel">
+            <div id="content">
+
+                <div id="bgDiv">
+
+                    <div id="bodDiv">
+
+                        <form name="smartq" method="get" action="{% url 'search:advancedSearch' %}" onsubmit="handleSubmit();">
+
+                            <div class="se_spacer">&nbsp;</div>
+
+                            <div>
+
+                                <div class="db_head3" style="padding-top:3px;">
+                                    <div class="box_contentWrapper">
+                                        <table class="perc100">
+                                            <tbody>
+                                            <tr>
+                                                <td><b>Advanced Search</b></td>
+                                                <td class="rightCell"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="lb_body3">
+                                    <div class="box_contentWrapper">
+                                        <!-- THIS IS WHERE THE MAGIC HAPPENS -->
+                                        <div id="as_queryOptions">
+                                            <table border="0" id="myTable1" class="smarttable">
+                                                <tbody id="myTbody1">
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+
+
+                                        <!-- END OF MAGIC HAPPENING -->
+
+                                        <div style="margin: 5px 15px;">
+
+                                            <div class="db_head3" style="padding-top:3px;color:white;">
+                                                <div class="rightCell" onclick="smartRow();"
+                                                     style="cursor:pointer;padding:2px;">
+                                                    Add Search Criteria <img style="vertical-align:top;"
+                                                                             src="/static/search/images/plus.png"
+                                                                             alt="Add">
+                                                </div>
+                                            </div>
+
+                                            <div class="db_foot3"></div>
+
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+                                <div class="b_body3">
+
+
+                                    <div class="box_contentWrapper" id="bottomDiv">
+                                        <table class="perc100">
+                                            <tbody>
+                                            <tr valign="top">
+                                                <td>
+                                                    Match
+                                                    <select class="selectsmall" name="smartComparator"
+                                                            id="smartComparator"
+                                                            onchange="$('.smart_spacer').html(this.options[this.selectedIndex].value.toUpperCase());"
+                                                            disabled="disabled">
+                                                        <option value="and" selected="selected">all</option>
+                                                        <option value="or">any</option>
+                                                    </select>
+                                                    of the above conditions.
+                                                </td>
+                                                <td class="rightCell" style="vertical-align: bottom;">
+
+                                                    <input type="button" class="btn btn-success btn-sm" id="startOver" value="Clear All Parameters"
+                                                           onclick="clearSmart();"
+                                                           disabled="disabled">
+
+                                                    <input type="button" class="btn btn-success btn-sm" id="doSearch" value="Submit Query"
+                                                           onclick="doSmartSearch();"
+                                                           disabled="disabled">
+
+                                                    <input type="hidden" id="newRowHidden" value="foo"
+                                                           onclick="smartRow();">
+
+                                                </td>
+
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="b_foot3">
+
+                                &nbsp;
+
+                            </div>
+
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+                <script type="text/javascript" language="JavaScript">
+                    searchtypes = ["Gene/Gene Product", "Pathogen", "Publication", "Screen Scope", "Phenotype"];
+                    type2st = {"Gene/Gene Product": "gene", "Pathogen": "pathogen", "Publication": "publication", "Screen Scope": "scope", "Phenotype": "function"}
+                    prompts = {"gene": "Gene/Gene Product", "pathogen": "Pathogen", "publication": "Publication", "scope": "Screen Scope", "function": "Phenotype"}
+                    prompt_tips = {"gene": "Search by Gene(gene product) Information", "pathogen": "Search by Pathogen Information", "publication": "Search by Publication Information", "scope": "Search by Screen Scope Information", "function": "Search by Phenotype"}
+                    prompt_descs = {"gene": "Search one or more Gene symbol/Entrez Gene id/Uniprot id, separated by comma, e.g., cab5,cbx4. Or one gene per line", "pathogen": "Choose one or more pathogen species", "publication": "Choose one or more publication", "scope": "Choose one or more screen scope", "function": "Choose one or more Phenotypes"}
+                    $(document).ready(function () {
+                        smartRow();
+                        setSelectedList(document.smartq.smartComparator, 'and');  //set the AND or OR state, now set it to and
+                    });
+                </script>
+
+
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

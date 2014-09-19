@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+{% load pagination_tags %}
+{% block title %}
+    <title>EHFPI - Analysis</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    {% load tableSort %}
+    {#    <script src='/static/analysis/jstree/jstree.min.js'></script>#}
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jstree/3.0.1/jstree.min.js'></script>
+    <script src='/static/analysis/jstree/pip.js'></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'analysis/analysis.css' %}"/>
+{#    <link rel="stylesheet" type="text/css" href="{% static 'analysis/jstree/themes/default/style.min.css' %}"/>#}
+    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/jstree/3.0.1/themes/default/style.min.css"/>
+
+{#    <script src='/static/browse/jquery.fileDownload.js'></script>#}
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery.fileDownload/1.4.2/jquery.fileDownload.js'></script>
+
+    <div class="main">
+        <div class="vtp">
+            <div class="vtpTitle">
+                <ol class="breadcrumb">
+                    <li><a href="{% url 'ehf.views.index' %}">Home</a></li>
+                    <li><a href="{% url 'analysis:index' %}">Analysis</a></li>
+                    <li class="active">PIP Analysis</li>
+                </ol>
+            </div>
+            <div class="vtpContent" id="vtpContent">
+                <div class="vtpSummary">
+                    <b>Summary</b>: <b>{{ GeneNumberSubmit }}</b> gene{{ GeneNumberSubmit | pluralize }} submitted,
+                    <b>{{ GeneNumberIn }}</b> gene{{ GeneNumberIn | pluralize }} in
+                    EHFPI, which include <b><span id="resultNumber">{{ interactions }}</span></b>
+                    interaction{{ interactions | pluralize }}. <b>{{ GeneNumberVTP }}</b> of these genes are also
+                    PIPs(Pathogen Interacting Proteins).
+                </div>
+                <span id="ids" style="display:none">{{ ids }}</span>
+
+                <div id="csrf" style="display:none" value="{% csrf_token %}"></div>
+
+                <div id="functionDiv" class="functionDiv">
+                    <div id="selectHint" class="selectHint">
+                        <b><span id="selectNumber">0</span></b> items selected
+                    </div>
+                    <input type="checkbox" id="selectAllPage" value="selectAllPage" onclick="selectAllPage(this);">
+                    <label id="selectAllPage"> Select all records </label>
+
+                        <span id="buttonGroup">
+                            <button id="downloadFunc" class="btn btn-primary btn-sm"
+                                    onclick="performFunction('download');">Download
+                            </button>
+                            <button id="geaFunc" class="btn btn-primary btn-sm" onclick="performFunction('gea');">GEA
+                                Analysis
+                            </button>
+                            <button id="networkFunc" class="btn btn-primary btn-sm"
+                                    onclick="performFunction('network');">Network Analysis
+                            </button>
+                            <button id="ppiFunc" class="btn btn-primary btn-sm"
+                                    onclick="performFunction('ppi');">PPI Network
+                            </button>
+
+                        </span>
+                        <span id="vtpAnalysisTip"><a href="{% url 'help:analysisHelp' %}#vtp" target="_blank"><img
+                                src="/static/images/info_20x20.png"></a></span>
+
+                </div>
+                <div id="preparing-file-modal" title="Preparing report..." style="display: none;">
+                    We are preparing your file, please wait...
+
+                    <div class="ui-progressbar-value ui-corner-left ui-corner-right"
+                         style="width: 100%; height:22px; margin-top: 20px;"></div>
+                </div>
+
+                <div id="error-modal" title="Error" style="display: none;">
+                    There was a problem generating your file, please try again.
+                </div>
+
+                <div class="vtpTable">
+                    <div id="tablediv" class="tablediv">
+                        {% if  result %}
+                            <table class="table table-hover table-striped table-bordered table-condensed">
+                                <thead>
+                                <tr class="tableHead">
+                                    <th id="tableSelectAll">
+                                        <input type="checkbox" id="selectCurrentPage" value="selectCurrentPage"
+                                               onclick="selectCurrentPage(this)">
+                                    </th>
+                                    <th name="geneSymbol"><a href="?{% url_replace request 'order_by' 'geneSymbol' %}">Gene
+                                        Symbol</a>
+                                    </th>
+                                    <th name="proteinName"><a
+                                            href="?{% url_replace request 'order_by' 'proteinName' %}">Protein Name</a>
+                                    </th>
+                                    <th name="uniprotId"><a href="?{% url_replace request 'order_by' 'uniprotId' %}">UniprotKB
+                                        ID</a>
+                                    </th>
+                                    <th name="virusTaxid"><a href="?{% url_replace request 'order_by' 'virusTaxid' %}">Virus
+                                        Taxid</a></th>
+                                    <th name="virusName"><a href="?{% url_replace request 'order_by' 'virusName' %}">Virus
+                                        Name</a></th>
+                                    <th name="resources"><a
+                                            href="?{% url_replace request 'order_by' 'resources' %}">Resources</a>
+                                    </th>
+                                    {#                                    <th name="note"><a href="?{% url_replace request 'order_by' 'note' %}">Note</a></th>#}
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% autopaginate result %}
+                                {% for res in result %}
+                                    <tr>
+                                        <td id="tableSelect">
+                                            <input type="checkbox" name="tableRowCheckBox"
+                                                   id={{ res.geneSymbol }} value={{ res.geneSymbol }}
+                                                   onclick="stillSelectAll(this);">
+                                        </td>
+                                        <td>
+                                            {{ res.geneSymbol }}
+                                        </td>
+                                        <td>
+                                            {{ res.proteinName }}
+                                        </td>
+                                        <td>
+                                            <a href="http://www.uniprot.org/uniprot/{{ res.uniprotId }}"
+                                               target="_blank">{{ res.uniprotId }}</a>
+                                        </td>
+                                        <td>
+                                            <a href="http://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id={{ res.virusTaxid }}"
+                                               target="_blank">{{ res.virusTaxid }}</a>
+                                        </td>
+                                        <td>
+                                            {{ res.virusName }}
+                                        </td>
+
+                                        <td>
+                                            {% ifequal res.resources "VirHostNet" %}
+                                                {{ res.resources }}
+                                            {% else %}
+                                                <a href="http://mint.bio.uniroma2.it/virusmint/Welcome.do"
+                                                   target="_blank" title="virusMINT">MINT:{{ res.resources }}</a>
+                                            {% endifequal %}
+
+                                        </td>
+
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                            <div id="pager">{% paginate %}</div>
+                        {% else %}
+                            <p>No results.</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="gotop">
+                    <a href="#" title="Back to the top of the page"><span
+                            class="glyphicon glyphicon-circle-arrow-up"></span>
+                        Top</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

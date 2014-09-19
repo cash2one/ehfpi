@@ -1,0 +1,264 @@
+{% extends "baseIndex.html" %}
+{% block title %}
+    <title>EHFPI - Essential Host Factors for Pathogenic Infection</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}"/>
+    <script src='/static/slider.js/js/jssor.slider.min.js'></script>
+    <script src='/static/index.js'></script>
+
+    <div class="row" id="index_row">
+    <div class="col-md-9" id="index_col_9">
+        <div class="main">
+
+            <div class="intro">
+                <div class="welcome">Welcome to EHFPI!</div>
+                <p><b>EHFPI</b>, a database of Essential Host Factors (EHFs) for Pathogenic Infections. This database
+                    focuses on the collection and functional analysis of a specialized class of host cellular genes
+                    identified from (genome-wide) RNA interface (RNAi) screens. Notably, the knockdown effect of these
+                    genes greatly influences the infection of a pathogen (e.g., inhibit or increase infection) but not
+                    the viability of the host cells, thus designated as essential host factors (EHFs) for pathogenic
+                    infections.</p>
+
+                <p>
+                    Currently, EHFPI contains detailed article, screen, and annotation information for a total of 4634
+                    manually curated EHF genes, with phenotypes validated in Drosophila and Homo sapiens for 25
+                    clinically important pathogen types. Besides the widest coverage, EHFPI also provides as many as six
+                    powerful analysis tools with graphic demonstrations, i.e.,
+                    <a href="{% url 'analysis:overlapNetwork' %}" target="_blank">EHF-pathogen network analysis</a>,
+                    <a href="{% url 'analysis:overlap' %}" target="_blank">EHF overlap analysis</a>,
+                    <a href="{% url 'analysis:gea' %}" target="_blank">gene enrichment analysis</a>,
+                    <a href="{% url 'analysis:pip' %}" target="_blank">pathogen interacting protein (PIP) analysis</a>,
+                    <a href="{% url 'analysis:drug' %}" target="_blank">drug target analysis</a>,
+                    and <a href="{% url 'analysis:gwasIndex' %}" target="_blank">genome-wide association study (GWAS)
+                    candidate gene analysis</a>.</p>
+
+                <p>You can also <a href="{% url 'about:submit' %}" target="_blank">submit</a> EHF data to our website.
+                    Feel free to <a href="{% url 'about:contact' %}" target="_blank">contact us</a>
+                    if you have any question!</p>
+
+            </div>
+
+            <!-- Jssor Slider Begin -->
+            <!-- You can move inline styles (except 'top', 'left', 'width' and 'height') to css file or css block. -->
+            <div class="mycarousel">
+                <div id="sliderb_container" style="position: relative;height: 350px; width: 600px; overflow: hidden;">
+
+                    <!-- Loading Screen -->
+                    <div u="loading" style="position: absolute; top: 0px; left: 0px;">
+                        <div style="filter: alpha(opacity=70); opacity:0.7; position: absolute; display: block;
+                background-color: #000; top: 0px; left: 0px;width: 100%;height:100%;">
+                        </div>
+                        <div style="position: absolute; display: block; background: url(/static/slider.js/img/loading.gif) no-repeat center center;
+                top: 0px; left: 0px;width: 100%;height:100%;">
+                        </div>
+                    </div>
+
+                    <!-- Slides Container -->
+                    <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px;height: 350px;width: 600px;
+            overflow: hidden;">
+                        <div>
+                            <img u=image src="/static/images/index1_350_600.png"/>
+
+                            <div u="thumb">The workflow of data curation</div>
+                        </div>
+                        <div>
+                            <img u=image src="/static/images/index2_350_600.jpg"/>
+
+                            <div u="thumb">EHF-pathogen Network Analysis</div>
+                        </div>
+                        <div>
+                            <img u=image src="/static/images/index3_350_600.png"/>
+
+                            <div u="thumb">EHF Overlap Analysis</div>
+                        </div>
+                        <div>
+                            <img u=image src="/static/images/index4_350_600.png"/>
+
+                            <div u="thumb">Distribution of EHFs for primary hits</div>
+                        </div>
+                        <div>
+                            <img u=image src="/static/images/index5_350_600.png"/>
+
+                            <div u="thumb">Drug Target Analysis</div>
+                        </div>
+                        <div>
+                            <img u=image src="/static/images/index6_350_600.jpg"/>
+
+                            <div u="thumb">PPI Network</div>
+                        </div>
+                    </div>
+
+                    <!-- ThumbnailNavigator Skin Begin -->
+                    <div u="thumbnavigator" class="sliderb-T"
+                         style="position: absolute; bottom: 0px; left: 0px; height:35px; width:600px;">
+                        <div style="filter: alpha(opacity=40); opacity:0.4; position: absolute; display: block;
+                background-color: #000000; top: 0px; left: 0px; width: 100%; height: 100%;">
+                        </div>
+                        <!-- Thumbnail Item Skin Begin -->
+                        <div u="slides">
+                            <div u="prototype" style="POSITION: absolute; WIDTH: 600px; HEIGHT: 45px; TOP: 0; LEFT: 0;">
+                                <thumbnailtemplate
+                                        style="font-family: verdana; font-weight: normal; POSITION: absolute; WIDTH: 100%; HEIGHT: 100%; TOP: 0; LEFT: 0; color:#fff; line-height: 45px; font-size:18px; padding-left:10px;"></thumbnailtemplate>
+                            </div>
+                        </div>
+                        <!-- Thumbnail Item Skin End -->
+                    </div>
+                    <!-- ThumbnailNavigator Skin End -->
+
+                    <!-- Bullet Navigator Skin Begin -->
+                    <!-- jssor slider bullet navigator skin 01 -->
+                    <style>
+                        /*
+                        .jssorb01 div           (normal)
+                        .jssorb01 div:hover     (normal mouseover)
+                        .jssorb01 .av           (active)
+                        .jssorb01 .av:hover     (active mouseover)
+                        .jssorb01 .dn           (mousedown)
+                        */
+                        .jssorb01 div, .jssorb01 div:hover, .jssorb01 .av {
+                            filter: alpha(opacity=70);
+                            opacity: .7;
+                            overflow: hidden;
+                            cursor: pointer;
+                            border: #000 1px solid;
+                            border-radius: 50%;
+                        }
+
+                        .jssorb01 div {
+                            background-color: gray;
+                        }
+
+                        .jssorb01 div:hover, .jssorb01 .av:hover {
+                            background-color: #d3d3d3;
+                        }
+
+                        .jssorb01 .av {
+                            background-color: #fff;
+                        }
+
+                        .jssorb01 .dn, .jssorb01 .dn:hover {
+                            background-color: #555555;
+                        }
+                    </style>
+                    <!-- bullet navigator container -->
+                    <div u="navigator" class="jssorb01" style="position: absolute; bottom: 10px; right: 10px;">
+                        <!-- bullet navigator item prototype -->
+                        <div u="prototype" style="POSITION: absolute; WIDTH: 12px; HEIGHT: 12px;"></div>
+                    </div>
+                    <!-- Bullet Navigator Skin End -->
+
+                    <!-- Arrow Navigator Skin Begin -->
+                    <style>
+                        /* jssor slider arrow navigator skin 05 css */
+                        /*
+                        .jssora05l              (normal)
+                        .jssora05r              (normal)
+                        .jssora05l:hover        (normal mouseover)
+                        .jssora05r:hover        (normal mouseover)
+                        .jssora05ldn            (mousedown)
+                        .jssora05rdn            (mousedown)
+                        */
+                        .jssora05l, .jssora05r, .jssora05ldn, .jssora05rdn {
+                            position: absolute;
+                            cursor: pointer;
+                            display: block;
+                            background: url(/static/slider.js/img/a03.png) no-repeat;
+                            overflow: hidden;
+                        }
+
+                        .jssora05l {
+                            background-position: -10px -40px;
+                        }
+
+                        .jssora05r {
+                            background-position: -70px -40px;
+                        }
+
+                        .jssora05l:hover {
+                            background-position: -130px -40px;
+                        }
+
+                        .jssora05r:hover {
+                            background-position: -190px -40px;
+                        }
+
+                        .jssora05ldn {
+                            background-position: -250px -40px;
+                        }
+
+                        .jssora05rdn {
+                            background-position: -310px -40px;
+                        }
+                    </style>
+                    <!-- Arrow Left -->
+        <span u="arrowleft" class="jssora05l" style="width: 40px; height: 40px; top: 123px; left: 8px;">
+        </span>
+                    <!-- Arrow Right -->
+        <span u="arrowright" class="jssora05r" style="width: 40px; height: 40px; top: 123px; right: 8px">
+        </span>
+                    <!-- Arrow Navigator Skin End -->
+                    <a style="display: none" href="http://www.jssor.com">jQuery Slider</a>
+                    <!-- Trigger -->
+                </div>
+                <!-- Jssor Slider End -->
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-md-3" id="index_col_3">
+        <div id="rightCell">
+            <div class="news">
+                <h3><a href="{% url 'news:index' %}">News</a></h3>
+                <hr/>
+                <ul class="news-ul">
+                    {% for newItem in news %}
+                        <li><a href='{% url 'news:index' %}#{{ forloop.counter }}'>{{ newItem.title }}
+                            {#                        ({{ newItem.time | date:'d M, Y' }})#}
+                        </a></li>
+                    {% endfor %}
+                    {% ifequal mark 1 %}
+                        <div class="mark"><a href="{% url 'news:index' %}">more &gt;</a></div>
+                    {% endifequal %}
+
+                </ul>
+
+
+            </div>
+
+            <div class="versions">
+                <div><b>Current Release</b></div>
+                <hr/>
+                <div class="versionDetail">EHFPI2014_05, released May 20th, 2014.</div>
+                Click <a href="{% url 'download:legacy' %}">here</a> to view legacy release.
+            </div>
+
+            <div class="contact">
+                <div><b>Contact </b></div>
+                <hr/>
+                <div class="contactDes">If you have any questions, please <a href="{% url 'about:contact' %}"
+                                                                             target="_blank">contact</a> us!
+                </div>
+
+            </div>
+
+            <div class="stat">
+                <div><b>Statistics </b></div>
+                <hr/>
+                EHFPI currently contains:
+                <ul>
+                    <li>6434 EHF genes</li>
+                    <li>14 viral species, 10 bacterial species, 1 fugal species</li>
+
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+{% endblock %}

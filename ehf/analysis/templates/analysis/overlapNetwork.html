@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - Analysis</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    {% load getDict %}
+    <link rel="stylesheet" type="text/css" href="{% static 'analysis/analysis.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'analysis/infovis/ForceDirected.css' %}"/>
+    <link rel="stylesheet" type="text/css"
+          href="http://cdnjs.cloudflare.com/ajax/libs/jstree/3.0.1/themes/default/style.min.css"/>
+
+    {#    <link rel="stylesheet" type="text/css" href="{% static 'analysis/jQuery-File-Upload/css/jquery.fileupload.css' %}"/>#}
+    <link rel="stylesheet" type="text/css"
+          href="http://cdn.jsdelivr.net/jquery.fileupload/9.5.2/css/jquery.fileupload.css"/>
+
+    <!--[if IE]><script src='/static/analysis/infovis/excanvas.js'></script><![endif]-->
+    <script src='/static/analysis/infovis/jit.js'></script>
+
+    {#    <script src='/static/analysis/jstree/jstree.min.js'></script>#}
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jstree/3.0.1/jstree.min.js'></script>
+    <script src='/static/analysis/infovis/network.js'></script>
+    <script src='/static/analysis/infovis/networkTree.js'></script>
+
+    {#    <script src='/static/analysis/jQuery-File-Upload/js/jquery.fileupload.js'></script>#}
+    {#    <script src='/static/analysis/jQuery-File-Upload/js/jquery.iframe-transport.js'></script>#}
+    {#    <script src='/static/analysis/jQuery-File-Upload/js/vendor/jquery.ui.widget.js'></script>#}
+
+    <script src="http://cdn.jsdelivr.net/jquery.fileupload/9.5.2/js/jquery.fileupload.js"></script>
+    <script src="http://cdn.jsdelivr.net/jquery.fileupload/9.5.2/js/jquery.iframe-transport.js"></script>
+    <script src="http://cdn.jsdelivr.net/jquery.fileupload/9.5.2/js/vendor/jquery.ui.widget.js"></script>
+
+
+    <script src='/static/jquery.clearsearch.js'></script>
+    {#    <link rel="stylesheet" href="http://cdn.jsdelivr.net/qtip2/2.2.0/jquery.qtip.min.css">#}
+    {#    <script src="http://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.0/jquery.qtip.min.js"></script>#}
+
+    <div class="main" id="main">
+        <div class="network">
+            <ol class="breadcrumb">
+                <li><a href={% url 'ehf.views.index' %}>Home</a></li>
+                <li><a href="{% url 'analysis:index' %}">Analysis</a></li>
+                <li><a href="{% url 'analysis:overlap' %}">Overlap</a></li>
+                <li class="active">Network Analysis</li>
+            </ol>
+
+            <div id="basicText">You can provide gene symbol in three ways:</div>
+            <div class="row">
+
+                <div class="col-md-11">
+                    <div id="networkLabel">
+                        1. Choose pathogens from taxonomy tree
+                    </div>
+                    <div class="networkTaxonomy">
+                        <input type="text" id="plugins4_q" value="" class="input network_plugins4_q"
+                               placeholder="search pathogen">
+                            <span id="networkTip"><a href="{% url 'help:analysisHelp' %}#network" target="_blank"><img
+                                    src="/static/images/info_20x20.png"></a></span>
+
+                        <div id="resizable" class="networkTree">
+                            <div id="jstree_network_div">
+                                <ul>
+                                    <li id="all">All Pathogens<span class="badge">{{ badge_taxonomy|get:"all" }}</span>
+                                        <ul>
+                                            {% for kingDic in tree %}
+                                                {% for kingdom,value in kingDic.iteritems %}
+                                                    <li rel="kingdom"
+                                                        id="kingdom_{{ tree_taxonomy|get:kingdom }}">{{ kingdom }}<span
+                                                            class="badge">{{ badge_taxonomy|get:kingdom }}</span>
+                                                        <ul>
+                                                            {% for subItem,speciesDic in value.iteritems %}
+                                                                {% ifequal kingdom "virus" %}
+                                                                    <li rel="family"
+                                                                        id="family_{{ tree_taxonomy|get:subItem }}">{{ subItem }}<span
+                                                                            class="badge">{{ badge_taxonomy|get:subItem }}</span>
+                                                                        {% else %}
+                                                                    <li rel="genus"
+                                                                        id="genus_{{ tree_taxonomy|get:subItem }}">
+                                                                    {{ subItem }}<span
+                                                                            class="badge">{{ badge_taxonomy|get:subItem }}</span>
+                                                                {% endifequal %}
+                                                            <ul>
+                                                                {% for species,articleList in speciesDic.iteritems %}
+                                                                    <li data-jstree='{ "type" : "species" }'
+                                                                        id="species_{{ tree_taxonomy|get:species }}">{{ species }}<span
+                                                                            class="badge">{{ badge_taxonomy|get:species }}</span>
+                                                                        <ul>
+                                                                            {% for article in articleList %}
+                                                                                {% with myKey=species|add:"_"|add:article %}
+                                                                                    <li data-jstree='{ "type" : "article" }'
+                                                                                        id="article_{{ tree_taxonomy|get:species }}_{{ tree_taxonomy|get:article }}">
+                                                                                    {{ article }}<span
+                                                                                            class="badge">{{ badge_taxonomy|get:myKey }}</span>
+                                                                                {% endwith %}
+                                                                            {% endfor %}
+                                                                        </ul>
+                                                                    </li>
+                                                                {% endfor %}
+                                                            </ul>
+                                                            </li>
+                                                            {% endfor %}
+                                                        </ul>
+                                                    </li>
+                                                {% endfor %}
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <form method="post" role="form" enctype="multipart/form-data"
+                      action="{% url 'analysis:overlapNetwork' %}"
+                      onsubmit='return validEmpty(this);'>{% csrf_token %}
+
+                    <div class="col-md-6">
+
+                        <input type="hidden" name="jsTreeList" id="jsTreeList" value=""/>
+
+                        <div id="networkLabel">
+                            2. Input a list of gene symbol
+                        </div>
+
+
+                        <div class="network_text">
+                            <div class="des">Input a list of gene symbol, separated by comma or one gene per line.</div>
+
+                            <div class="geneList">
+                                {#                                <textarea class="form-control " id="geneList" name="geneList" rows="10" cols="10"#}
+                                {#                                          placeholder="gene separated by comma. e.g., xpo1,cbx4. or one gene per line"></textarea>#}
+                                {{ form.geneList.errors }}
+                                {{ form.geneList }}
+
+                            </div>
+                            <br/>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="networkLabel">
+                            3. Upload file which contains gene symbol
+                        </div>
+                        <div class="network_file">
+
+                            <span class="btn btn-success btn-sm fileinput-button" id="fileinput">
+                                <i class="glyphicon glyphicon-plus"></i>
+                                <span>Add file...</span>
+                                <!-- The file input field used as target for the file upload widget -->
+{#                                <input id="fileupload" type="file" name="files" multiple="">#}
+
+                                {{ form.file }}
+                            </span>
+                            <span id="files" class="files"></span>
+                            {{ form.file.errors }}
+
+
+                        </div>
+                        {#                        <input type="button" value="Submit" class="btn btn-primary btn-sm" onclick="getNetwork();">#}
+                        <input type="submit" value="Submit" id="submitAll" class="btn btn-primary">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+
+    </div>
+    </div>
+{% endblock %}
