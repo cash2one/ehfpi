@@ -350,11 +350,12 @@ hr {
 }
 
 #zoomWrapper {
-    width: 250px;
+    width: 200px;
     position: absolute;
     font-size: 12px;
+    font-weight: bold;
     top: 10px;
-    right: 30px;
+    right: 10px;
     color: #000000;
     z-index: 1;
 }
@@ -366,11 +367,13 @@ hr {
 }
 
 #zoomin {
-    border-radius: 0px;
+    border: 1px solid #808080;
+    border-radius: 5px;
 }
 
 #zoomout {
-    border-radius: 0px;
+    border: 1px solid #808080;
+    border-radius: 5px;
 }
 
 /*heatmap*/

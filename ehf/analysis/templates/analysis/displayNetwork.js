@@ -43,13 +43,13 @@ var text = '<div class="displayNetwork">\
                     <table>\
                         <tr>\
                             <td>\
-                                <button id="zoomin" type="button" onclick="zoomin(this);">zoom in</button>\
+                                <button id="zoomin" type="button" onclick="zoomin(this);"><span class="glyphicon glyphicon-minus"></span></button>\
                             </td>\
                             <td>\
                                 <div id="zoom"></div>\
                             </td>\
                             <td>\
-                                <button id="zoomout" type="button" onclick="zoomout(this);">zoom out</button>\
+                                <button id="zoomout" type="button" onclick="zoomout(this);"><span class="glyphicon glyphicon-plus"></span></button>\
                             </td>\
                         </tr>\
                     </table>\
