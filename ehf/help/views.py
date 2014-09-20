@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import render_to_response
+from models import faqModel
 
 # Create your views here.
 def index(request):
@@ -22,4 +23,8 @@ def restHelp(request):
 
 def citeHelp(request):
     return render_to_response('help/citeHelp.html')
+
+def faqHelp(request):
+    result = faqModel.objects.all()
+    return render_to_response('help/faqHelp.html',{'result':result})
 

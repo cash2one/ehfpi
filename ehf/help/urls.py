@@ -10,4 +10,5 @@ urlpatterns = patterns('',
     url(r'^analysisHelp/$', views.analysisHelp, name='analysisHelp'),
     url(r'^restHelp/$', views.restHelp, name='restHelp'),
     url(r'^citeHelp/$', views.citeHelp, name='citeHelp'),
+    url(r'^faqHelp/$', views.faqHelp, name='faqHelp'),
 )

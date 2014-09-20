@@ -6,6 +6,7 @@
 {% block content %}
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static 'help/help.css' %}"/>
+    <script src='/static/help/help.js'></script>
 
     <div class="helpMain">
         <div class="row">
@@ -22,19 +23,25 @@
                     <li><a href="{% url 'help:analysisHelp' %}">Analysis</a></li>
                     <li><a href="{% url 'help:restHelp' %}">RESTful API</a></li>
                     <li><a href="{% url 'help:citeHelp' %}">Cite</a></li>
-                    <ul>
-                        <li><a href="#citation">Citation</a></li>
-                    </ul>
                     <li><a href="{% url 'help:faqHelp' %}">FAQ</a></li>
                 </ul>
             </div>
+
             <div class="col-md-9 rightContent">
-                <div class="title" id="citation"><a href="#">Citation</a></div>
+
+                <div class="title" id="faq"><a href="#">Frequently Asked Questions</a></div>
                 <div class="content">
-                    Under construction.
+                    {% for faq in result %}
+                        <div id="question">{{ forloop.counter }}. {{ faq.question|safe }}</div>
+                        <div id="answer">{{ faq.answer|safe }}</div>
+                    {% endfor %}
                 </div>
 
-
+                <div class="gotop">
+                    <a href="#" title="Back to the top of the page"><span
+                            class="glyphicon glyphicon-circle-arrow-up"></span>
+                        Top</a>
+                </div>
 
             </div>
         </div>
