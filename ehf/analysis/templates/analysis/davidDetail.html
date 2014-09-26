@@ -1,0 +1,229 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - Analysis</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    {% load getDict %}
+    <link rel="stylesheet" type="text/css" href="{% static 'analysis/analysis.css' %}"/>
+    <script src='/static/analysis/david.js'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery.fileDownload/1.4.2/jquery.fileDownload.js'></script>
+
+    <div class="main">
+    <div class="overlapIndex">
+
+    <ol class="breadcrumb">
+        <li><a href="{% url 'ehf.views.index' %}">Home</a></li>
+        <li><a href="{% url 'analysis:index' %}">Analysis</a></li>
+        <li class="active">GEA</li>
+    </ol>
+
+    <div class="davidSummary">
+    <div id="des">
+        {{ geneNameDict|length }} record{{ geneNameDict|length|pluralize }}, {{ recordNum }} Annotation{{ recordNum|pluralize }}
+                    <span style="float: right;font-size: 14px"><img style="margin-right: 5px"
+                                                                    src="/static/analysis/images/download.gif"><a
+                            style="cursor:pointer" onclick="downAnnotationReport();">Download File</a></span>
+    </div>
+
+    <div class='detailTable'>
+        {% ifequal type 'bp' %}
+            <table class="table table-hover table-striped table-bordered table-condensed">
+                <thead style="font-weight: bold;background-color: #336699;color: white">
+                <tr>
+                    <td>Gene Symbol</td>
+                    <td>Gene Name</td>
+                    <td>GOTERM_BP_FAT</td>
+                </tr>
+                </thead>
+                <tbody>
+                {% for key,value in result.iteritems %}
+                    <tr>
+                        <td style="width: 15%">{{ key }}</td>
+                        <td style="width: 20%">{{ geneNameDict|get:key }}</td>
+                        <td>
+                            {% for item in value %}
+                                {% for subKey,subValue in item.iteritems %}
+                                    <a href="http://www.ebi.ac.uk/QuickGO/GTerm?id={{ subKey }}"
+                                       target="_blank">{{ subValue }}</a>;
+                                {% endfor %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endifequal %}
+
+        {% ifequal type 'cc' %}
+            <table class="table table-hover table-striped table-bordered table-condensed">
+                <thead style="font-weight: bold;background-color: #336699;color: white">
+                <tr>
+                    <td>Gene Symbol</td>
+                    <td>Gene Name</td>
+                    <td>GOTERM_CC_FAT</td>
+                </tr>
+                </thead>
+                <tbody>
+                {% for key,value in result.iteritems %}
+                    <tr>
+                        <td style="width: 15%">{{ key }}</td>
+                        <td style="width: 20%">{{ geneNameDict|get:key }}</td>
+                        <td>
+                            {% for item in value %}
+                                {% for subKey,subValue in item.iteritems %}
+                                    <a href="http://www.ebi.ac.uk/QuickGO/GTerm?id={{ subKey }}"
+                                       target="_blank">{{ subValue }}</a>;
+                                {% endfor %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endifequal %}
+
+        {% ifequal type 'mf' %}
+            <table class="table table-hover table-striped table-bordered table-condensed">
+                <thead style="font-weight: bold;background-color: #336699;color: white">
+                <tr>
+                    <td>Gene Symbol</td>
+                    <td>Gene Name</td>
+                    <td>GOTERM_MF_FAT</td>
+                </tr>
+                </thead>
+                <tbody>
+                {% for key,value in result.iteritems %}
+                    <tr>
+                        <td style="width: 15%">{{ key }}</td>
+                        <td style="width: 20%">{{ geneNameDict|get:key }}</td>
+                        <td>
+                            {% for item in value %}
+                                {% for subKey,subValue in item.iteritems %}
+                                    <a href="http://www.ebi.ac.uk/QuickGO/GTerm?id={{ subKey }}"
+                                       target="_blank">{{ subValue }}</a>;
+                                {% endfor %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endifequal %}
+
+        {% ifequal type 'BBID' %}
+            <table class="table table-hover table-striped table-bordered table-condensed">
+                <thead style="font-weight: bold;background-color: #336699;color: white">
+                <tr>
+                    <td>Gene Symbol</td>
+                    <td>Gene Name</td>
+                    <td>BBID</td>
+                </tr>
+                </thead>
+                <tbody>
+                {% for key,value in result.iteritems %}
+                    <tr>
+                        <td style="width: 15%">{{ key }}</td>
+                        <td style="width: 20%">{{ geneNameDict|get:key }}</td>
+                        <td>
+                            {% for item in value %}
+                                <a href="http://bbid.grc.nia.nih.gov/geneimages/{{ item }}.jpeg"
+                                   target="_blank">{{ item }}</a>;
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endifequal %}
+
+        {% ifequal type 'KEGG' %}
+            <table class="table table-hover table-striped table-bordered table-condensed">
+                <thead style="font-weight: bold;background-color: #336699;color: white">
+                <tr>
+                    <td>Gene Symbol</td>
+                    <td>Gene Name</td>
+                    <td>KEGG_PATHWAY</td>
+                </tr>
+                </thead>
+                <tbody>
+                {% for key,value in result.iteritems %}
+                    <tr>
+                        <td style="width: 15%">{{ key }}</td>
+                        <td style="width: 20%">{{ geneNameDict|get:key }}</td>
+                        <td>
+                            {% for item in value %}
+                                {% for subKey,subValue in item.iteritems %}
+                                    <a href="http://www.genome.jp/kegg-bin/show_pathway?{{ subKey }}"
+                                       target="_blank">{{ subValue }}</a>;
+                                {% endfor %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endifequal %}
+
+        {% ifequal type 'PANTHER' %}
+            <table class="table table-hover table-striped table-bordered table-condensed">
+                <thead style="font-weight: bold;background-color: #336699;color: white">
+                <tr>
+                    <td>Gene Symbol</td>
+                    <td>Gene Name</td>
+                    <td>PANTHER_PATHWAY</td>
+                </tr>
+                </thead>
+                <tbody>
+                {% for key,value in result.iteritems %}
+                    <tr>
+                        <td style="width: 15%">{{ key }}</td>
+                        <td style="width: 20%">{{ geneNameDict|get:key }}</td>
+                        <td>
+                            {% for item in value %}
+                                {% for subKey,subValue in item.iteritems %}
+                                    <a href="http://www.pantherdb.org/pathway/pathwayDiagram.jsp?catAccession={{ subKey }}"
+                                       target="_blank">{{ subValue }}</a>;
+                                {% endfor %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endifequal %}
+
+        {% ifequal type 'REACTOME' %}
+            <table class="table table-hover table-striped table-bordered table-condensed">
+                <thead style="font-weight: bold;background-color: #336699;color: white">
+                <tr>
+                    <td>Gene Symbol</td>
+                    <td>Gene Name</td>
+                    <td>REACTOME_PATHWAY</td>
+                </tr>
+                </thead>
+                <tbody>
+                {% for key,value in result.iteritems %}
+                    <tr>
+                        <td style="width: 15%">{{ key }}</td>
+                        <td style="width: 20%">{{ geneNameDict|get:key }}</td>
+                        <td>
+                            {% for item in value %}
+                                {% for subKey,subValue in item.iteritems %}
+                                    <a href="http://www.reactome.org/content/detail/{{ subKey }}"
+                                       target="_blank">{{ subValue }}</a>;
+                                {% endfor %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endifequal %}
+    </div>
+    </div>
+
+    </div>
+    </div>
+{% endblock %}

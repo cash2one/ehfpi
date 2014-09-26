@@ -10,12 +10,15 @@ from django.shortcuts import HttpResponseRedirect
 from django.utils.encoding import smart_str, smart_unicode
 
 from browse.browse_view_models import allEHFPI
-from analysis.models import idNameMap, heatmapModel, taxonomy, vtpModel, ppi
-from browse.models import publication
+from browse.models import publication, gene
 from analysis.forms import networkForm
 from ehf.settings import URL_PREFIX, PKL_DIR
 from ehf.commonVar import fieldDic, field, fieldDes
-from analysis.models import gwas, drugModelWithInt, overlapStatistics, overlapDistribution
+from analysis.models import *
+
+
+
+
 
 #serilization
 import os
@@ -244,6 +247,288 @@ def getGeneList(request):
         return render_to_response('analysis/getGeneList.html', {'geneList': ','.join(geneList)})
 
 
+#added: 20140925 return david result
+def davidResult(request):
+    if request.method == 'GET':
+        pathogen = request.GET['pathogen'].split(',')
+
+        speciesList = []
+        articleList = []
+        for item in pathogen:
+            if item.startswith('species'):
+                speciesList.append(item[item.find('_') + 1:])
+            if item.startswith('article'):
+                articleList.append(item[item.find('_') + 1:])
+
+        #a article may contain several species, a species may contain several article. So if species is selected, all article
+        # under it must be selected too, if a article is selected, we must use and between it and its species!!!
+        qTotal = Q()
+        for item in articleList:
+            speciesItem = item[0:item.find('_')]
+            pubmedIdItem = item[item.find('_') + 1:]
+            qTotal = qTotal | (Q(speciesTaxonomy=speciesItem) & Q(pubmedId=pubmedIdItem))
+
+        qTotal = qTotal | Q(speciesTaxonomy__in=speciesList)
+
+        result = allEHFPI.objects.filter(qTotal)
+        geneList = []
+        for item in result:
+            geneList.append(item.humanHomolog)
+        geneList = list(set(geneList))
+
+        if '' in geneList:
+            geneList.remove('')
+
+        #detail page for each item, we use the same function but different param to simplify the implementation
+        if 'type' in request.GET:
+            type = request.GET['type']
+            geneResultList = []
+            if type == 'bp':
+                AnnoResult = geneSymbolToGOBP.objects.filter(geneSymbol__in=geneList)
+                recordNum = len(AnnoResult)
+
+                #same geneSymbol aggregate
+                result = defaultdict(list)
+                for item in AnnoResult:
+                    result[item.geneSymbol.upper()].append({item.gobp: item.gobpAnnotation})
+
+                result = dict(result)
+
+            elif type == 'cc':
+                AnnoResult = geneSymbolToGOCC.objects.filter(geneSymbol__in=geneList)
+                recordNum = len(AnnoResult)
+
+                #same geneSymbol aggregate
+                result = defaultdict(list)
+                for item in AnnoResult:
+                    result[item.geneSymbol.upper()].append({item.gocc: item.goccAnnotation})
+
+                result = dict(result)
+
+            elif type == 'mf':
+                AnnoResult = geneSymbolToGOMF.objects.filter(geneSymbol__in=geneList)
+                recordNum = len(AnnoResult)
+
+                #same geneSymbol aggregate
+                result = defaultdict(list)
+                for item in AnnoResult:
+                    result[item.geneSymbol.upper()].append({item.gomf: item.gomfAnnotation})
+
+                result = dict(result)
+
+            elif type == 'BBID':
+                AnnoResult = geneSymbolToPathwayBBID.objects.filter(geneSymbol__in=geneList)
+                recordNum = len(AnnoResult)
+
+                #same geneSymbol aggregate
+                result = defaultdict(list)
+                for item in AnnoResult:
+                    result[item.geneSymbol.upper()].append(item.BBID)
+
+                result = dict(result)
+
+            elif type == 'KEGG':
+                AnnoResult = geneSymbolToPathwayKEGG.objects.filter(geneSymbol__in=geneList)
+                recordNum = len(AnnoResult)
+
+                #same geneSymbol aggregate
+                result = defaultdict(list)
+                for item in AnnoResult:
+                    result[item.geneSymbol.upper()].append({item.KEGG: item.KEGGAnnotation})
+
+                result = dict(result)
+
+            elif type == 'PANTHER':
+                AnnoResult = geneSymbolToPathwayPANTHER.objects.filter(geneSymbol__in=geneList)
+                recordNum = len(AnnoResult)
+
+                #same geneSymbol aggregate
+                result = defaultdict(list)
+                for item in AnnoResult:
+                    result[item.geneSymbol.upper()].append({item.PANTHER: item.PANTHERAnnotation})
+
+                result = dict(result)
+
+            elif type == 'REACTOME':
+                AnnoResult = geneSymbolToPathwayREACTOME.objects.filter(geneSymbol__in=geneList)
+                recordNum = len(AnnoResult)
+
+                #same geneSymbol aggregate
+                result = defaultdict(list)
+                for item in AnnoResult:
+                    result[item.geneSymbol.upper()].append({item.REACTOME: item.REACTOMEAnnotation})
+
+                result = dict(result)
+
+
+            else:
+                return HttpResponseRedirect(
+                    URL_PREFIX + '/analysis/gea/')  #we do not direct to the result page otherwise the query page
+
+            #here return the detail page
+            # maybe we need to query the gene model to get gene name first since the gene name provided by DAVID is not accurate
+            for item in AnnoResult.values_list('geneSymbol').distinct():
+                geneResultList.append(item[0])
+
+            print len(geneResultList)
+            geneNameDict = {}
+            tmpRes = gene.objects.filter(humanHomolog__in=geneResultList).values('humanHomolog',
+                                                                                 'geneDescription').distinct()
+            for item in tmpRes:
+                geneNameDict[item['humanHomolog']] = item['geneDescription']
+
+            return render_to_response('analysis/davidDetail.html',
+                                      {'geneNameDict': geneNameDict, 'result': result, 'type': type,
+                                       'recordNum': recordNum})
+
+        #statistics default
+        bpNum = len(geneSymbolToGOBP.objects.filter(geneSymbol__in=geneList).values_list('geneSymbol').distinct())
+        ccNum = len(geneSymbolToGOCC.objects.filter(geneSymbol__in=geneList).values_list('geneSymbol').distinct())
+        mfNum = len(geneSymbolToGOMF.objects.filter(geneSymbol__in=geneList).values_list('geneSymbol').distinct())
+        BBID = len(geneSymbolToPathwayBBID.objects.filter(geneSymbol__in=geneList).values_list('geneSymbol').distinct())
+        KEGG = len(geneSymbolToPathwayKEGG.objects.filter(geneSymbol__in=geneList).values_list('geneSymbol').distinct())
+        PANTHER = len(
+            geneSymbolToPathwayPANTHER.objects.filter(geneSymbol__in=geneList).values_list('geneSymbol').distinct())
+        REACTOME = len(
+            geneSymbolToPathwayREACTOME.objects.filter(geneSymbol__in=geneList).values_list('geneSymbol').distinct())
+
+        print len(geneList)
+        print bpNum, ccNum, mfNum, BBID, KEGG, PANTHER, REACTOME
+
+        #used to visualize the bar width
+        maxGO = max(bpNum, ccNum, mfNum)
+        maxPathway = max(BBID, KEGG, PANTHER, REACTOME)
+
+    return render_to_response('analysis/davidResult.html',
+                              {'geneList': ','.join(geneList), 'bpNum': bpNum, 'ccNum': ccNum, 'mfNum': mfNum,
+                               'BBID': BBID,
+                               "KEGG": KEGG, "PANTHER": PANTHER, 'REACTOME': REACTOME, 'maxGO': maxGO,
+                               'maxPathway': maxPathway})
+
+
+def downAnnotationReport(request):
+    if 'type' in request.GET and 'pathogen' in request.GET:  #
+
+        #get gene list
+        pathogen = request.GET['pathogen'].split(',')
+        speciesList = []
+        articleList = []
+        for item in pathogen:
+            if item.startswith('species'):
+                speciesList.append(item[item.find('_') + 1:])
+            if item.startswith('article'):
+                articleList.append(item[item.find('_') + 1:])
+
+        #a article may contain several species, a species may contain several article. So if species is selected, all article
+        # under it must be selected too, if a article is selected, we must use and between it and its species!!!
+        qTotal = Q()
+        for item in articleList:
+            speciesItem = item[0:item.find('_')]
+            pubmedIdItem = item[item.find('_') + 1:]
+            qTotal = qTotal | (Q(speciesTaxonomy=speciesItem) & Q(pubmedId=pubmedIdItem))
+
+        qTotal = qTotal | Q(speciesTaxonomy__in=speciesList)
+
+        result = allEHFPI.objects.filter(qTotal)
+        geneList = []
+        for item in result:
+            geneList.append(item.humanHomolog)
+        geneList = list(set(geneList))
+
+        if '' in geneList:
+            geneList.remove('')
+
+        #get annotations
+        type = request.GET['type']
+        if type == 'bp':
+            AnnoResult = geneSymbolToGOBP.objects.filter(geneSymbol__in=geneList).values()
+            selectcolumn = ['geneSymbol', 'gobp', 'gobpAnnotation']
+            # code from download app
+            fieldDesStatistics = {'geneSymbol': 'Gene Symbol',
+                                  'gobp': 'GO id',
+                                  'gobpAnnotation': 'Annotation'
+            }
+
+
+        elif type == 'cc':
+            AnnoResult = geneSymbolToGOCC.objects.filter(geneSymbol__in=geneList).values()
+            selectcolumn = ['geneSymbol', 'gocc', 'goccAnnotation']
+            # code from download app
+            fieldDesStatistics = {'geneSymbol': 'Gene Symbol',
+                                  'gocc': 'GO id',
+                                  'goccAnnotation': 'Annotation'
+            }
+
+        elif type == 'mf':
+            AnnoResult = geneSymbolToGOMF.objects.filter(geneSymbol__in=geneList).values()
+            selectcolumn = ['geneSymbol', 'gomf', 'gomfAnnotation']
+            # code from download app
+            fieldDesStatistics = {'geneSymbol': 'Gene Symbol',
+                                  'gomf': 'GO id',
+                                  'gomfAnnotation': 'Annotation'
+            }
+
+        elif type == 'BBID':
+            AnnoResult = geneSymbolToPathwayBBID.objects.filter(geneSymbol__in=geneList).values()
+            selectcolumn = ['geneSymbol', 'BBID']
+            # code from download app
+            fieldDesStatistics = {'geneSymbol': 'Gene Symbol',
+                                  'BBID': 'BBID',
+            }
+
+
+        elif type == 'KEGG':
+            AnnoResult = geneSymbolToPathwayKEGG.objects.filter(geneSymbol__in=geneList).values()
+            selectcolumn = ['geneSymbol', 'KEGG','KEGGAnnotation']
+            # code from download app
+            fieldDesStatistics = {'geneSymbol': 'Gene Symbol',
+                                  'KEGG': 'KEGG ID',
+                                  'KEGGAnnotation':'KEGG Annotation'
+            }
+
+        elif type == 'PANTHER':
+            AnnoResult = geneSymbolToPathwayPANTHER.objects.filter(geneSymbol__in=geneList).values()
+            selectcolumn = ['geneSymbol', 'PANTHER','PANTHERAnnotation']
+            # code from download app
+            fieldDesStatistics = {'geneSymbol': 'Gene Symbol',
+                                  'PANTHER': 'PANTHER ID',
+                                  'PANTHERAnnotation':'PANTHER Annotation'
+            }
+
+        elif type == 'REACTOME':
+            AnnoResult = geneSymbolToPathwayREACTOME.objects.filter(geneSymbol__in=geneList).values()
+            selectcolumn = ['geneSymbol', 'REACTOME','REACTOMEAnnotation']
+            # code from download app
+            fieldDesStatistics = {'geneSymbol': 'Gene Symbol',
+                                  'REACTOME': 'REACTOME ID',
+                                  'REACTOMEAnnotation':'REACTOME Annotation'
+            }
+        else:
+            pass
+
+        response = HttpResponse(content_type="text/csv")
+        response.write('\xEF\xBB\xBF')
+        response['Content-Disposition'] = 'attachment; filename=david.csv'
+        writer = csv.writer(response)
+
+        # store row title description
+        rowTitle = []
+        for item in selectcolumn:
+            rowTitle.append(fieldDesStatistics[item])
+        writer.writerow(rowTitle)
+
+        #get data from database
+        for item in AnnoResult:
+            res = []
+            for i in selectcolumn:
+                res.append(smart_str(item[i]))
+            writer.writerow(res)
+        return response
+
+    return HttpResponseRedirect(
+        URL_PREFIX + '/analysis/gea/')  #we do not direct to the result page otherwise the query page
+
+
 def overlapIndex(request):
     return render_to_response('analysis/overlap.html')
 
@@ -390,7 +675,8 @@ def overlapNetwork(request):
             geneList = list(set(geneList))
 
             return render_to_response('analysis/overlapNetworkOthers.html',
-                                      {'geneList': ','.join(geneList), 'aboveSpeciesList': ';'.join(aboveSpeciesList)},context_instance=RequestContext(request))
+                                      {'geneList': ','.join(geneList), 'aboveSpeciesList': ';'.join(aboveSpeciesList)},
+                                      context_instance=RequestContext(request))
     else:
         form = networkForm()
 
@@ -576,11 +862,15 @@ def displayNetwork(request):
 
             return render_to_response('analysis/displayNetwork.js',
                                       {'toJson': toJson, 'speciesNumber': sorted(speciesNumber.iteritems()),
-                                       'speciesNumberAbove': sorted(speciesNumberAbove.iteritems())},context_instance=RequestContext(request))
+                                       'speciesNumberAbove': sorted(speciesNumberAbove.iteritems())},
+                                      context_instance=RequestContext(request))
         else:  # empty
-            return HttpResponseRedirect(URL_PREFIX + '/analysis/overlap/overlapNetwork',context_instance=RequestContext(request))
+            return HttpResponseRedirect(URL_PREFIX + '/analysis/overlap/overlapNetwork',
+                                        context_instance=RequestContext(request))
     else:
-        return HttpResponseRedirect(URL_PREFIX + '/analysis/overlap/overlapNetwork',context_instance=RequestContext(request))
+        return HttpResponseRedirect(URL_PREFIX + '/analysis/overlap/overlapNetwork',
+                                    context_instance=RequestContext(request))
+
 
 #added : 20140812
 #function: download the EHF-pathogen graph as a csv file
@@ -597,8 +887,10 @@ def downloadCSV(request):
             geneList.remove('')
 
         if len(geneList):
-            result_specific = overlapStatistics.objects.filter(geneSymbol__in=geneList,speciesNumber=1).order_by('geneSymbol').values()
-            result_common = overlapStatistics.objects.filter(geneSymbol__in=geneList,speciesNumber__gt=1).order_by('geneSymbol').values()
+            result_specific = overlapStatistics.objects.filter(geneSymbol__in=geneList, speciesNumber=1).order_by(
+                'geneSymbol').values()
+            result_common = overlapStatistics.objects.filter(geneSymbol__in=geneList, speciesNumber__gt=1).order_by(
+                'geneSymbol').values()
 
         #now generate csv file
         selectcolumnCSV = ['geneSymbol', 'speciesNumber', 'speciesList']
@@ -647,7 +939,8 @@ def downloadCSV(request):
                 writer.writerow(res)
         return response
 
-    return HttpResponseRedirect(URL_PREFIX + '/analysis/overlap/overlapNetwork',context_instance=RequestContext(request))
+    return HttpResponseRedirect(URL_PREFIX + '/analysis/overlap/overlapNetwork',
+                                context_instance=RequestContext(request))
 
 
 def overlapHeatMap(request):
@@ -1549,10 +1842,12 @@ def distribution(request):
         })
 
     resultAll = overlapDistribution.objects.filter(type='all').filter(pathogenNumber__gte=4).order_by('-pathogenNumber')
-    resultPrimary = overlapDistribution.objects.filter(type='primary hits').filter(pathogenNumber__gte=3).order_by('-pathogenNumber')
+    resultPrimary = overlapDistribution.objects.filter(type='primary hits').filter(pathogenNumber__gte=3).order_by(
+        '-pathogenNumber')
 
-
-    return render_to_response('analysis/distribution.html', {'charts': [allColumn, primaryColumn],'resultAll':resultAll,'resultPrimary':resultPrimary},
+    return render_to_response('analysis/distribution.html',
+                              {'charts': [allColumn, primaryColumn], 'resultAll': resultAll,
+                               'resultPrimary': resultPrimary},
                               context_instance=RequestContext(request))
 
 
@@ -1816,7 +2111,8 @@ def network(request):
             selected = request.POST['selected']
             selected = selected.split(',')
 
-            return render_to_response('analysis/overlapNetworkOthers.html', {'geneList': ','.join(selected)},context_instance=RequestContext(request))
+            return render_to_response('analysis/overlapNetworkOthers.html', {'geneList': ','.join(selected)},
+                                      context_instance=RequestContext(request))
 
     return HttpResponseRedirect(URL_PREFIX)
 

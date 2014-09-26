@@ -35,8 +35,7 @@
                            placeholder="search pathogen">
                             <span id="geaTip"><a href="{% url 'help:analysisHelp' %}#gea" target="_blank"><img
                                     src="/static/images/info_20x20.png"></a></span>
-                    <span class="note">(DAVID API has some <a
-                            href="http://david.abcc.ncifcrf.gov/content.jsp?file=DAVID_API.html" target="_blank">limitations</a>, you can manually submit genes if the list is too long! (<b>>400</b>))</span>
+
 
                     <div id="resizable" class="geaTree">
                         <div id="jstree_gea_div">
@@ -97,8 +96,7 @@
                         <label class="levelLabel">Analysis Type:</label>
                         <select class="" id="analysisType">
                             <option value="none" selected>Select a Type</option>
-                            <option value="go">DAVID GO</option>
-                            <option value="pathway">DAVID Pathway</option>
+                            <option value="david">DAVID</option>
                             <option value="others">Others</option>
                         </select>
                         <input type="button" id="doAnalysis" value="Analysis" class="btn btn-primary btn-sm"

@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>EHFPI - Analysis</title>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'analysis/analysis.css' %}"/>
+    <script src='/static/analysis/david.js'></script>
+
+    <div class="main">
+        <div class="overlapIndex">
+
+            <ol class="breadcrumb">
+                <li><a href="{% url 'ehf.views.index' %}">Home</a></li>
+                <li><a href="{% url 'analysis:index' %}">Analysis</a></li>
+                <li class="active">GEA</li>
+            </ol>
+
+            <div class="davidSummary">
+                <div id="title">Annotation Summary Results</div>
+                <div id="des">Current Background: Homo sapiens</div>
+
+                <div id="geneList" style="display:none" value={{ geneList }}>{{ geneList }}</div>
+                <div id="bp" style="display:none">{{ bpNum }}</div>
+                <div id="cc" style="display:none">{{ ccNum }}</div>
+                <div id="mf" style="display:none">{{ mfNum }}</div>
+                <div id="BBID" style="display:none">{{ BBID }}</div>
+                <div id="KEGG" style="display:none">{{ KEGG }}</div>
+                <div id="PANTHER" style="display:none">{{ PANTHER }}</div>
+                <div id="REACTOME" style="display:none">{{ REACTOME }}</div>
+                <div id="maxGO" style="display:none">{{ maxGO }}</div>
+                <div id="maxPathway" style="display:none">{{ maxPathway }}</div>
+
+                <span style="color: #800000;font-weight: bold">{{ geneList|length }}</span> genes submitted, below is a
+                summary of GO and pathway annotations. You can click the bar to get detailed annotations reports. Note
+                extra information such as P-value are not provided, for more details, you can refer
+                <a id="davidLink" href="http://david.abcc.ncifcrf.gov/" target="_blank">DAVID</a>. <span class="note">(DAVID API has some <a
+                            href="http://david.abcc.ncifcrf.gov/content.jsp?file=DAVID_API.html" target="_blank">limitations</a>, you should manually submit genes if the list is too long! (<b>>400</b>))</span>
+
+                <div class="infoType">Gene Ontology</div>
+                <table class="summaryTable">
+                    <tbody>
+                    <tr>
+                        <td style="width: 40%;font-weight: bold">GOTERM_BP_FAT</td>
+                        <td style="width: 10%">{{ bpNum }}</td>
+                        <td style="width: 50%"><img id="bpImage" title="Click to view BP details" height="16"
+                                                    src="/static/analysis/images/david.jpg" style="cursor:pointer"
+                                                    onclick="getAnnotationReport('bp');"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="width: 40%;font-weight: bold">GOTERM_CC_FAT</td>
+                        <td style="width: 10%">{{ ccNum }}</td>
+                        <td style="width: 50%"><img id="ccImage" title="Click to view CC details" height="16"
+                                                    src="/static/analysis/images/david.jpg" style="cursor:pointer"
+                                                    onclick="getAnnotationReport('cc');"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="width: 40%;font-weight: bold">GOTERM_MF_FAT</td>
+                        <td style="width: 10%">{{ mfNum }}</td>
+                        <td style="width: 50%"><img id="mfImage" title="Click to view MF details" height="16"
+                                                    src="/static/analysis/images/david.jpg" style="cursor:pointer"
+                                                    onclick="getAnnotationReport('mf');"></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+                <div class="infoType">Pathways</div>
+                <table class="summaryTable">
+                    <tbody>
+                    <tr>
+                        <td style="width: 40%;font-weight: bold">BBID</td>
+                        <td style="width: 10%">{{ BBID }}</td>
+                        <td style="width: 50%"><img id="BBIDImage" title="Click to view BBID details" height="16"
+                                                    src="/static/analysis/images/david.jpg" style="cursor:pointer"
+                                                    onclick="getAnnotationReport('BBID');"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="width: 40%;font-weight: bold">KEGG_PATHWAY</td>
+                        <td style="width: 10%">{{ KEGG }}</td>
+                        <td style="width: 50%"><img id="KEGGImage" title="Click to view KEGG details" height="16"
+                                                    src="/static/analysis/images/david.jpg" style="cursor:pointer"
+                                                    onclick="getAnnotationReport('KEGG');"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="width: 40%;font-weight: bold">PANTHER_PATHWAY</td>
+                        <td style="width: 10%">{{ PANTHER }}</td>
+                        <td style="width: 50%"><img id="PANTHERImage" title="Click to view PANTHER details" height="16"
+                                                    src="/static/analysis/images/david.jpg" style="cursor:pointer"
+                                                    onclick="getAnnotationReport('PANTHER');"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="width: 40%;font-weight: bold">REACTOME_PATHWAY</td>
+                        <td style="width: 10%">{{ REACTOME }}</td>
+                        <td style="width: 50%"><img id="REACTOMEImage" title="Click to view REACTOME details"
+                                                    height="16" src="/static/analysis/images/david.jpg"
+                                                    style="cursor:pointer"
+                                                    onclick="getAnnotationReport('REACTOME');"></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <div style="color: #8b0000;margin-top: 30px;font-size: 16px">!!David data update to Sep 25, 2014</div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

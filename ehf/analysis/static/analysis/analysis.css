@@ -98,30 +98,30 @@
     transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
 }
 
-.statisticsMap{
+.statisticsMap {
     margin-top: 10px;
     margin-bottom: 20px;
 }
 
-.distributionDes{
+.distributionDes {
     margin-top: 10px;
 }
 
-.distributionTable{
+.distributionTable {
     margin-top: 10px;
     word-break: break-all;
     margin-bottom: 30px;
 }
 
-.distributionTable th{
+.distributionTable th {
     vertical-align: middle;
 }
 
-.distributionTable #geneList{
+.distributionTable #geneList {
     width: 700px;
 }
 
-.distributionTitle{
+.distributionTitle {
     font-size: 18px;
     font-weight: bold;
     color: #0a6aa1;
@@ -339,7 +339,7 @@ hr {
     font-size: 14px;
 }
 
-#download:hover,#csv:hover{
+#download:hover, #csv:hover {
     color: cornflowerblue;
     cursor: pointer;
 }
@@ -412,7 +412,7 @@ hr {
     border: 1px solid silver;
 }
 
-.gea_plugins4_q{
+.gea_plugins4_q {
     margin-left: 0px !important;
     margin-right: 10px !important;
     margin-top: 20px !important;
@@ -439,7 +439,7 @@ hr {
     margin-bottom: 30px;
 }
 
-#middleLevel,#bottomLevel{
+#middleLevel, #bottomLevel {
     margin-left: 50px;
     margin-right: 50px;
 }
@@ -556,11 +556,11 @@ text.active {
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 
-.networkTaxonomy .ui-resizable{
+.networkTaxonomy .ui-resizable {
     position: inherit;
 }
 
-.geaTree, .gwasTree{
+.geaTree, .gwasTree {
     margin-left: 0px !important;
     width: 100% !important;
 }
@@ -569,17 +569,17 @@ text.active {
     padding-left: 0px;
 }
 
-#topLevel{
+#topLevel {
     padding-left: 50px;
     padding-right: 70px;
     margin-bottom: 20px;
 }
 
-#taxonomyTree{
+#taxonomyTree {
     padding-left: 0px;
 }
 
-#taxonomyTree #resizable{
+#taxonomyTree #resizable {
     overflow-x: hidden;
     height: 300px;
 }
@@ -599,6 +599,56 @@ text.active {
 
 .right-part {
     margin-top: 0px;
+}
+
+/*in-house DAVID*/
+.davidSummary{
+    min-height: 500px;
+}
+
+.davidSummary #title {
+    color: #800000;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.davidSummary #des {
+    color: #008000;
+    font-size: 16px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.davidSummary .infoType{
+    color:#800000 ;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.davidSummary .summaryTable{
+    width: 600px;
+    background-color: #F7F7EE;
+}
+
+.summaryTable tr{
+    line-height:30px;
+}
+
+.summaryTable td{
+    border: 1px solid white;
+    padding-left: 5px;
+}
+
+.detailTable a{
+    text-decoration:underline;
+    color: #000099;
+}
+
+.detailTable a:hover{
+    color: #D68000;
 }
 
 /*PIP part*/
@@ -965,7 +1015,7 @@ text.active {
     padding-right: 20px;
 }
 
-#drugLabel{
+#drugLabel {
     margin-top: 20px;
     font-weight: bold;
 }
@@ -982,7 +1032,7 @@ text.active {
     width: 98% !important;
 }
 
-.drugGeneList{
+.drugGeneList {
     width: 80%;
     margin-top: 10px;
 }

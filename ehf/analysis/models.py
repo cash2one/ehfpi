@@ -212,5 +212,83 @@ class overlapDistribution(models.Model):
 
 
 
+'''
+Author: Yang Liu
+Data: 20140925
+Function: the data model from DAVID.
+We request pairwise text file from DAVID which contain gene symbols to related GO (BP,CC,MF) and pathway (BBID, KEGG, PANTHER, REACTOME) information, as well as the related DAVID gene name information
+'''
+
+#gene symbol to gene name annotated by DAVID
+# not accurate, use out own annotations. (e.g. IL6RL1 is previous name in DAVID)
+class geneSymbolToDavidGeneName(models.Model):
+    geneSymbol = models.CharField(max_length=255)
+    davidGeneName = models.CharField(max_length=255)
+
+    def __unicode__(self):  # Python 3: def __str__(self):
+        return str(self.geneSymbol+':'+self.davidGeneName);
+
+#gene symbol to GO BP
+class geneSymbolToGOBP(models.Model):
+    geneSymbol = models.CharField(max_length=255)
+    gobp = models.CharField(max_length=255)
+    gobpAnnotation = models.CharField(max_length=255)
+
+    def __unicode__(self):  # Python 3: def __str__(self):
+        return str(self.geneSymbol+':'+self.gobp+':'+self.gobpAnnotation);
+
+
+#gene symbol to GO CC
+class geneSymbolToGOCC(models.Model):
+    geneSymbol = models.CharField(max_length=255)
+    gocc = models.CharField(max_length=255)
+    goccAnnotation = models.CharField(max_length=255)
+
+    def __unicode__(self):  # Python 3: def __str__(self):
+        return str(self.geneSymbol+':'+self.gocc+':'+self.goccAnnotation);
+
+#gene symbol to GO MF
+class geneSymbolToGOMF(models.Model):
+    geneSymbol = models.CharField(max_length=255)
+    gomf = models.CharField(max_length=255)
+    gomfAnnotation = models.CharField(max_length=255)
+
+    def __unicode__(self):  # Python 3: def __str__(self):
+        return str(self.geneSymbol+':'+self.gomf+':'+self.gomfAnnotation);
+
+#gene symbol to BBID Pathway, we can link to BBID website simply by the id provided
+class geneSymbolToPathwayBBID(models.Model):
+    geneSymbol = models.CharField(max_length=255)
+    BBID = models.CharField(max_length=255)
+
+    def __unicode__(self):  # Python 3: def __str__(self):
+        return str(self.geneSymbol+':'+self.BBID);
+
+#gene symbol to KEGG pathway, the kegg pathway id and description are separated, we can link to kegg website
+class geneSymbolToPathwayKEGG(models.Model):
+    geneSymbol = models.CharField(max_length=255)
+    KEGG = models.CharField(max_length=255)
+    KEGGAnnotation = models.CharField(max_length=255)
+
+    def __unicode__(self):  # Python 3: def __str__(self):
+        return str(self.geneSymbol+':'+self.KEGG+':'+self.KEGGAnnotation);
+
+#gene symbol to PANTHER pathway
+class geneSymbolToPathwayPANTHER(models.Model):
+    geneSymbol = models.CharField(max_length=255)
+    PANTHER = models.CharField(max_length=255)
+    PANTHERAnnotation = models.CharField(max_length=255)
+
+    def __unicode__(self):  # Python 3: def __str__(self):
+        return str(self.geneSymbol+':'+self.PANTHER+':'+self.PANTHERAnnotation);
+
+#genesymbol to REACTOME pathway
+class geneSymbolToPathwayREACTOME(models.Model):
+    geneSymbol = models.CharField(max_length=255)
+    REACTOME = models.CharField(max_length=255)
+    REACTOMEAnnotation = models.CharField(max_length=255)
+
+    def __unicode__(self):  # Python 3: def __str__(self):
+        return str(self.geneSymbol+':'+self.REACTOME+':'+self.REACTOMEAnnotation);
 
 

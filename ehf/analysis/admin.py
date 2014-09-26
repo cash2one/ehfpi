@@ -159,3 +159,134 @@ admin.site.register(drugModelWithInt,drugModelWithIntAdmin)
 admin.site.register(ppi,ppiAdmin)
 admin.site.register(overlapStatistics,overlapStatisticsAdmin)
 admin.site.register(overlapDistribution,overlapDistributionAdmin)
+
+
+'''
+for DAVID annotations
+'''
+#for geneSymbolToDavidGeneName
+class geneSymbolToDavidGeneNameResource(resources.ModelResource):
+    class Meta:
+        model = geneSymbolToDavidGeneName
+
+class geneSymbolToDavidGeneNameAdmin(ImportExportModelAdmin):
+    list_display = ('geneSymbol','davidGeneName')
+    list_filter = ['geneSymbol']
+    search_fields = ['geneSymbol','davidGeneName']
+    change_list_template = 'smuggler/change_list.html'
+    resource_class = geneSymbolToDavidGeneNameResource
+    pass
+
+#for geneSymbolToGOBP
+class geneSymbolToGOBPResource(resources.ModelResource):
+    class Meta:
+        model = geneSymbolToGOBP
+
+class geneSymbolToGOBPAdmin(ImportExportModelAdmin):
+    list_display = ('geneSymbol','gobp','gobpAnnotation')
+    list_filter = ['geneSymbol']
+    search_fields = ['geneSymbol','gobp','gobpAnnotation']
+    change_list_template = 'smuggler/change_list.html'
+    resource_class = geneSymbolToGOBPResource
+    pass
+
+#for geneSymbolToGOCC
+class geneSymbolToGOCCResource(resources.ModelResource):
+    class Meta:
+        model = geneSymbolToGOCC
+
+class geneSymbolToGOCCAdmin(ImportExportModelAdmin):
+    list_display = ('geneSymbol','gocc','goccAnnotation')
+    list_filter = ['geneSymbol']
+    search_fields = ['geneSymbol','gocc','goccAnnotation']
+    change_list_template = 'smuggler/change_list.html'
+    resource_class = geneSymbolToGOCCResource
+    pass
+
+#for geneSymbolToGOMF
+class geneSymbolToGOMFResource(resources.ModelResource):
+    class Meta:
+        model = geneSymbolToGOMF
+
+class geneSymbolToGOMFAdmin(ImportExportModelAdmin):
+    list_display = ('geneSymbol','gomf','gomfAnnotation')
+    list_filter = ['geneSymbol']
+    search_fields = ['geneSymbol','gomf','gomfAnnotation']
+    change_list_template = 'smuggler/change_list.html'
+    resource_class = geneSymbolToGOMFResource
+    pass
+
+
+#for geneSymbolToPathwayBBID
+class geneSymbolToPathwayBBIDResource(resources.ModelResource):
+    class Meta:
+        model = geneSymbolToPathwayBBID
+
+class geneSymbolToPathwayBBIDAdmin(ImportExportModelAdmin):
+    list_display = ('geneSymbol','BBID')
+    list_filter = ['geneSymbol']
+    search_fields = ['geneSymbol','BBID']
+    change_list_template = 'smuggler/change_list.html'
+    resource_class = geneSymbolToPathwayBBIDResource
+    pass
+
+#for geneSymbolToPathwayBBID
+class geneSymbolToPathwayBBIDResource(resources.ModelResource):
+    class Meta:
+        model = geneSymbolToPathwayBBID
+
+class geneSymbolToPathwayBBIDAdmin(ImportExportModelAdmin):
+    list_display = ('geneSymbol','BBID')
+    list_filter = ['geneSymbol']
+    search_fields = ['geneSymbol','BBID']
+    change_list_template = 'smuggler/change_list.html'
+    resource_class = geneSymbolToPathwayBBIDResource
+    pass
+
+#for geneSymbolToPathwayKEGG
+class geneSymbolToPathwayKEGGResource(resources.ModelResource):
+    class Meta:
+        model = geneSymbolToPathwayKEGG
+
+class geneSymbolToPathwayKEGGAdmin(ImportExportModelAdmin):
+    list_display = ('geneSymbol','KEGG','KEGGAnnotation')
+    list_filter = ['geneSymbol']
+    search_fields = ['geneSymbol','KEGG','KEGGAnnotation']
+    change_list_template = 'smuggler/change_list.html'
+    resource_class = geneSymbolToPathwayKEGGResource
+    pass
+
+#for geneSymbolToPathwayPANTHER
+class geneSymbolToPathwayPANTHERResource(resources.ModelResource):
+    class Meta:
+        model = geneSymbolToPathwayPANTHER
+
+class geneSymbolToPathwayPANTHERAdmin(ImportExportModelAdmin):
+    list_display = ('geneSymbol','PANTHER','PANTHERAnnotation')
+    list_filter = ['geneSymbol']
+    search_fields = ['geneSymbol','PANTHER','PANTHERAnnotation']
+    change_list_template = 'smuggler/change_list.html'
+    resource_class = geneSymbolToPathwayPANTHERResource
+    pass
+
+#for geneSymbolToPathwayREACTOME
+class geneSymbolToPathwayREACTOMEResource(resources.ModelResource):
+    class Meta:
+        model = geneSymbolToPathwayREACTOME
+
+class geneSymbolToPathwayREACTOMEAdmin(ImportExportModelAdmin):
+    list_display = ('geneSymbol','REACTOME','REACTOMEAnnotation')
+    list_filter = ['geneSymbol']
+    search_fields = ['geneSymbol','REACTOME','REACTOMEAnnotation']
+    change_list_template = 'smuggler/change_list.html'
+    resource_class = geneSymbolToPathwayREACTOMEResource
+    pass
+
+admin.site.register(geneSymbolToDavidGeneName,geneSymbolToDavidGeneNameAdmin)
+admin.site.register(geneSymbolToGOBP,geneSymbolToGOBPAdmin)
+admin.site.register(geneSymbolToGOCC,geneSymbolToGOCCAdmin)
+admin.site.register(geneSymbolToGOMF,geneSymbolToGOMFAdmin)
+admin.site.register(geneSymbolToPathwayBBID,geneSymbolToPathwayBBIDAdmin)
+admin.site.register(geneSymbolToPathwayKEGG,geneSymbolToPathwayKEGGAdmin)
+admin.site.register(geneSymbolToPathwayPANTHER,geneSymbolToPathwayPANTHERAdmin)
+admin.site.register(geneSymbolToPathwayREACTOME,geneSymbolToPathwayREACTOMEAdmin)

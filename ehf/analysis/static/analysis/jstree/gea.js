@@ -124,8 +124,28 @@ function geaAnalysis() {
                 $('#doAnalysis').popover('destroy');
             }, 3000);
 
-        } else {
+        } else if (analysisType == "david") {
+            //            if (geneArary.length <= 400) {
+//                window.open("http://david.abcc.ncifcrf.gov/api.jsp?type=GENE_SYMBOL&ids=" + data + "&tool=summary", "_blank");
+//            } else {
+//                //popover hint
+//                $('#doAnalysis').popover({content: 'gene number exceeds DAVID limitations, at most 400 genes, ' + geneArary.length + ' genes provided'});
+//                $('#doAnalysis').popover('show');
+//                setTimeout(function () {
+//                    $('#doAnalysis').popover('destroy');
+//                }, 3000);
+//            }
+
+            //20140925: we downloaded the knowledge base from DAVID, and provide a in-house result page for DAVID pathway and GO information.
+            // For more information, you can still use the API provided by DAVID
+            window.open(URL_PREFIX + "/analysis/gea/davidResult?pathogen="+pathogen, "_blank");  //open in a new window, pathogen list is short enough, otherwise we should use post
+
+
+
+
+        } else {  //others, get geneList first, then display the modal
             $.get(URL_PREFIX + "/analysis/gea/getGeneList", {'pathogen': pathogen}, evalCallbk);  //get search types from server
+
         }
 
     } else {
@@ -142,27 +162,12 @@ function evalCallbk(data) {  //data is the gene list
     if (data.length > 0) {
         var analysisType = $("#analysisType").val();
 
-        if (analysisType == "go" || analysisType == "pathway") {
-            //since forging is difficult, we still use the api provided by david
-
-            var geneArary = data.split(",")
-            if (geneArary.length <= 400) {
-                window.open("http://david.abcc.ncifcrf.gov/api.jsp?type=GENE_SYMBOL&ids=" + data + "&tool=summary", "_blank");
-            } else {
-                //popover hint
-                $('#doAnalysis').popover({content: 'gene number exceeds DAVID limitations, at most 400 genes, ' + geneArary.length + ' genes provided'});
-                $('#doAnalysis').popover('show');
-                setTimeout(function () {
-                    $('#doAnalysis').popover('destroy');
-                }, 3000);
-            }
-        } else if (analysisType == "others") {
+        if (analysisType == "others") {
             //Others
             $('#geaGeneList').text(data);
             $('#myModal').modal('show');
         }
         else {
-
 
         }
     } else {

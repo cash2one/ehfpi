@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/ehf.iml" filepath="$PROJECT_DIR$/.idea/ehf.iml" />
+      <module fileurl="file://D:/lincs/l1ktools/python/.idea/python.iml" filepath="D:/lincs/l1ktools/python/.idea/python.iml" />
     </modules>
   </component>
 </project>
