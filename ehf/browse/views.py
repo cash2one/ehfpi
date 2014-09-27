@@ -805,7 +805,7 @@ def previewResult(request):
             request.session['selectedColumnsPreview'] = selectedColumns  #store the columns
 
         if 'has_changed_preview' not in request.session:
-            defaultColumns = ['ehfpiAcc', 'geneSymbol', 'entrezId', 'strain']
+            defaultColumns = ['ehfpiAcc', 'geneSymbol', 'targetOrganism', 'strain']
             request.session['selectedColumnsPreview'] = defaultColumns  #store the columns
 
         if 'species' in request.GET:

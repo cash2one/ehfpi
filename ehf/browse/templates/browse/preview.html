@@ -40,8 +40,11 @@
                             <th name="species"><a href="?{% url_replace request 'order_by' 'species' %}">Species</a>
                             </th>
                         {% endifequal %}
+                        <th name="title" id="titlePreview"><a
+                                href="?{% url_replace request 'order_by' 'targetOrganism' %}">Target Organism</a></th>
                         <th name="title" id="titlePreview"><a href="?{% url_replace request 'order_by' 'title' %}">Publication
                             Title</a></th>
+
                         <th name="phenotype"><a href="?{% url_replace request 'order_by' 'phenotype' %}">Phenotype</a>
                         </th>
                     </tr>
@@ -52,11 +55,13 @@
                         <tr>
                             {% ifequal type 'species' %}
                                 <td>{{ res.strain }}</td>
+                                <td>{{ res.targetOrganism }}</td>
                                 <td>
                                     <a href="{% url 'browse:previewResult' %}?pubmedId={{ res.pubmedId }}&strain={{ res.strain }}">{{ res.title }}</a>
                                 </td>
                             {% else %}
                                 <td>{{ res.species }}</td>
+                                <td>{{ res.targetOrganism }}</td>
                                 <td>
                                     <a href="{% url 'browse:previewResult' %}?pubmedId={{ res.pubmedId }}&species={{ res.speciesTaxonomy }}">{{ res.title }}</a>
                                 </td>

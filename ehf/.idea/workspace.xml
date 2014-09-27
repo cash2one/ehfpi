@@ -26,159 +26,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="gea.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/analysis/static/analysis/jstree/gea.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="128" column="128" selection-start="3695" selection-end="3805" vertical-scroll-proportion="0.0" vertical-offset="2134" max-vertical-offset="4290">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/analysis/views.py">
+        <entry file="file://$PROJECT_DIR$/browse/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="352" column="54" selection-start="12981" selection-end="12981" vertical-scroll-proportion="-10.52" vertical-offset="7481" max-vertical-offset="68794">
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/analysis/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="287" column="12" selection-start="12298" selection-end="12306" vertical-scroll-proportion="0.0" vertical-offset="5753" max-vertical-offset="6578">
+            <state line="766" column="42" selection-start="31081" selection-end="31081" vertical-scroll-proportion="0.0" vertical-offset="15934" max-vertical-offset="18986">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="davidDetail.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/davidDetail.html">
+      <file leaf-file-name="preview.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/browse/templates/browse/preview.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="103" selection-start="839" selection-end="839" vertical-scroll-proportion="0.5097493" vertical-offset="140" max-vertical-offset="5148">
-              <folding>
-                <element signature="e#891#927#0" expanded="true" />
-                <element signature="e#933#958#0" expanded="true" />
-                <element signature="e#1101#1123#0" expanded="true" />
-                <element signature="e#1371#1435#0" expanded="true" />
-                <element signature="e#1761#1779#0" expanded="true" />
-                <element signature="e#1823#1841#0" expanded="true" />
-                <element signature="e#2592#2656#0" expanded="true" />
-                <element signature="e#2982#3000#0" expanded="true" />
-                <element signature="e#3044#3062#0" expanded="true" />
-                <element signature="e#3813#3877#0" expanded="true" />
-                <element signature="e#4203#4221#0" expanded="true" />
-                <element signature="e#4265#4283#0" expanded="true" />
-                <element signature="e#5036#5100#0" expanded="true" />
-                <element signature="e#5417#5435#0" expanded="true" />
-                <element signature="e#5479#5497#0" expanded="true" />
-                <element signature="e#6121#6185#0" expanded="true" />
-                <element signature="e#6510#6528#0" expanded="true" />
-                <element signature="e#6572#6590#0" expanded="true" />
-                <element signature="e#7351#7415#0" expanded="true" />
-                <element signature="e#7743#7761#0" expanded="true" />
-                <element signature="e#7805#7823#0" expanded="true" />
-                <element signature="e#8607#8671#0" expanded="true" />
-                <element signature="e#9000#9018#0" expanded="true" />
-                <element signature="e#9062#9080#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="davidResult.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/davidResult.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="103" column="93" selection-start="6173" selection-end="6214" vertical-scroll-proportion="-13.160714" vertical-offset="1529" max-vertical-offset="2618">
-              <folding>
-                <element signature="e#801#821#0" expanded="true" />
-                <element signature="e#893#913#0" expanded="true" />
-                <element signature="e#961#981#0" expanded="true" />
-                <element signature="e#1029#1049#0" expanded="true" />
-                <element signature="e#1099#1119#0" expanded="true" />
-                <element signature="e#1168#1188#0" expanded="true" />
-                <element signature="e#1240#1260#0" expanded="true" />
-                <element signature="e#1316#1336#0" expanded="true" />
-                <element signature="e#1390#1410#0" expanded="true" />
-                <element signature="e#1466#1486#0" expanded="true" />
-                <element signature="e#1533#1573#0" expanded="true" />
-                <element signature="e#2386#2422#0" expanded="true" />
-                <element signature="e#2470#2488#0" expanded="true" />
-                <element signature="e#2534#2552#0" expanded="true" />
-                <element signature="e#2708#2730#0" expanded="true" />
-                <element signature="e#2906#2942#0" expanded="true" />
-                <element signature="e#2990#3008#0" expanded="true" />
-                <element signature="e#3054#3072#0" expanded="true" />
-                <element signature="e#3228#3250#0" expanded="true" />
-                <element signature="e#3426#3462#0" expanded="true" />
-                <element signature="e#3510#3528#0" expanded="true" />
-                <element signature="e#3574#3592#0" expanded="true" />
-                <element signature="e#3748#3770#0" expanded="true" />
-                <element signature="e#4127#4163#0" expanded="true" />
-                <element signature="e#4202#4220#0" expanded="true" />
-                <element signature="e#4265#4283#0" expanded="true" />
-                <element signature="e#4443#4465#0" expanded="true" />
-                <element signature="e#4643#4679#0" expanded="true" />
-                <element signature="e#4726#4744#0" expanded="true" />
-                <element signature="e#4789#4807#0" expanded="true" />
-                <element signature="e#4967#4989#0" expanded="true" />
-                <element signature="e#5167#5203#0" expanded="true" />
-                <element signature="e#5253#5271#0" expanded="true" />
-                <element signature="e#5319#5337#0" expanded="true" />
-                <element signature="e#5503#5525#0" expanded="true" />
-                <element signature="e#5706#5742#0" expanded="true" />
-                <element signature="e#5793#5811#0" expanded="true" />
-                <element signature="e#5860#5878#0" expanded="true" />
-                <element signature="e#6098#6120#0" expanded="true" />
-                <element signature="e#6324#6379#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="david.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/analysis/static/analysis/david.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="67" selection-start="1329" selection-end="1349" vertical-scroll-proportion="0.0" vertical-offset="470" max-vertical-offset="1166">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/analysis/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="0" selection-start="420" selection-end="420" vertical-scroll-proportion="0.0" vertical-offset="22" max-vertical-offset="990">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="drugResults.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/drugResults.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="114" selection-start="449" selection-end="559" vertical-scroll-proportion="-4.125" vertical-offset="99" max-vertical-offset="5390">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="drugResult.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/analysis/static/analysis/jstree/drugResult.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="167" column="19" selection-start="5321" selection-end="5620" vertical-scroll-proportion="0.0" vertical-offset="3244" max-vertical-offset="6380">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="analysis.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/analysis/static/analysis/analysis.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="650" column="19" selection-start="10085" selection-end="10085" vertical-scroll-proportion="-16.64" vertical-offset="13884" max-vertical-offset="22946">
+            <state line="43" column="109" selection-start="1876" selection-end="1876" vertical-scroll-proportion="0.4948097" vertical-offset="660" max-vertical-offset="1914">
               <folding />
             </state>
           </provider>
@@ -197,9 +57,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/search/templates/search/previewSearchResult.html" />
-        <option value="$PROJECT_DIR$/ehf/urls_subsite.py" />
-        <option value="$PROJECT_DIR$/about/static/about/about.css" />
         <option value="$PROJECT_DIR$/ehf/views.py" />
         <option value="$PROJECT_DIR$/about/templates/about/statistics.html" />
         <option value="$PROJECT_DIR$/download/views.py" />
@@ -211,8 +68,6 @@
         <option value="$PROJECT_DIR$/analysis/templates/analysis/gwasResults.html" />
         <option value="$PROJECT_DIR$/analysis/templates/analysis/overlapNetworkOthers.html" />
         <option value="$PROJECT_DIR$/analysis/static/analysis/infovis/network.js" />
-        <option value="$PROJECT_DIR$/browse/views.py" />
-        <option value="$PROJECT_DIR$/search/views.py" />
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/templates/baseIndex.html" />
         <option value="$PROJECT_DIR$/analysis/static/analysis/jstree/heatmap.js" />
@@ -246,8 +101,13 @@
         <option value="$PROJECT_DIR$/analysis/templates/analysis/davidResult.html" />
         <option value="$PROJECT_DIR$/analysis/static/analysis/david.js" />
         <option value="$PROJECT_DIR$/analysis/urls.py" />
-        <option value="$PROJECT_DIR$/analysis/views.py" />
         <option value="$PROJECT_DIR$/analysis/templates/analysis/davidDetail.html" />
+        <option value="$PROJECT_DIR$/analysis/views.py" />
+        <option value="$PROJECT_DIR$/browse/views.py" />
+        <option value="$PROJECT_DIR$/search/views.py" />
+        <option value="$PROJECT_DIR$/search/static/search/search.js" />
+        <option value="$PROJECT_DIR$/browse/models.py" />
+        <option value="$PROJECT_DIR$/browse/templates/browse/preview.html" />
       </list>
     </option>
   </component>
@@ -312,6 +172,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="search" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ehf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ehf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="help" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -335,6 +209,56 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="help" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ehf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ehf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ehf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ehf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ehf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="browse" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ehf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ehf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="browse" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="browse" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -723,16 +647,16 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21627648" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27647716" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27647716" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23968785" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15719064" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37235227" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13365282" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25139043" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16499442" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13489409" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13489409" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19577308" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -784,65 +708,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/overlapHeatMapArticle.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="104" selection-start="3966" selection-end="3966" vertical-scroll-proportion="-17.032259" vertical-offset="1320" max-vertical-offset="2706" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/static/analysis/jstree/heatmapArticle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="201" column="49" selection-start="6210" selection-end="6210" vertical-scroll-proportion="0.46187684" vertical-offset="4107" max-vertical-offset="11924" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/help/templates/help/indexHelp.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="71" selection-start="1070" selection-end="1121" vertical-scroll-proportion="-14.903226" vertical-offset="66" max-vertical-offset="1122">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/help/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="34" selection-start="481" selection-end="481" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="418">
-          <folding>
-            <element signature="e#0#42#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/news/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="16" selection-start="226" selection-end="226" vertical-scroll-proportion="0.23583461" vertical-offset="0" max-vertical-offset="704" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/about/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="51" selection-start="1986" selection-end="1994" vertical-scroll-proportion="0.3638889" vertical-offset="816" max-vertical-offset="2288">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/news/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="33" selection-start="433" selection-end="433" vertical-scroll-proportion="0.36666667" vertical-offset="0" max-vertical-offset="720">
-          <folding>
-            <element signature="e#0#35#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/news/templates/news/detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="35" selection-start="540" selection-end="544" vertical-scroll-proportion="0.6012862" vertical-offset="0" max-vertical-offset="638">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/news/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="23" selection-start="463" selection-end="463" vertical-scroll-proportion="0.4265928" vertical-offset="0" max-vertical-offset="722" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/help/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="21" selection-start="406" selection-end="406" vertical-scroll-proportion="0.4042879" vertical-offset="0" max-vertical-offset="653" />
@@ -1061,13 +926,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/browse/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="16" selection-start="673" selection-end="685" vertical-scroll-proportion="-0.7681564" vertical-offset="858" max-vertical-offset="2442">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/drug.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="4" selection-start="147" selection-end="165" vertical-scroll-proportion="-1.0965732" vertical-offset="858" max-vertical-offset="2926">
@@ -1077,45 +935,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/analysis/static/analysis/analysis.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="650" column="19" selection-start="10085" selection-end="10085" vertical-scroll-proportion="-16.64" vertical-offset="13884" max-vertical-offset="22946">
+        <state line="650" column="19" selection-start="10085" selection-end="10085" vertical-scroll-proportion="0.5745856" vertical-offset="13884" max-vertical-offset="22946">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/analysis/static/analysis/jstree/drugResult.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="167" column="19" selection-start="5321" selection-end="5620" vertical-scroll-proportion="0.0" vertical-offset="3244" max-vertical-offset="6380">
+        <state line="167" column="19" selection-start="5321" selection-end="5620" vertical-scroll-proportion="0.5740988" vertical-offset="3244" max-vertical-offset="6380">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/drugResults.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="114" selection-start="449" selection-end="559" vertical-scroll-proportion="-4.125" vertical-offset="99" max-vertical-offset="5390">
+        <state line="15" column="114" selection-start="449" selection-end="559" vertical-scroll-proportion="0.33970588" vertical-offset="99" max-vertical-offset="5390">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/analysis/static/analysis/david.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="67" selection-start="1329" selection-end="1349" vertical-scroll-proportion="0.0" vertical-offset="470" max-vertical-offset="1166">
+        <state line="39" column="67" selection-start="1329" selection-end="1349" vertical-scroll-proportion="0.58878505" vertical-offset="417" max-vertical-offset="1166">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/analysis/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="420" selection-end="420" vertical-scroll-proportion="0.0" vertical-offset="22" max-vertical-offset="990">
+        <state line="10" column="0" selection-start="420" selection-end="420" vertical-scroll-proportion="0.20560747" vertical-offset="22" max-vertical-offset="990">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="352" column="54" selection-start="12981" selection-end="12981" vertical-scroll-proportion="-10.52" vertical-offset="7481" max-vertical-offset="68794">
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1128,7 +977,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/davidResult.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="93" selection-start="6173" selection-end="6214" vertical-scroll-proportion="-13.160714" vertical-offset="1529" max-vertical-offset="2618">
+        <state line="103" column="93" selection-start="6173" selection-end="6214" vertical-scroll-proportion="1.0838236" vertical-offset="1529" max-vertical-offset="2618">
           <folding>
             <element signature="e#801#821#0" expanded="true" />
             <element signature="e#893#913#0" expanded="true" />
@@ -1203,6 +1052,89 @@
             <element signature="e#9000#9018#0" expanded="true" />
             <element signature="e#9062#9080#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1372" column="71" selection-start="56649" selection-end="56649" vertical-scroll-proportion="4.641791" vertical-offset="27696" max-vertical-offset="68794">
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ehf/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="43" selection-start="2081" selection-end="2081" vertical-scroll-proportion="-6.6045017" vertical-offset="5296" max-vertical-offset="8294">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ehf/commonVar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="83" selection-start="115" selection-end="115" vertical-scroll-proportion="0.035369776" vertical-offset="0" max-vertical-offset="1518">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search/templates/search/searchResult.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="353" column="49" selection-start="18907" selection-end="18924" vertical-scroll-proportion="0.20981388" vertical-offset="7642" max-vertical-offset="13816">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search/static/search/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="34" selection-start="367" selection-end="367" vertical-scroll-proportion="0.21674877" vertical-offset="0" max-vertical-offset="16170">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/browse/templates/browse/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="432" column="32" selection-start="23527" selection-end="23527" vertical-scroll-proportion="0.30103806" vertical-offset="9330" max-vertical-offset="15444">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/browse/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="48" selection-start="566" selection-end="566" vertical-scroll-proportion="0.45980707" vertical-offset="0" max-vertical-offset="622">
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/browse/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="105" column="69" selection-start="4747" selection-end="4747" vertical-scroll-proportion="1.1157557" vertical-offset="1616" max-vertical-offset="2486">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="94" column="31" selection-start="4393" selection-end="4393" vertical-scroll-proportion="1.4897261" vertical-offset="1198" max-vertical-offset="23496">
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/browse/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="766" column="42" selection-start="31081" selection-end="31081" vertical-scroll-proportion="0.0" vertical-offset="15934" max-vertical-offset="18986">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/browse/templates/browse/preview.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="109" selection-start="1876" selection-end="1876" vertical-scroll-proportion="0.4948097" vertical-offset="660" max-vertical-offset="1914">
+          <folding />
         </state>
       </provider>
     </entry>

@@ -94,6 +94,7 @@ class interaction(models.Model):
 class previewModel(models.Model):
     title = models.CharField(max_length=255)
     pubmedId = models.CharField(max_length=255)
+    targetOrganism = models.CharField(max_length=255) #added 20140926
     phenotype = models.CharField(max_length=255)
     species = models.CharField(max_length=255)
     speciesTaxonomy = models.CharField(max_length=255)
@@ -102,5 +103,6 @@ class previewModel(models.Model):
 class previewSpeciesModel(models.Model):
     title = models.CharField(max_length=255)
     pubmedId = models.CharField(max_length=255)
+    targetOrganism = models.CharField(max_length=255) #added 20140926
     phenotype = models.CharField(max_length=255)
     strain = models.CharField(max_length=255)

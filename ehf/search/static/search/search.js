@@ -4,7 +4,7 @@ $(function () {
     $("input[value='ehfpiAcc'][id='checkboxColumn']").prop("checked", "true");
     $("input[value='ehfpiAcc'][id='checkboxColumn']").prop("disabled", "disabled");
     $("input[value='geneSymbol'][id='checkboxColumn']").prop("checked", "true");
-    $("input[value='entrezId'][id='checkboxColumn']").prop("checked", "true");
+    $("input[value='targetOrganism'][id='checkboxColumn']").prop("checked", "true");
     $("input[value='strain'][id='checkboxColumn']").prop("checked", "true");
     $("input[value='title'][id='checkboxColumn']").prop("checked", "true");
 

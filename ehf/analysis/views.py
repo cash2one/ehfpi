@@ -1370,7 +1370,7 @@ def heatMapResult(request):
             request.session['selectedColumns'] = selectedColumns  #store the columns
 
         if 'has_changed' not in request.session:
-            defaultColumns = ['ehfpiAcc', 'geneSymbol', 'entrezId', 'strain', 'title']
+            defaultColumns = ['ehfpiAcc', 'geneSymbol', 'targetOrganism', 'strain', 'title']
             request.session['selectedColumns'] = defaultColumns  #store the columns
 
         a = request.GET['a']

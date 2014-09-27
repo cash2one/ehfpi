@@ -68,7 +68,7 @@ def quickSearch(request):
             request.session['selectedColumns'] = selectedColumns  #store the columns
 
         if 'has_changed' not in request.session:
-            defaultColumns = ['ehfpiAcc', 'geneSymbol', 'entrezId', 'strain', 'title']
+            defaultColumns = ['ehfpiAcc', 'geneSymbol', 'targetOrganism', 'strain', 'title']
             request.session['selectedColumns'] = defaultColumns  #store the columns
 
         if request.GET['query']:  #not empty search
@@ -90,7 +90,7 @@ def quickSearch(request):
 
             displayColumns = request.session['selectedColumns']
             if displayColumns == '':
-                displayColumns = ['ehfpiAcc', 'geneSymbol', 'entrezId', 'strain', 'title']
+                displayColumns = ['ehfpiAcc', 'geneSymbol', 'targetOrganism', 'strain', 'title']
             displayColumnsDic = []
             for item in displayColumns:
                 displayColumnsDic.append([item, fieldDic[item]])
@@ -133,7 +133,7 @@ def advancedSearch(request):
                 request.session['selectedColumns'] = selectedColumns  #store the columns
 
             if 'has_changed' not in request.session:
-                defaultColumns = ['ehfpiAcc', 'geneSymbol', 'entrezId', 'strain', 'title']
+                defaultColumns = ['ehfpiAcc', 'geneSymbol', 'targetOrganism', 'strain', 'title']
                 request.session['selectedColumns'] = defaultColumns  #store the columns
 
             conditionNum = 0  # search condition number, based on smartSearchSubtype number in POST
