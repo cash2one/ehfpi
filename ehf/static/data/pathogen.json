@@ -69,7 +69,7 @@
         "pathogen": "Borna disease virus"
     },
     {
-        "pathogen": "Brucella melitensis biovar Abortus"
+        "pathogen": "LCMV"
     },
     {
         "pathogen": "lymphocytic choriomeningitis virus (LCMV)"
@@ -168,9 +168,6 @@
         "pathogen": "human immunodeficiency virus-1 HIV-1,human immunodeficiency virus type-1 HIV-1"
     },
     {
-        "pathogen": "Brucella (Brucella melitensis strain 16M (WT) and B. abortus strain 2308 (WT),and their derivedmutants)"
-    },
-    {
         "pathogen": "Borna disease virus(rVSV\u0394G*/BDVG,a replication-competent recombinant vesicular stomatitis virus (VSV) expressing the BDV G)"
     },
     {
@@ -178,9 +175,6 @@
     },
     {
         "pathogen": "C. albicans CAF2-1 strain (URA3/ura3::kimm434)"
-    },
-    {
-        "pathogen": "Brucella abortus(Brucella melitensis)"
     },
     {
         "pathogen": "post-transfusion hepatitis non A non B virus,human hepatitis virus C HCV,human hepatitis C virus HCV,human hepatitis C virus,hepatitis C virus HCV"
@@ -196,9 +190,6 @@
     },
     {
         "pathogen": "Rotaviruses"
-    },
-    {
-        "pathogen": "LCMV"
     },
     {
         "pathogen": "Pasteurella tularensis,Francisella tularense,Brucella tularensis,Bacterium tularense"
@@ -243,6 +234,9 @@
         "pathogen": "Chlamydia"
     },
     {
+        "pathogen": "Brucella melitensis strain 16M (WT)"
+    },
+    {
         "pathogen": "Human parainfluenza virus 3"
     },
     {
@@ -271,6 +265,9 @@
     },
     {
         "pathogen": "SeV"
+    },
+    {
+        "pathogen": "Streptococcus Miletensis"
     },
     {
         "pathogen": "Mycobacterium fortuitum (EJR154) map24::GFP"
@@ -360,10 +357,10 @@
         "pathogen": "Rhabdoviridae"
     },
     {
-        "pathogen": "Brucella abortus"
+        "pathogen": "Sindbis virus"
     },
     {
-        "pathogen": "Sindbis virus"
+        "pathogen": "Brucella melitensis"
     },
     {
         "pathogen": "HIV-1,LAV-1,HIV1,HIV"
