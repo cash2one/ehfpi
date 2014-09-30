@@ -23,7 +23,7 @@
 }
 
 .ui-accordion-content .content{
-    padding: 10px 20px 10px 20px;
+    padding: 10px 10px 10px 10px;
 }
 
 .ui-accordion-content .content ul{
@@ -57,7 +57,7 @@
     border: 1px solid #d3d3d3;
     border-top: 0px;
     font-size: 1em;
-    min-height: 200px;
+    min-height: 250px;
 }
 
 
