@@ -26,6 +26,7 @@
     <link href="/static/analysis/cytoscape/navigator/cytoscape.js-navigator.css" rel="stylesheet" type="text/css"/>
 
     <script src="/static/analysis/cytoscape/qtip/cytoscape.js-qtip.js"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery.fileDownload/1.4.2/jquery.fileDownload.js'></script>
 
     <script src='/static/csrf.js'></script>
     <script src='/static/analysis/ppi.js'></script>
@@ -33,6 +34,7 @@
 
     <div class="main otherMain" id="main">
         <div id="geneList" style="display:none">{{ geneList }}</div>
+        <div id="csrf" style="display:none" value="{% csrf_token %}"></div>
         <div id="otherLoading">
             <img src="/static/analysis/images/loading6.gif"/>
         </div>
@@ -54,6 +56,9 @@
                        onclick="searchNet(this);">
                 <span id="ppiNetworkTip"><a href="/ehfpi/help/analysisHelp#pip" target="_blank">
                     <img src="/static/images/info_20x20.png"></a></span>
+
+                <input type="button" value="Download CSV" id="downloadPPIButton" class="btn btn-primary btn-sm"
+                       onclick="downloadPPI(this);">
 
                 <span id="title">
                     <img src="/static/analysis/images/ppi1.jpg" width="18px" height="18px"><label>Submitted</label>

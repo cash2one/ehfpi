@@ -26,10 +26,89 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="ppiOthers.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/ppiOthers.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="114" selection-start="1476" selection-end="1476" vertical-scroll-proportion="-9.225806" vertical-offset="330" max-vertical-offset="1958">
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="analysis.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/analysis/static/analysis/analysis.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="910" column="18" selection-start="14682" selection-end="14682" vertical-scroll-proportion="0.0" vertical-offset="19788" max-vertical-offset="23034">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ppi.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/analysis/static/analysis/ppi.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="403" column="34" selection-start="14135" selection-end="14135" vertical-scroll-proportion="0.0" vertical-offset="8403" max-vertical-offset="9218">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/analysis/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="40" selection-start="1748" selection-end="1748" vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="1012">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/analysis/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="0" selection-start="11" selection-end="46" vertical-scroll-proportion="-1.03125" vertical-offset="748" max-vertical-offset="68794">
+            <state line="2259" column="8" selection-start="89116" selection-end="89116" vertical-scroll-proportion="0.49323016" vertical-offset="49443" max-vertical-offset="69872">
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/analysis/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="191" column="12" selection-start="8432" selection-end="8440" vertical-scroll-proportion="0.0" vertical-offset="3707" max-vertical-offset="6578">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="overlapNetworkOthers.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/overlapNetworkOthers.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="4" selection-start="650" selection-end="760" vertical-scroll-proportion="-9.225806" vertical-offset="0" max-vertical-offset="968">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="displayNetwork.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/displayNetwork.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="40" column="50" selection-start="2212" selection-end="2223" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2464">
+              <folding>
+                <marker date="1411217102087" expanded="true" signature="406:794" placeholder="{% for key,value in speciesNumberAbove ... %}" />
+                <marker date="1411217102087" expanded="true" signature="816:1194" placeholder="{% for key,value in speciesNumber ... %}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="network.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/analysis/static/analysis/infovis/network.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="593" column="0" selection-start="22828" selection-end="23611" vertical-scroll-proportion="-4.4" vertical-offset="12936" max-vertical-offset="16016">
               <folding />
             </state>
           </provider>
@@ -48,8 +127,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/templates/baseIndex.html" />
-        <option value="$PROJECT_DIR$/analysis/static/analysis/jstree/heatmap.js" />
         <option value="$PROJECT_DIR$/analysis/templates/analysis/overlapHeatMap.html" />
         <option value="$PROJECT_DIR$/analysis/templates/analysis/overlapHeatMapArticle.html" />
         <option value="$PROJECT_DIR$/analysis/static/analysis/jstree/heatmapArticle.js" />
@@ -62,7 +139,6 @@
         <option value="$PROJECT_DIR$/help/models.py" />
         <option value="$PROJECT_DIR$/help/static/help/help.css" />
         <option value="$PROJECT_DIR$/help/templates/help/faqHelp.html" />
-        <option value="$PROJECT_DIR$/analysis/static/analysis/ppi.js" />
         <option value="$PROJECT_DIR$/analysis/templates/analysis/displayNetwork.js" />
         <option value="$PROJECT_DIR$/analysis/templates/analysis/displayDrugNetwork.js" />
         <option value="$PROJECT_DIR$/help/templates/help/ehfHelp.html" />
@@ -76,12 +152,9 @@
         <option value="$PROJECT_DIR$/analysis/admin.py" />
         <option value="$PROJECT_DIR$/analysis/static/analysis/jstree/gea.js" />
         <option value="$PROJECT_DIR$/analysis/templates/analysis/gea.html" />
-        <option value="$PROJECT_DIR$/analysis/static/analysis/analysis.css" />
         <option value="$PROJECT_DIR$/analysis/templates/analysis/davidResult.html" />
         <option value="$PROJECT_DIR$/analysis/static/analysis/david.js" />
-        <option value="$PROJECT_DIR$/analysis/urls.py" />
         <option value="$PROJECT_DIR$/analysis/templates/analysis/davidDetail.html" />
-        <option value="$PROJECT_DIR$/analysis/views.py" />
         <option value="$PROJECT_DIR$/browse/views.py" />
         <option value="$PROJECT_DIR$/search/views.py" />
         <option value="$PROJECT_DIR$/search/static/search/search.js" />
@@ -99,6 +172,12 @@
         <option value="$PROJECT_DIR$/static/data/acc.json" />
         <option value="$PROJECT_DIR$/browse/templates/browse/guide.html" />
         <option value="D:/ehfpi/论文写作/revised/changeGene.py" />
+        <option value="$PROJECT_DIR$/ehf/settings.py" />
+        <option value="$PROJECT_DIR$/analysis/static/analysis/analysis.css" />
+        <option value="$PROJECT_DIR$/analysis/urls.py" />
+        <option value="$PROJECT_DIR$/analysis/templates/analysis/ppiOthers.html" />
+        <option value="$PROJECT_DIR$/analysis/static/analysis/ppi.js" />
+        <option value="$PROJECT_DIR$/analysis/views.py" />
       </list>
     </option>
   </component>
@@ -393,6 +472,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="jstree" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ehf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ehf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="analysis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="analysis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovis" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -695,19 +800,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21627648" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.07469342" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23968785" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18506132" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18506132" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13471779" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13471779" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25139043" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16499442" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13489409" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33444816" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19577308" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -759,78 +864,11 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/help/templates/help/ehfHelp.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="105" selection-start="2998" selection-end="2998" vertical-scroll-proportion="0.0" vertical-offset="882" max-vertical-offset="1452">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/help/templates/help/browseHelp.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="72" selection-start="7905" selection-end="7905" vertical-scroll-proportion="0.0" vertical-offset="2521" max-vertical-offset="3212">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/help/templates/help/restHelp.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="64" selection-start="2972" selection-end="2972" vertical-scroll-proportion="0.0" vertical-offset="924" max-vertical-offset="1782">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/help/templates/help/searchHelp.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="63" selection-start="6301" selection-end="6301" vertical-scroll-proportion="0.0" vertical-offset="2486" max-vertical-offset="3102">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/ehfpi/project/data_used/david/parse.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="24" selection-start="101" selection-end="101" vertical-scroll-proportion="0.060941827" vertical-offset="0" max-vertical-offset="722" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="272" column="36" selection-start="9197" selection-end="9197" vertical-scroll-proportion="0.23822714" vertical-offset="5812" max-vertical-offset="6534" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/getGeneList.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="722" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/overlap.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1276">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/overlapNetworkOthers.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="84" selection-start="926" selection-end="1002" vertical-scroll-proportion="-7.806452" vertical-offset="154" max-vertical-offset="968">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/help/templates/help/analysisHelp.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="279" column="52" selection-start="15949" selection-end="15978" vertical-scroll-proportion="0.2919605" vertical-offset="5931" max-vertical-offset="7678">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/analysis/static/analysis/infovis/drugNetwork.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="622" column="8" selection-start="23318" selection-end="23318" vertical-scroll-proportion="0.0" vertical-offset="14829" max-vertical-offset="15444" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/static/analysis/infovis/network.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="385" column="27" selection-start="15832" selection-end="15840" vertical-scroll-proportion="0.0" vertical-offset="8295" max-vertical-offset="16016" />
+        <state line="622" column="8" selection-start="23318" selection-end="23318" vertical-scroll-proportion="0.0" vertical-offset="14829" max-vertical-offset="15444">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/gea.html">
@@ -857,16 +895,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/static/analysis/analysis.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="650" column="19" selection-start="10085" selection-end="10085" vertical-scroll-proportion="0.5745856" vertical-offset="13884" max-vertical-offset="22946">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/analysis/static/analysis/jstree/drugResult.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="167" column="19" selection-start="5321" selection-end="5620" vertical-scroll-proportion="0.5740988" vertical-offset="3244" max-vertical-offset="6380" />
+        <state line="167" column="19" selection-start="5321" selection-end="5620" vertical-scroll-proportion="0.5740988" vertical-offset="3244" max-vertical-offset="6380">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/drugResults.html">
@@ -883,64 +916,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="420" selection-end="420" vertical-scroll-proportion="0.20560747" vertical-offset="22" max-vertical-offset="990">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="287" column="12" selection-start="12298" selection-end="12306" vertical-scroll-proportion="0.0" vertical-offset="5753" max-vertical-offset="6578">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/davidResult.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="103" column="93" selection-start="6173" selection-end="6214" vertical-scroll-proportion="1.0838236" vertical-offset="1529" max-vertical-offset="2618">
           <folding>
-            <element signature="e#801#821#0" expanded="true" />
-            <element signature="e#893#913#0" expanded="true" />
-            <element signature="e#961#981#0" expanded="true" />
-            <element signature="e#1029#1049#0" expanded="true" />
-            <element signature="e#1099#1119#0" expanded="true" />
-            <element signature="e#1168#1188#0" expanded="true" />
-            <element signature="e#1240#1260#0" expanded="true" />
-            <element signature="e#1316#1336#0" expanded="true" />
-            <element signature="e#1390#1410#0" expanded="true" />
-            <element signature="e#1466#1486#0" expanded="true" />
-            <element signature="e#1533#1573#0" expanded="true" />
-            <element signature="e#2386#2422#0" expanded="true" />
-            <element signature="e#2470#2488#0" expanded="true" />
-            <element signature="e#2534#2552#0" expanded="true" />
-            <element signature="e#2708#2730#0" expanded="true" />
-            <element signature="e#2906#2942#0" expanded="true" />
-            <element signature="e#2990#3008#0" expanded="true" />
-            <element signature="e#3054#3072#0" expanded="true" />
-            <element signature="e#3228#3250#0" expanded="true" />
-            <element signature="e#3426#3462#0" expanded="true" />
-            <element signature="e#3510#3528#0" expanded="true" />
-            <element signature="e#3574#3592#0" expanded="true" />
-            <element signature="e#3748#3770#0" expanded="true" />
-            <element signature="e#4127#4163#0" expanded="true" />
-            <element signature="e#4202#4220#0" expanded="true" />
-            <element signature="e#4265#4283#0" expanded="true" />
-            <element signature="e#4443#4465#0" expanded="true" />
-            <element signature="e#4643#4679#0" expanded="true" />
-            <element signature="e#4726#4744#0" expanded="true" />
-            <element signature="e#4789#4807#0" expanded="true" />
-            <element signature="e#4967#4989#0" expanded="true" />
-            <element signature="e#5167#5203#0" expanded="true" />
-            <element signature="e#5253#5271#0" expanded="true" />
-            <element signature="e#5319#5337#0" expanded="true" />
-            <element signature="e#5503#5525#0" expanded="true" />
-            <element signature="e#5706#5742#0" expanded="true" />
-            <element signature="e#5793#5811#0" expanded="true" />
-            <element signature="e#5860#5878#0" expanded="true" />
-            <element signature="e#6098#6120#0" expanded="true" />
-            <element signature="e#6324#6379#0" expanded="true" />
+            <element signature="e#801#821#0" expanded="false" />
+            <element signature="e#893#913#0" expanded="false" />
+            <element signature="e#961#981#0" expanded="false" />
+            <element signature="e#1029#1049#0" expanded="false" />
+            <element signature="e#1099#1119#0" expanded="false" />
+            <element signature="e#1168#1188#0" expanded="false" />
+            <element signature="e#1240#1260#0" expanded="false" />
+            <element signature="e#1316#1336#0" expanded="false" />
+            <element signature="e#1390#1410#0" expanded="false" />
+            <element signature="e#1466#1486#0" expanded="false" />
+            <element signature="e#1533#1573#0" expanded="false" />
+            <element signature="e#2386#2422#0" expanded="false" />
+            <element signature="e#2470#2488#0" expanded="false" />
+            <element signature="e#2534#2552#0" expanded="false" />
+            <element signature="e#2708#2730#0" expanded="false" />
+            <element signature="e#2906#2942#0" expanded="false" />
+            <element signature="e#2990#3008#0" expanded="false" />
+            <element signature="e#3054#3072#0" expanded="false" />
+            <element signature="e#3228#3250#0" expanded="false" />
+            <element signature="e#3426#3462#0" expanded="false" />
+            <element signature="e#3510#3528#0" expanded="false" />
+            <element signature="e#3574#3592#0" expanded="false" />
+            <element signature="e#3748#3770#0" expanded="false" />
+            <element signature="e#4127#4163#0" expanded="false" />
+            <element signature="e#4202#4220#0" expanded="false" />
+            <element signature="e#4265#4283#0" expanded="false" />
+            <element signature="e#4443#4465#0" expanded="false" />
+            <element signature="e#4643#4679#0" expanded="false" />
+            <element signature="e#4726#4744#0" expanded="false" />
+            <element signature="e#4789#4807#0" expanded="false" />
+            <element signature="e#4967#4989#0" expanded="false" />
+            <element signature="e#5167#5203#0" expanded="false" />
+            <element signature="e#5253#5271#0" expanded="false" />
+            <element signature="e#5319#5337#0" expanded="false" />
+            <element signature="e#5503#5525#0" expanded="false" />
+            <element signature="e#5706#5742#0" expanded="false" />
+            <element signature="e#5793#5811#0" expanded="false" />
+            <element signature="e#5860#5878#0" expanded="false" />
+            <element signature="e#6098#6120#0" expanded="false" />
+            <element signature="e#6324#6379#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -949,30 +968,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="103" selection-start="839" selection-end="839" vertical-scroll-proportion="0.5097493" vertical-offset="140" max-vertical-offset="5148">
           <folding>
-            <element signature="e#891#927#0" expanded="true" />
-            <element signature="e#933#958#0" expanded="true" />
-            <element signature="e#1101#1123#0" expanded="true" />
-            <element signature="e#1371#1435#0" expanded="true" />
-            <element signature="e#1761#1779#0" expanded="true" />
-            <element signature="e#1823#1841#0" expanded="true" />
-            <element signature="e#2592#2656#0" expanded="true" />
-            <element signature="e#2982#3000#0" expanded="true" />
-            <element signature="e#3044#3062#0" expanded="true" />
-            <element signature="e#3813#3877#0" expanded="true" />
-            <element signature="e#4203#4221#0" expanded="true" />
-            <element signature="e#4265#4283#0" expanded="true" />
-            <element signature="e#5036#5100#0" expanded="true" />
-            <element signature="e#5417#5435#0" expanded="true" />
-            <element signature="e#5479#5497#0" expanded="true" />
-            <element signature="e#6121#6185#0" expanded="true" />
-            <element signature="e#6510#6528#0" expanded="true" />
-            <element signature="e#6572#6590#0" expanded="true" />
-            <element signature="e#7351#7415#0" expanded="true" />
-            <element signature="e#7743#7761#0" expanded="true" />
-            <element signature="e#7805#7823#0" expanded="true" />
-            <element signature="e#8607#8671#0" expanded="true" />
-            <element signature="e#9000#9018#0" expanded="true" />
-            <element signature="e#9062#9080#0" expanded="true" />
+            <element signature="e#891#927#0" expanded="false" />
+            <element signature="e#933#958#0" expanded="false" />
+            <element signature="e#1101#1123#0" expanded="false" />
+            <element signature="e#1371#1435#0" expanded="false" />
+            <element signature="e#1761#1779#0" expanded="false" />
+            <element signature="e#1823#1841#0" expanded="false" />
+            <element signature="e#2592#2656#0" expanded="false" />
+            <element signature="e#2982#3000#0" expanded="false" />
+            <element signature="e#3044#3062#0" expanded="false" />
+            <element signature="e#3813#3877#0" expanded="false" />
+            <element signature="e#4203#4221#0" expanded="false" />
+            <element signature="e#4265#4283#0" expanded="false" />
+            <element signature="e#5036#5100#0" expanded="false" />
+            <element signature="e#5417#5435#0" expanded="false" />
+            <element signature="e#5479#5497#0" expanded="false" />
+            <element signature="e#6121#6185#0" expanded="false" />
+            <element signature="e#6510#6528#0" expanded="false" />
+            <element signature="e#6572#6590#0" expanded="false" />
+            <element signature="e#7351#7415#0" expanded="false" />
+            <element signature="e#7743#7761#0" expanded="false" />
+            <element signature="e#7805#7823#0" expanded="false" />
+            <element signature="e#8607#8671#0" expanded="false" />
+            <element signature="e#9000#9018#0" expanded="false" />
+            <element signature="e#9062#9080#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1047,13 +1066,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/lincs/l1ktools/python/example_methods.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="9" selection-start="205" selection-end="205" vertical-scroll-proportion="0.2739726" vertical-offset="0" max-vertical-offset="803">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/lincs/data/cell.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="19" selection-start="470" selection-end="470" vertical-scroll-proportion="0.5479452" vertical-offset="0" max-vertical-offset="803">
@@ -1113,36 +1125,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/lincs/l1ktools/python/lincs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="100" selection-end="135" vertical-scroll-proportion="0.1369863" vertical-offset="0" max-vertical-offset="1210">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/lincs/l1ktools/python/cmap/io/gct.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="441" column="13" selection-start="16442" selection-end="16450" vertical-scroll-proportion="0.1780822" vertical-offset="8943" max-vertical-offset="20504">
-          <folding>
-            <element signature="e#304#1179#1" expanded="false" />
-            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="create table..missing_value..." />
-            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="insert into ..." />
-            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT missi..col..." />
-            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT missi..col..." />
-            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT missi..row..." />
-            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT missi..row..." />
-            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT ind F..col..." />
-            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT ind F..col..." />
-            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT ind F..row..." />
-            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT ind F..row..." />
-            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT ind, ..col..." />
-            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT ind, ..row..." />
-            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="PRAGMA table..." />
-            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="PRAGMA table..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/data/gene.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="84463" column="1" selection-start="1094512" selection-end="1094512" vertical-scroll-proportion="0.81615597" vertical-offset="1857600" max-vertical-offset="1858318">
@@ -1192,10 +1174,154 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://D:/lincs/l1ktools/python/lincs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="2" selection-start="524" selection-end="524" vertical-scroll-proportion="0.0" vertical-offset="110" max-vertical-offset="1210">
+          <folding>
+            <element signature="e#74#99#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/lincs/l1ktools/python/example_methods.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="12" selection-start="825" selection-end="825" vertical-scroll-proportion="0.0" vertical-offset="27" max-vertical-offset="770">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/lincs/l1ktools/python/cmap/io/gct.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="688" column="8" selection-start="27516" selection-end="27516" vertical-scroll-proportion="0.0" vertical-offset="13926" max-vertical-offset="20504">
+          <folding>
+            <element signature="e#304#1179#1" expanded="false" />
+            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="create table..missing_value..." />
+            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="insert into ..." />
+            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT missi..col..." />
+            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT missi..col..." />
+            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT missi..row..." />
+            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT missi..row..." />
+            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT ind F..col..." />
+            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT ind F..col..." />
+            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT ind F..row..." />
+            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT ind F..row..." />
+            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT ind, ..col..." />
+            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT ind, ..row..." />
+            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="PRAGMA table..." />
+            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="PRAGMA table..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/pip.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="108" selection-start="5262" selection-end="5262" vertical-scroll-proportion="0.8080134" vertical-offset="1518" max-vertical-offset="2288">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/static/analysis/jstree/pip.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="196" column="9" selection-start="5949" selection-end="5949" vertical-scroll-proportion="-2.1190476" vertical-offset="5647" max-vertical-offset="7370">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/getVTPList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="55" selection-start="3282" selection-end="3282" vertical-scroll-proportion="0.75085324" vertical-offset="858" max-vertical-offset="3718">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ehf/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="115" column="34" selection-start="2920" selection-end="2920" vertical-scroll-proportion="0.0" vertical-offset="2122" max-vertical-offset="4180">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/static/analysis/analysis.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="910" column="18" selection-start="14682" selection-end="14682" vertical-scroll-proportion="0.0" vertical-offset="19788" max-vertical-offset="23034">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/overlapNetwork.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.3515358" vertical-offset="792" max-vertical-offset="3916">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/static/analysis/infovis/network.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="593" column="0" selection-start="22828" selection-end="23611" vertical-scroll-proportion="-4.4" vertical-offset="12936" max-vertical-offset="16016">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/displayNetwork.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="50" selection-start="2212" selection-end="2223" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2464">
+          <folding>
+            <marker date="1411217102087" expanded="true" signature="406:794" placeholder="{% for key,value in speciesNumberAbove ... %}" />
+            <marker date="1411217102087" expanded="true" signature="816:1194" placeholder="{% for key,value in speciesNumber ... %}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/overlapStatistics.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="63" selection-start="2185" selection-end="2185" vertical-scroll-proportion="0.0" vertical-offset="990" max-vertical-offset="2640">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="40" selection-start="1748" selection-end="1748" vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="1012">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="191" column="12" selection-start="8432" selection-end="8440" vertical-scroll-proportion="0.0" vertical-offset="3707" max-vertical-offset="6578">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/overlapNetworkOthers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="4" selection-start="650" selection-end="760" vertical-scroll-proportion="-9.225806" vertical-offset="0" max-vertical-offset="968">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/ppiOthers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="114" selection-start="1476" selection-end="1476" vertical-scroll-proportion="-9.225806" vertical-offset="330" max-vertical-offset="1958">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/static/analysis/ppi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="403" column="34" selection-start="14135" selection-end="14135" vertical-scroll-proportion="0.0" vertical-offset="8403" max-vertical-offset="9218">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/analysis/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="11" selection-end="46" vertical-scroll-proportion="-1.03125" vertical-offset="748" max-vertical-offset="68794">
-          <folding />
+        <state line="2259" column="8" selection-start="89116" selection-end="89116" vertical-scroll-proportion="0.49323016" vertical-offset="49443" max-vertical-offset="69872">
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

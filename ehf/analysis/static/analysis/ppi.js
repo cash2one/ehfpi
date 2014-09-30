@@ -386,3 +386,29 @@ function searchNet() {
         }, 3000);
     }
 }
+
+//download orginal csv file that generates the graph, added: 20140930
+function downloadPPI(data) {
+    URL_PREFIX = '/ehfpi';
+    var geneList = $('#geneList').text();
+
+    var csrf = $('#csrf').attr("value");
+    var index = csrf.indexOf('value=');
+    var index2 = csrf.lastIndexOf("'");
+    var csrfmiddlewaretoken = csrf.substr(index + 7, index2 - index - 7);
+
+    $.fileDownload(URL_PREFIX + '/analysis/pip/downloadPPI/',
+        {
+            httpMethod: "POST",
+            data: {
+                geneList: geneList,
+                csrfmiddlewaretoken: csrfmiddlewaretoken
+            }
+        })
+        .done(function () {
+        })
+        .fail(function () {
+            alert('File download failed!');
+        });
+
+}

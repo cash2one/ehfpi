@@ -907,6 +907,10 @@ text.active {
     margin-left: 10px;
 }
 
+#downloadPPIButton{
+    margin-left: 30px;
+}
+
 /*progressBar*/
 #progressbar {
     text-align: center;

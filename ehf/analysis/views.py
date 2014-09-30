@@ -2122,7 +2122,7 @@ def ppiOthers(request):
     if request.method == 'POST':
         if 'selected' in request.POST:
             selected = request.POST['selected']
-            return render_to_response('analysis/ppiOthers.html', {'geneList': selected})
+            return render_to_response('analysis/ppiOthers.html', {'geneList': selected},context_instance=RequestContext(request))
 
     return HttpResponseRedirect(URL_PREFIX)
 
@@ -2150,7 +2150,7 @@ def displayPPI(request):
             degree[item.geneSymbol2] += 1
 
         degree = dict(degree)
-        #print sorted(degree.items(), key=lambda d: d[1])
+        #print sorted(degree.items(), key=lambda d: d[1])   //list the degree of each node
 
         toJson = {}
 
@@ -2213,6 +2213,55 @@ def displayPPI(request):
                                   context_instance=RequestContext(request))
 
     return HttpResponseRedirect(URL_PREFIX + '/analysis/pip/')
+
+
+#download the ppi network into a csv file
+def downloadPPI(request):
+    if request.method == 'POST' and 'geneList' in request.POST:
+        genes = request.POST['geneList'].split(',')
+        geneList = []
+        for i in genes:
+            if len(i.strip()):
+                geneList.append(i.strip())
+        geneList = list(set(geneList))  # query gene list
+        if '' in geneList:
+            geneList.remove('')
+
+        qTotal = Q(geneSymbol1__in=geneList) | Q(geneSymbol2__in=geneList)
+
+        result = ppi.objects.filter(qTotal).values()
+        selectcolumn = ['geneSymbol1', 'hprdId1','refseqId1','geneSymbol2','hprdId2','refseqId2','expType','pubmedId']
+        fieldDesStatistics = {'geneSymbol1': 'Gene Symbol of protein 1',
+                                  'hprdId1': 'HPRD ID of protein 1',
+                                  'refseqId1':'refseq ID of protein 1',
+                                  'geneSymbol2': 'Gene Symbol of protein 2',
+                                  'hprdId2': 'HPRD ID of protein 2',
+                                  'refseqId2':'refseq ID of protein 2',
+                                  'expType':'experiment type',
+                                  'pubmedId':'PUBMED ID'}
+
+        response = HttpResponse(content_type="text/csv")
+        response.write('\xEF\xBB\xBF')
+        response['Content-Disposition'] = 'attachment; filename=ppi.csv'
+        writer = csv.writer(response)
+
+        # store row title description
+        rowTitle = []
+        for item in selectcolumn:
+            rowTitle.append(fieldDesStatistics[item])
+        writer.writerow(rowTitle)
+
+        #get data from database
+        for item in result:
+            res = []
+            for i in selectcolumn:
+                res.append(smart_str(item[i]))
+            writer.writerow(res)
+        return response
+
+    return HttpResponseRedirect(
+        URL_PREFIX + '/analysis/pip/')  #we do not direct to the result page otherwise the query page
+
 
 
 #gwas analysis, same as gea analysis
