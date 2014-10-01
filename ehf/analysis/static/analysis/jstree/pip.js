@@ -216,7 +216,20 @@ function performFunction(item) {
                     }
                 });
             }
-            $.fileDownload(URL_PREFIX + '/analysis/pip/download?selected=' + selected)
+
+            var csrf = $('#csrf').attr("value");
+            var index = csrf.indexOf('value=');
+            var index2 = csrf.lastIndexOf("'");
+            var csrfmiddlewaretoken = csrf.substr(index + 7, index2 - index - 7);
+
+            $.fileDownload(URL_PREFIX + '/analysis/pip/download/',
+                {
+                    httpMethod: "POST",
+                    data: {
+                        selected: selected,
+                        csrfmiddlewaretoken: csrfmiddlewaretoken
+                    }
+                })
                 .done(function () {
                 })
                 .fail(function () {
@@ -287,7 +300,8 @@ function performFunction(item) {
         }
 
 
-    } else {
+    }
+    else {
         $('#selectAllPage').popover({content: 'please select a record'});
         $('#selectAllPage').popover('show');
         setTimeout(function () {

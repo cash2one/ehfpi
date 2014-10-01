@@ -2065,9 +2065,9 @@ def getVTPList(request):
 
 
 def download(request):
-    if request.method == 'GET':
-        if 'selected' in request.GET:
-            selected = request.GET['selected'].split(',')
+    if request.method == 'POST':
+        if 'selected[]' in request.POST:
+            selected = request.POST.getlist('selected[]')
 
             data = vtpModel.objects.filter(geneSymbol__in=selected).values()
 
