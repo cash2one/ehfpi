@@ -26,91 +26,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <file leaf-file-name="submitHistory.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/about/templates/about/submitHistory.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="3311" max-vertical-offset="4246">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1738">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="preview.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/browse/templates/browse/preview.html">
+      <file leaf-file-name="submit.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/about/templates/about/submit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="41" selection-start="2954" selection-end="2954" vertical-scroll-proportion="0.0" vertical-offset="1386" max-vertical-offset="1914">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="guide.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/browse/templates/browse/guide.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="82" selection-start="3449" selection-end="3449" vertical-scroll-proportion="-5.548387" vertical-offset="1522" max-vertical-offset="7370">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pip.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/analysis/static/analysis/jstree/pip.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="224" column="64" selection-start="7064" selection-end="7064" vertical-scroll-proportion="-24.0" vertical-offset="4328" max-vertical-offset="7678">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/analysis/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2069" column="57" selection-start="82140" selection-end="82140" vertical-scroll-proportion="0.23796034" vertical-offset="44998" max-vertical-offset="69520">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/analysis/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="38" selection-start="1566" selection-end="1566" vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="1012">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="search.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/search/static/search/search.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="722" column="5" selection-start="25373" selection-end="26035" vertical-scroll-proportion="0.0" vertical-offset="15082" max-vertical-offset="16170">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="getVTPList.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/getVTPList.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="54" selection-start="2669" selection-end="2669" vertical-scroll-proportion="-14.193548" vertical-offset="660" max-vertical-offset="3718">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pip.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/pip.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="108" selection-start="5262" selection-end="5262" vertical-scroll-proportion="-18.838709" vertical-offset="1418" max-vertical-offset="2288">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="browse.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/browse/static/browse/browse.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="19" selection-start="1072" selection-end="1072" vertical-scroll-proportion="0.0" vertical-offset="990" max-vertical-offset="7128">
+            <state line="36" column="90" selection-start="1842" selection-end="1842" vertical-scroll-proportion="0.47199047" vertical-offset="396" max-vertical-offset="2552">
               <folding />
             </state>
           </provider>
@@ -129,7 +57,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/help/templates/help/indexHelp.html" />
         <option value="$PROJECT_DIR$/help/templates/help/citeHelp.html" />
         <option value="$PROJECT_DIR$/help/urls.py" />
         <option value="$PROJECT_DIR$/news/views.py" />
@@ -162,9 +89,7 @@
         <option value="D:/lincs/data/cell.py" />
         <option value="D:/lincs/data/process/3/cell.py" />
         <option value="D:/lincs/data/process/4/cell.py" />
-        <option value="D:/lincs/l1ktools/python/lincs.py" />
         <option value="D:/lincs/data/process/2/cell.py" />
-        <option value="D:/lincs/data/process/5/cell.py" />
         <option value="$PROJECT_DIR$/static/data/gene.json" />
         <option value="$PROJECT_DIR$/static/data/pathogen.json" />
         <option value="$PROJECT_DIR$/static/data/publication.json" />
@@ -175,11 +100,14 @@
         <option value="$PROJECT_DIR$/analysis/templates/analysis/ppiOthers.html" />
         <option value="$PROJECT_DIR$/analysis/static/analysis/ppi.js" />
         <option value="$PROJECT_DIR$/ehf/settings.py" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/browse/static/browse/browse.css" />
         <option value="$PROJECT_DIR$/browse/templates/browse/guide.html" />
         <option value="$PROJECT_DIR$/analysis/static/analysis/jstree/pip.js" />
         <option value="$PROJECT_DIR$/analysis/views.py" />
+        <option value="D:/lincs/l1ktools/python/lincs.py" />
+        <option value="D:/lincs/data/process/5/cell.py" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/about/templates/about/submit.html" />
       </list>
     </option>
   </component>
@@ -229,6 +157,16 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="python" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ehf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="ehf" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -257,80 +195,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ehf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ehf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ehf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ehf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="search" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ehf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ehf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="media" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ehf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ehf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="help" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ehf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ehf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="ehf" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -345,7 +209,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="browse" />
+              <option name="myItemId" value="about" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -359,7 +223,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="browse" />
+              <option name="myItemId" value="about" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -367,139 +231,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="browse" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ehf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ehf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="browse" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="browse" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ehf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ehf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="analysis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ehf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ehf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="analysis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="analysis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ehf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ehf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="analysis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="analysis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ehf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ehf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="analysis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="analysis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jstree" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ehf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ehf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="analysis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="analysis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="infovis" />
+              <option name="myItemId" value="about" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -801,23 +533,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21627648" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.07469342" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23968785" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18506132" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13578275" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13791268" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25139043" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16499442" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18283166" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18283166" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19577308" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18506132" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -866,112 +598,29 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/drug.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="4" selection-start="147" selection-end="165" vertical-scroll-proportion="-1.0965732" vertical-offset="858" max-vertical-offset="2926">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/analysis/static/analysis/jstree/drugResult.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="167" column="19" selection-start="5321" selection-end="5620" vertical-scroll-proportion="0.5740988" vertical-offset="3244" max-vertical-offset="6380">
-          <folding />
-        </state>
+        <state line="167" column="19" selection-start="5321" selection-end="5620" vertical-scroll-proportion="0.5740988" vertical-offset="3244" max-vertical-offset="6380" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/drugResults.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="114" selection-start="449" selection-end="559" vertical-scroll-proportion="0.33970588" vertical-offset="99" max-vertical-offset="5390">
-          <folding />
-        </state>
+        <state line="15" column="114" selection-start="449" selection-end="559" vertical-scroll-proportion="0.33970588" vertical-offset="99" max-vertical-offset="5390" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/analysis/static/analysis/david.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="67" selection-start="1329" selection-end="1349" vertical-scroll-proportion="0.58878505" vertical-offset="417" max-vertical-offset="1166">
-          <folding />
-        </state>
+        <state line="39" column="67" selection-start="1329" selection-end="1349" vertical-scroll-proportion="0.58878505" vertical-offset="417" max-vertical-offset="1166" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/davidResult.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="93" selection-start="6173" selection-end="6214" vertical-scroll-proportion="1.0838236" vertical-offset="1529" max-vertical-offset="2618">
-          <folding>
-            <element signature="e#801#821#0" expanded="false" />
-            <element signature="e#893#913#0" expanded="false" />
-            <element signature="e#961#981#0" expanded="false" />
-            <element signature="e#1029#1049#0" expanded="false" />
-            <element signature="e#1099#1119#0" expanded="false" />
-            <element signature="e#1168#1188#0" expanded="false" />
-            <element signature="e#1240#1260#0" expanded="false" />
-            <element signature="e#1316#1336#0" expanded="false" />
-            <element signature="e#1390#1410#0" expanded="false" />
-            <element signature="e#1466#1486#0" expanded="false" />
-            <element signature="e#1533#1573#0" expanded="false" />
-            <element signature="e#2386#2422#0" expanded="false" />
-            <element signature="e#2470#2488#0" expanded="false" />
-            <element signature="e#2534#2552#0" expanded="false" />
-            <element signature="e#2708#2730#0" expanded="false" />
-            <element signature="e#2906#2942#0" expanded="false" />
-            <element signature="e#2990#3008#0" expanded="false" />
-            <element signature="e#3054#3072#0" expanded="false" />
-            <element signature="e#3228#3250#0" expanded="false" />
-            <element signature="e#3426#3462#0" expanded="false" />
-            <element signature="e#3510#3528#0" expanded="false" />
-            <element signature="e#3574#3592#0" expanded="false" />
-            <element signature="e#3748#3770#0" expanded="false" />
-            <element signature="e#4127#4163#0" expanded="false" />
-            <element signature="e#4202#4220#0" expanded="false" />
-            <element signature="e#4265#4283#0" expanded="false" />
-            <element signature="e#4443#4465#0" expanded="false" />
-            <element signature="e#4643#4679#0" expanded="false" />
-            <element signature="e#4726#4744#0" expanded="false" />
-            <element signature="e#4789#4807#0" expanded="false" />
-            <element signature="e#4967#4989#0" expanded="false" />
-            <element signature="e#5167#5203#0" expanded="false" />
-            <element signature="e#5253#5271#0" expanded="false" />
-            <element signature="e#5319#5337#0" expanded="false" />
-            <element signature="e#5503#5525#0" expanded="false" />
-            <element signature="e#5706#5742#0" expanded="false" />
-            <element signature="e#5793#5811#0" expanded="false" />
-            <element signature="e#5860#5878#0" expanded="false" />
-            <element signature="e#6098#6120#0" expanded="false" />
-            <element signature="e#6324#6379#0" expanded="false" />
-          </folding>
-        </state>
+        <state line="103" column="93" selection-start="6173" selection-end="6214" vertical-scroll-proportion="1.0838236" vertical-offset="1529" max-vertical-offset="2618" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/davidDetail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="103" selection-start="839" selection-end="839" vertical-scroll-proportion="0.5097493" vertical-offset="140" max-vertical-offset="5148">
-          <folding>
-            <element signature="e#891#927#0" expanded="false" />
-            <element signature="e#933#958#0" expanded="false" />
-            <element signature="e#1101#1123#0" expanded="false" />
-            <element signature="e#1371#1435#0" expanded="false" />
-            <element signature="e#1761#1779#0" expanded="false" />
-            <element signature="e#1823#1841#0" expanded="false" />
-            <element signature="e#2592#2656#0" expanded="false" />
-            <element signature="e#2982#3000#0" expanded="false" />
-            <element signature="e#3044#3062#0" expanded="false" />
-            <element signature="e#3813#3877#0" expanded="false" />
-            <element signature="e#4203#4221#0" expanded="false" />
-            <element signature="e#4265#4283#0" expanded="false" />
-            <element signature="e#5036#5100#0" expanded="false" />
-            <element signature="e#5417#5435#0" expanded="false" />
-            <element signature="e#5479#5497#0" expanded="false" />
-            <element signature="e#6121#6185#0" expanded="false" />
-            <element signature="e#6510#6528#0" expanded="false" />
-            <element signature="e#6572#6590#0" expanded="false" />
-            <element signature="e#7351#7415#0" expanded="false" />
-            <element signature="e#7743#7761#0" expanded="false" />
-            <element signature="e#7805#7823#0" expanded="false" />
-            <element signature="e#8607#8671#0" expanded="false" />
-            <element signature="e#9000#9018#0" expanded="false" />
-            <element signature="e#9062#9080#0" expanded="false" />
-          </folding>
-        </state>
+        <state line="23" column="103" selection-start="839" selection-end="839" vertical-scroll-proportion="0.5097493" vertical-offset="140" max-vertical-offset="5148" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ehf/commonVar.py">
@@ -981,41 +630,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/search/templates/search/searchResult.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="353" column="49" selection-start="18907" selection-end="18924" vertical-scroll-proportion="0.20981388" vertical-offset="7642" max-vertical-offset="13816">
-          <folding />
-        </state>
+        <state line="353" column="49" selection-start="18907" selection-end="18924" vertical-scroll-proportion="0.20981388" vertical-offset="7642" max-vertical-offset="13816" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/browse/templates/browse/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="432" column="32" selection-start="23527" selection-end="23527" vertical-scroll-proportion="0.30103806" vertical-offset="9330" max-vertical-offset="15444">
-          <folding />
-        </state>
+        <state line="432" column="32" selection-start="23527" selection-end="23527" vertical-scroll-proportion="0.30103806" vertical-offset="9330" max-vertical-offset="15444" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/browse/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="48" selection-start="566" selection-end="566" vertical-scroll-proportion="0.45980707" vertical-offset="0" max-vertical-offset="622">
-          <folding>
-            <element signature="e#0#42#0" expanded="false" />
-          </folding>
-        </state>
+        <state line="13" column="48" selection-start="566" selection-end="566" vertical-scroll-proportion="0.45980707" vertical-offset="0" max-vertical-offset="622" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/browse/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="69" selection-start="4747" selection-end="4747" vertical-scroll-proportion="1.1157557" vertical-offset="1616" max-vertical-offset="2486">
-          <folding />
-        </state>
+        <state line="105" column="69" selection-start="4747" selection-end="4747" vertical-scroll-proportion="1.1157557" vertical-offset="1616" max-vertical-offset="2486" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/search/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="31" selection-start="4393" selection-end="4393" vertical-scroll-proportion="1.4897261" vertical-offset="1198" max-vertical-offset="23496">
-          <folding>
-            <element signature="e#0#35#0" expanded="false" />
-          </folding>
-        </state>
+        <state line="94" column="31" selection-start="4393" selection-end="4393" vertical-scroll-proportion="1.4897261" vertical-offset="1198" max-vertical-offset="23496" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/browse/views.py">
@@ -1055,11 +690,6 @@
         <state line="18" column="28" selection-start="526" selection-end="526" vertical-scroll-proportion="0.46575344" vertical-offset="0" max-vertical-offset="803" />
       </provider>
     </entry>
-    <entry file="file://D:/lincs/data/process/5/cell.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="0" selection-start="1208" selection-end="1208" vertical-scroll-proportion="0.42465752" vertical-offset="539" max-vertical-offset="1474" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/data/gene.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="84463" column="1" selection-start="1094512" selection-end="1094512" vertical-scroll-proportion="0.81615597" vertical-offset="1857600" max-vertical-offset="1858318" />
@@ -1085,40 +715,19 @@
         <state line="9" column="41" selection-start="311" selection-end="311" vertical-scroll-proportion="0.28125" vertical-offset="0" max-vertical-offset="704" />
       </provider>
     </entry>
-    <entry file="file://D:/lincs/l1ktools/python/lincs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="2" selection-start="524" selection-end="524" vertical-scroll-proportion="0.0" vertical-offset="110" max-vertical-offset="1210" />
-      </provider>
-    </entry>
-    <entry file="file://D:/lincs/l1ktools/python/example_methods.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="12" selection-start="825" selection-end="825" vertical-scroll-proportion="0.0" vertical-offset="27" max-vertical-offset="770" />
-      </provider>
-    </entry>
-    <entry file="file://D:/lincs/l1ktools/python/cmap/io/gct.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="688" column="8" selection-start="27516" selection-end="27516" vertical-scroll-proportion="0.0" vertical-offset="13926" max-vertical-offset="20504" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/analysis/static/analysis/analysis.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="910" column="18" selection-start="14682" selection-end="14682" vertical-scroll-proportion="0.0" vertical-offset="19788" max-vertical-offset="23034">
-          <folding />
-        </state>
+        <state line="910" column="18" selection-start="14682" selection-end="14682" vertical-scroll-proportion="0.0" vertical-offset="19788" max-vertical-offset="23034" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/overlapNetwork.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.3515358" vertical-offset="792" max-vertical-offset="3916">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.3515358" vertical-offset="792" max-vertical-offset="3916" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/analysis/static/analysis/infovis/network.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="593" column="0" selection-start="22828" selection-end="23611" vertical-scroll-proportion="0.20676692" vertical-offset="12936" max-vertical-offset="16016">
-          <folding />
-        </state>
+        <state line="593" column="0" selection-start="22828" selection-end="23611" vertical-scroll-proportion="0.20676692" vertical-offset="12936" max-vertical-offset="16016" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/displayNetwork.js">
@@ -1128,40 +737,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/overlapStatistics.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="63" selection-start="2185" selection-end="2185" vertical-scroll-proportion="0.0" vertical-offset="990" max-vertical-offset="2640">
-          <folding />
-        </state>
+        <state line="45" column="63" selection-start="2185" selection-end="2185" vertical-scroll-proportion="0.0" vertical-offset="990" max-vertical-offset="2640" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/overlapNetworkOthers.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="4" selection-start="650" selection-end="760" vertical-scroll-proportion="0.54372627" vertical-offset="0" max-vertical-offset="968">
-          <folding />
-        </state>
+        <state line="13" column="4" selection-start="650" selection-end="760" vertical-scroll-proportion="0.54372627" vertical-offset="0" max-vertical-offset="968" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/ppiOthers.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="114" selection-start="1476" selection-end="1476" vertical-scroll-proportion="-9.225806" vertical-offset="330" max-vertical-offset="1958">
-          <folding />
-        </state>
+        <state line="28" column="114" selection-start="1476" selection-end="1476" vertical-scroll-proportion="-9.225806" vertical-offset="330" max-vertical-offset="1958" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/analysis/static/analysis/ppi.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="403" column="34" selection-start="14135" selection-end="14135" vertical-scroll-proportion="0.0" vertical-offset="8403" max-vertical-offset="9218">
-          <folding />
-        </state>
+        <state line="403" column="34" selection-start="14135" selection-end="14135" vertical-scroll-proportion="0.0" vertical-offset="8403" max-vertical-offset="9218" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ehf/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="68" column="54" selection-start="2197" selection-end="2199" vertical-scroll-proportion="0.33211008" vertical-offset="1051" max-vertical-offset="8294" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/index.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8492" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ehf/settings.py">
@@ -1173,9 +769,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/analysis/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="6" selection-start="4158" selection-end="4158" vertical-scroll-proportion="0.0951526" vertical-offset="2213" max-vertical-offset="6578">
-          <folding />
-        </state>
+        <state line="104" column="6" selection-start="4158" selection-end="4158" vertical-scroll-proportion="0.0951526" vertical-offset="2213" max-vertical-offset="6578" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html">
@@ -1185,18 +779,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="0" selection-start="4589" selection-end="4589" vertical-scroll-proportion="0.57076925" vertical-offset="1279" max-vertical-offset="5830">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/browse/static/browse/browse.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="19" selection-start="1072" selection-end="1072" vertical-scroll-proportion="0.0" vertical-offset="990" max-vertical-offset="7128">
-          <folding />
-        </state>
+        <state line="59" column="19" selection-start="1072" selection-end="1072" vertical-scroll-proportion="0.0" vertical-offset="990" max-vertical-offset="7128" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/browse/templates/browse/preview.html">
@@ -1208,28 +793,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/browse/templates/browse/guide.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="82" selection-start="3449" selection-end="3449" vertical-scroll-proportion="-5.548387" vertical-offset="1522" max-vertical-offset="7370">
+        <state line="77" column="82" selection-start="3449" selection-end="3449" vertical-scroll-proportion="0.0" vertical-offset="1522" max-vertical-offset="7370">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/pip.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="108" selection-start="5262" selection-end="5262" vertical-scroll-proportion="-18.838709" vertical-offset="1418" max-vertical-offset="2288">
+        <state line="91" column="108" selection-start="5262" selection-end="5262" vertical-scroll-proportion="0.0" vertical-offset="1418" max-vertical-offset="2288">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/search/static/search/search.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="722" column="5" selection-start="25373" selection-end="26035" vertical-scroll-proportion="0.0" vertical-offset="15082" max-vertical-offset="16170">
-          <folding />
-        </state>
+        <state line="722" column="5" selection-start="25373" selection-end="26035" vertical-scroll-proportion="0.0" vertical-offset="15082" max-vertical-offset="16170" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/analysis/templates/analysis/getVTPList.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="54" selection-start="2669" selection-end="2669" vertical-scroll-proportion="-14.193548" vertical-offset="660" max-vertical-offset="3718">
+        <state line="50" column="54" selection-start="2669" selection-end="2669" vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="3718">
           <folding />
         </state>
       </provider>
@@ -1243,14 +826,76 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/analysis/static/analysis/jstree/pip.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="224" column="64" selection-start="7064" selection-end="7064" vertical-scroll-proportion="-24.0" vertical-offset="4328" max-vertical-offset="7678">
-          <folding />
-        </state>
+        <state line="224" column="64" selection-start="7064" selection-end="7064" vertical-scroll-proportion="0.0" vertical-offset="4328" max-vertical-offset="7678" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/analysis/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2069" column="57" selection-start="82140" selection-end="82140" vertical-scroll-proportion="0.23796034" vertical-offset="44998" max-vertical-offset="69520">
+        <state line="2069" column="57" selection-start="82140" selection-end="82140" vertical-scroll-proportion="0.0" vertical-offset="45518" max-vertical-offset="69520">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/lincs/l1ktools/python/example_methods.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="0" selection-start="813" selection-end="859" vertical-scroll-proportion="0.73333335" vertical-offset="0" max-vertical-offset="870">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/lincs/l1ktools/python/lincs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="0" selection-start="1040" selection-end="1087" vertical-scroll-proportion="0.0" vertical-offset="132" max-vertical-offset="1276">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/lincs/data/process/5/cell.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="45" selection-start="1674" selection-end="1674" vertical-scroll-proportion="0.0" vertical-offset="515" max-vertical-offset="1408">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/lincs/l1ktools/python/cmap/io/gct.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="665" column="22" selection-start="26048" selection-end="26048" vertical-scroll-proportion="0.0" vertical-offset="14164" max-vertical-offset="20878">
+          <folding>
+            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="create table..missing_value..." />
+            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="insert into ..." />
+            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT missi..col..." />
+            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT missi..col..." />
+            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT missi..row..." />
+            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT missi..row..." />
+            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT ind F..col..." />
+            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT ind F..col..." />
+            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT ind F..row..." />
+            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT ind F..row..." />
+            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT ind, ..col..." />
+            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="SELECT ind, ..row..." />
+            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="PRAGMA table..." />
+            <marker date="1398303094000" expanded="true" signature="-1:-1" placeholder="PRAGMA table..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="234" column="75" selection-start="11534" selection-end="11534" vertical-scroll-proportion="0.57330155" vertical-offset="4579" max-vertical-offset="5830">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/about/templates/about/submitHistory.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1738">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/about/templates/about/submit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="90" selection-start="1842" selection-end="1842" vertical-scroll-proportion="0.47199047" vertical-offset="396" max-vertical-offset="2552">
           <folding />
         </state>
       </provider>
